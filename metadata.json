@@ -1,0 +1,6 @@
+{
+  "name": "Energy Manutenções",
+  "description": "Assistência técnica autorizada e conserto de geladeiras, máquinas de lavar, lava e seca e eletrodomésticos em Caxias do Sul e região.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
