@@ -48,7 +48,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location
 
             <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
               <a
-                href={COMPANY.buildWhatsAppUrl(location.whatsappMessage)}
+                href={COMPANY.buildWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#aa851d] text-[#0a0a0c] font-black text-sm sm:text-base shadow-lg hover:brightness-110 active:scale-95 transition-all"
@@ -165,7 +165,6 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location
       <CTASection
         title={`Agende seu conserto em ${location.cityName}`}
         subtitle="Entre em contato pelo WhatsApp e combine o melhor dia e horário para a visita no seu endereço."
-        customWhatsAppMessage={location.whatsappMessage}
       />
     </>
   );

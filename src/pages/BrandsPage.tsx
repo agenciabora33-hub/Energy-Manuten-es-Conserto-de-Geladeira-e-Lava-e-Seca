@@ -97,7 +97,7 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onNavigate }) => {
 
                 <div className="pt-6 mt-6 border-t border-neutral-800">
                   <a
-                    href={COMPANY.buildWhatsAppUrl(`Olá! Gostaria de atendimento para um eletrodoméstico da marca ${brand.name}.`)}
+                    href={COMPANY.buildWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-[#1a1a24] hover:bg-[#d4af37] text-neutral-200 hover:text-[#0a0a0c] text-xs font-bold transition-all"

@@ -81,7 +81,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
                   </button>
 
                   <a
-                    href={COMPANY.buildWhatsAppUrl(loc.whatsappMessage)}
+                    href={COMPANY.buildWhatsAppUrl()}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 rounded-lg bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-[#0a0a0c] transition-all"
@@ -103,7 +103,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
               </p>
             </div>
             <a
-              href={COMPANY.buildWhatsAppUrl('Olá! Gostaria de consultar se a Energy Manutenções atende minha localidade.')}
+              href={COMPANY.buildWhatsAppUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-2.5 rounded-lg bg-[#d4af37] text-[#0a0a0c] font-bold text-xs hover:brightness-110 active:scale-95 transition-all whitespace-nowrap"

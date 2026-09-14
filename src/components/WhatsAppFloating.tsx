@@ -8,7 +8,7 @@ interface WhatsAppFloatingProps {
 
 export const WhatsAppFloating: React.FC<WhatsAppFloatingProps> = ({ customMessage }) => {
   const [showTooltip, setShowTooltip] = useState(true);
-  const defaultText = customMessage || 'Olá! Gostaria de tirar dúvidas e solicitar atendimento técnico para meu eletrodoméstico com a Energy Manutenções.';
+  const defaultText = customMessage || COMPANY.defaultWhatsAppMessage;
   const targetUrl = COMPANY.buildWhatsAppUrl(defaultText);
 
   return (

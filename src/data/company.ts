@@ -39,11 +39,13 @@ export const COMPANY = {
     }
   },
 
+  defaultWhatsAppMessage: 'Olá! Vi seu contato no Google e gostaria de solicitar um atendimento técnico.',
+
   contact: {
     phone: '(54) 99179-6080',
     whatsapp: '(54) 99179-6080',
     rawPhone: '5554991796080',
-    defaultWhatsAppUrl: 'https://wa.me/5554991796080',
+    defaultWhatsAppUrl: 'https://wa.me/5554991796080?text=Ol%C3%A1!%20Vi%20seu%20contato%20no%20Google%20e%20gostaria%20de%20solicitar%20um%20atendimento%20t%C3%A9cnico.',
   },
 
   reputation: {
@@ -87,9 +89,9 @@ export const COMPANY = {
   ],
 
   buildWhatsAppUrl(customText?: string): string {
-    if (!customText) {
-      return 'https://wa.me/5554991796080';
-    }
-    return `https://wa.me/5554991796080?text=${encodeURIComponent(customText)}`;
+    const message = customText && customText.trim() !== ''
+      ? customText
+      : COMPANY.defaultWhatsAppMessage;
+    return `https://wa.me/5554991796080?text=${encodeURIComponent(message)}`;
   }
 };

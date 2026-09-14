@@ -72,7 +72,7 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ onNavigate }) 
                 </button>
 
                 <a
-                  href={COMPANY.buildWhatsAppUrl(loc.whatsappMessage)}
+                  href={COMPANY.buildWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366] text-[#25D366] hover:text-[#0a0a0c] transition-all"
@@ -91,7 +91,7 @@ export const LocationSection: React.FC<LocationSectionProps> = ({ onNavigate }) 
             <strong>Mora em outra localidade próxima?</strong> A empresa pode atender outras localidades mediante consulta prévia de viabilidade de deslocamento.
           </span>
           <a
-            href={COMPANY.buildWhatsAppUrl('Olá! Gostaria de consultar se a Energy Manutenções atende minha cidade.')}
+            href={COMPANY.buildWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs font-bold text-[#d4af37] hover:underline whitespace-nowrap"

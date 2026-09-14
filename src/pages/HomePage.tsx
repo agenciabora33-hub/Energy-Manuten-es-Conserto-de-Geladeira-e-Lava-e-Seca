@@ -278,7 +278,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
               <div className="lg:col-span-4 flex flex-col gap-3">
                 <a
-                  href={COMPANY.buildWhatsAppUrl('Olá! Gostaria de consultar os eletrodomésticos seminovos disponíveis.')}
+                  href={COMPANY.buildWhatsAppUrl()}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#aa851d] text-[#0a0a0c] font-bold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all text-center"

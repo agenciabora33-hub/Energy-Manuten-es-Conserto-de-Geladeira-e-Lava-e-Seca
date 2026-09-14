@@ -10,7 +10,7 @@ interface ServiceCardProps {
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onNavigate }) => {
   const [imageError, setImageError] = useState(false);
-  const targetWhatsAppUrl = COMPANY.buildWhatsAppUrl(service.whatsappMessage);
+  const targetWhatsAppUrl = COMPANY.buildWhatsAppUrl();
 
   return (
     <article className="group rounded-2xl bg-[#121217] border border-neutral-800/90 hover:border-[#d4af37]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_36px_rgba(212,175,55,0.08)]">

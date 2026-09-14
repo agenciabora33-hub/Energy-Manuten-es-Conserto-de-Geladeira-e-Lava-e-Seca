@@ -10,7 +10,7 @@ interface RefurbishedPageProps {
 }
 
 export const RefurbishedPage: React.FC<RefurbishedPageProps> = ({ onNavigate }) => {
-  const whatsappUrl = COMPANY.buildWhatsAppUrl('Olá! Gostaria de consultar os eletrodomésticos seminovos disponíveis.');
+  const whatsappUrl = COMPANY.buildWhatsAppUrl();
 
   const pillars = [
     {
@@ -144,7 +144,6 @@ export const RefurbishedPage: React.FC<RefurbishedPageProps> = ({ onNavigate }) 
       <CTASection
         title="Tem um aparelho usado e quer trocar por um seminovo revisado?"
         subtitle="Mande fotos e a descrição do seu eletrodoméstico usado pelo WhatsApp para análise prévia."
-        customWhatsAppMessage="Olá! Gostaria de verificar a possibilidade de troca de um aparelho usado por um seminovo revisado."
       />
     </>
   );

@@ -25,7 +25,7 @@ interface ServiceDetailPageProps {
 
 export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, onNavigate }) => {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const targetWhatsAppUrl = COMPANY.buildWhatsAppUrl(service.whatsappMessage);
+  const targetWhatsAppUrl = COMPANY.buildWhatsAppUrl();
 
   const breadcrumbItems = [
     { name: 'Serviços', url: '/servicos/' },
@@ -307,7 +307,6 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, o
       <CTASection
         title={`Precisa de ${service.name.toLowerCase()}?`}
         subtitle="Envie uma mensagem pelo WhatsApp relatando o que está acontecendo com o equipamento."
-        customWhatsAppMessage={service.whatsappMessage}
       />
     </>
   );
