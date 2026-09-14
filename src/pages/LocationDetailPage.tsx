@@ -137,11 +137,6 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location
                   <p className="text-neutral-400">Telefone / WhatsApp:</p>
                   <p className="font-bold text-white">{COMPANY.contact.phone}</p>
                 </div>
-
-                <div className="pt-2 border-t border-neutral-800 text-[11px] text-neutral-400 space-y-1">
-                  <p><strong>CNPJ:</strong> {COMPANY.cnpj}</p>
-                  <p><strong>Razão Social:</strong> {COMPANY.legalName}</p>
-                </div>
               </div>
 
               {/* Service shortcut links */}

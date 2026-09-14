@@ -19,7 +19,7 @@ export const COMPANY = {
   openingDate: '18/04/2022',
   legalNature: 'Empresário Individual',
   primaryActivity: 'Reparação e manutenção de equipamentos eletroeletrônicos de uso pessoal e doméstico.',
-  description: 'Assistência técnica autorizada e manutenção de eletrodomésticos em Caxias do Sul e região.',
+  description: 'Manutenção e assistência técnica de eletrodomésticos em Caxias do Sul e região.',
   logoUrl: '/logo.png',
   logoExternalUrl: 'https://i.ibb.co/VYBYP2zH/ALTA-ENETGY-400-X150.png',
   faviconUrl: '/favicon.png',
@@ -66,7 +66,7 @@ export const COMPANY = {
     'Consul',
   ],
 
-  brandNotice: 'A Energy Manutenções é uma assistência técnica autorizada e especializada no atendimento a equipamentos das principais fabricantes do mercado, como Samsung, LG, Electrolux, Brastemp e Consul.',
+  brandNotice: 'A Energy Manutenções atende equipamentos de diferentes fabricantes, com destaque para marcas como Samsung, LG, Electrolux, Brastemp e Consul. Não atuamos como assistência técnica autorizada exclusiva de nenhuma fabricante.',
 
   paymentMethods: [
     'Dinheiro',

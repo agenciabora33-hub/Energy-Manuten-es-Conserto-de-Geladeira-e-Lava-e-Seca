@@ -41,7 +41,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
                 <span>1. Quem Somos e Controlador dos Dados</span>
               </h2>
               <p>
-                A <strong>ENERGY MANUTENÇÕES</strong>, registrada sob a razão social <strong>Eduardo Borges Baumgarten</strong>, CNPJ <strong>46.067.650/0001-55</strong>, com sede na Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul – RS, CEP 95013-120, é a responsável pelo tratamento dos dados pessoais coletados por este website e através dos nossos canais de atendimento via WhatsApp e telefone.
+                A <strong>ENERGY MANUTENÇÕES</strong>, com sede na Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul – RS, CEP 95013-120, é a responsável pelo tratamento dos dados pessoais coletados por este website e através dos nossos canais de atendimento via WhatsApp e telefone.
               </p>
             </div>
 

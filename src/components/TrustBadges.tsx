@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, ShieldCheck, Home, Clock } from 'lucide-react';
+import { Star, Shield, Home, Clock } from 'lucide-react';
 import { COMPANY } from '../data/company';
 
 export const TrustBadges: React.FC = () => {
@@ -24,15 +24,15 @@ export const TrustBadges: React.FC = () => {
             </div>
           </div>
 
-          {/* Badge 2: Assistência Autorizada & Legalidade */}
-          <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#14141b] border border-[#d4af37]/30">
-            <div className="p-2 rounded-lg bg-[#d4af37]/15 text-[#d4af37] flex-shrink-0">
-              <ShieldCheck className="w-5 h-5" />
+          {/* Badge 2: Garantia nos Serviços */}
+          <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#14141b] border border-neutral-800/80">
+            <div className="p-2 rounded-lg bg-[#d4af37]/10 text-[#d4af37] flex-shrink-0">
+              <Shield className="w-5 h-5" />
             </div>
             <div>
-              <p className="text-xs font-bold text-[#f3e5ab] leading-none">Assistência Autorizada</p>
-              <p className="text-[11px] text-neutral-300 font-medium mt-1">CNPJ: {COMPANY.cnpj}</p>
-              <p className="text-[10px] text-neutral-400">Ativa desde 18/04/2022</p>
+              <p className="text-xs font-bold text-white leading-none">Garantia no Serviço</p>
+              <p className="text-[11px] text-[#f3e5ab] font-medium mt-1">Garantia de 90 dias</p>
+              <p className="text-[10px] text-neutral-400">Peças e mão de obra</p>
             </div>
           </div>
 

@@ -1,4 +1,10 @@
 import { ServiceItem } from '../types';
+import imgGeladeira from '../assets/images/conserto_geladeira_1789402030705.jpg';
+import imgLavadora from '../assets/images/conserto_lavadora_1789402043101.jpg';
+import imgLavaSeca from '../assets/images/conserto_lava_seca_1789402052840.jpg';
+import imgSecadora from '../assets/images/conserto_secadora_1789402066160.jpg';
+import imgMicroondas from '../assets/images/conserto_microondas_1789402078341.jpg';
+import imgFreezer from '../assets/images/freezer_horizontal_1789402347708.jpg';
 
 export const SERVICES_DATA: ServiceItem[] = [
   {
@@ -11,6 +17,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Assistência técnica para geladeiras em Caxias do Sul. Avaliação e conserto de diferentes modelos e marcas. Solicite atendimento pelo WhatsApp.',
     category: 'Refrigeração',
     shortDescription: 'Assistência técnica para refrigeradores Frost Free, Duplex, Inverse e convencionais.',
+    imageUrl: imgGeladeira,
+    imageAlt: 'Conserto profissional de refrigeradores e geladeiras Frost Free e Inverse',
     heroHeadline: 'Conserto de Geladeira em Caxias do Sul e Região',
     heroSubheadline: 'Avaliação técnica criteriosa para geladeiras que não gelam, vazam água, emitem barulhos anormais ou apresentam falhas no sistema de degelo e refrigeração.',
     commonProblems: [
@@ -66,6 +74,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Conserto e assistência técnica para máquinas de lavar em Caxias do Sul. Atendimento profissional e orientação pelo WhatsApp.',
     category: 'Lavanderia',
     shortDescription: 'Manutenção preventiva e corretiva para lavadoras com abertura superior (Top Load) ou frontal.',
+    imageUrl: imgLavadora,
+    imageAlt: 'Conserto especializado de máquina de lavar roupas com abertura superior e frontal',
     heroHeadline: 'Conserto de Máquina de Lavar em Caxias do Sul',
     heroSubheadline: 'Soluções para lavadoras que não centrifugam, não drenam a água, apresentam barulhos fortes no tambor ou travam durante a programação de lavagem.',
     commonProblems: [
@@ -117,6 +127,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Assistência técnica para lava e seca em Caxias do Sul. Consulte a Energy Manutenções e solicite atendimento pelo WhatsApp.',
     category: 'Lavanderia',
     shortDescription: 'Assistência técnica especializada em lava e seca com tecnologia inverter e sistemas integrados de secagem.',
+    imageUrl: imgLavaSeca,
+    imageAlt: 'Assistência técnica para lava e seca com motor inverter e secagem inteligente',
     heroHeadline: 'Conserto de Lava e Seca em Caxias do Sul',
     heroSubheadline: 'Atendimento técnico para equipamentos lava e seca que não secam as roupas, travam a porta, apresentam códigos de erro no display ou falhas nos motores Direct Drive.',
     commonProblems: [
@@ -168,6 +180,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Assistência técnica para secadoras de roupas em Caxias do Sul. Conserto de resistências, tambores e sistemas elétricos. Fale pelo WhatsApp.',
     category: 'Lavanderia',
     shortDescription: 'Manutenção em secadoras elétricas de piso e de parede para que suas roupas sequem no tempo certo.',
+    imageUrl: imgSecadora,
+    imageAlt: 'Manutenção e conserto de secadora de roupas elétrica',
     heroHeadline: 'Conserto de Secadora de Roupas em Caxias do Sul',
     heroSubheadline: 'Avaliação técnica para secadoras que giram mas não aquecem, não ligam ou apresentam correia partida e ruídos intensos.',
     commonProblems: [
@@ -213,6 +227,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Assistência técnica e conserto de freezers verticais e horizontais em Caxias do Sul e região. Solicite atendimento pelo WhatsApp.',
     category: 'Refrigeração',
     shortDescription: 'Reparo e manutenção em freezers horizontais e verticais para conservação segura dos seus alimentos.',
+    imageUrl: imgFreezer,
+    imageAlt: 'Conserto e manutenção de freezer horizontal comercial em supermercado e comércio',
     heroHeadline: 'Conserto de Freezer em Caxias do Sul e Região',
     heroSubheadline: 'Atendimento rápido e eficiente para freezers que descongelam, perdem rendimento ou apresentam estalos no compressor.',
     commonProblems: [
@@ -256,6 +272,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Conserto de micro-ondas em Caxias do Sul. Assistência técnica para aparelhos que não aquecem ou com falha no teclado. WhatsApp.',
     category: 'Cozinha',
     shortDescription: 'Assistência técnica para fornos micro-ondas de bancada ou embutir que não aquecem ou faíscam.',
+    imageUrl: imgMicroondas,
+    imageAlt: 'Conserto especializado de forno micro-ondas e circuitos elétricos',
     heroHeadline: 'Conserto de Forno Micro-ondas em Caxias do Sul',
     heroSubheadline: 'Conserto de alta tensão, magnetron, placa de controle, teclado de membrana e fusíveis térmicos.',
     commonProblems: [
@@ -300,6 +318,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Assistência técnica para fornos elétricos de embutir e bancada em Caxias do Sul. Conserto de resistências e termostatos.',
     category: 'Cozinha',
     shortDescription: 'Conserto de resistências superior e inferior, termostatos e temporizadores de fornos elétricos.',
+    imageUrl: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Conserto de forno elétrico de embutir e bancada',
     heroHeadline: 'Conserto de Forno Elétrico em Caxias do Sul',
     heroSubheadline: 'Atendimento para fornos que não aquecem por igual, desarmam a rede elétrica ou queimam as receitas.',
     commonProblems: [
@@ -342,6 +362,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Assistência técnica para máquinas lava-louças em Caxias do Sul. Reparo de vazamentos, bombas e placas. Contato via WhatsApp.',
     category: 'Cozinha',
     shortDescription: 'Conserto e desentupimento de bombas e sistemas de lavagem de máquinas lava-louças residenciais.',
+    imageUrl: 'https://images.unsplash.com/photo-1585837575652-267c041d77d4?auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Assistência técnica para conserto de máquinas lava-louças',
     heroHeadline: 'Conserto de Lava-louças em Caxias do Sul',
     heroSubheadline: 'Mantenha sua cozinha funcional com diagnósticos precisos para máquinas que não lavam direito, vazam ou retêm água suja.',
     commonProblems: [
@@ -384,6 +406,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Assistência técnica para frigobares em Caxias do Sul. Conserto de motores, termostatos e refrigeração. Fale pelo WhatsApp.',
     category: 'Refrigeração',
     shortDescription: 'Manutenção técnica para frigobares residenciais, de escritórios e quartos de hóspedes.',
+    imageUrl: 'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Conserto e reparo de refrigeração para frigobar compacto',
     heroHeadline: 'Conserto de Frigobar em Caxias do Sul',
     heroSubheadline: 'Recupere a refrigeração do seu frigobar com técnicos experientes em compressores compactos e termostatos.',
     commonProblems: [
@@ -424,6 +448,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Assistência técnica de adegas climatizadas em Caxias do Sul. Preservação correta de temperatura para seus vinhos. WhatsApp.',
     category: 'Refrigeração',
     shortDescription: 'Cuidado técnico com adegas com compressor para manter a estabilidade térmica e guarda adequada dos vinhos.',
+    imageUrl: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Manutenção de adega climatizada com compressor para vinhos',
     heroHeadline: 'Conserto de Adega Climatizada em Caxias do Sul',
     heroSubheadline: 'Estabilidade de temperatura é essencial na Serra Gaúcha. Diagnosticamos problemas em adegas climatizadas com compressor.',
     commonProblems: [
@@ -465,6 +491,8 @@ export const SERVICES_DATA: ServiceItem[] = [
     metaDescription: 'Assistência técnica para expositores de bebidas e cervejeiras em Caxias do Sul. Agilidade e precisão técnica. Fale no WhatsApp.',
     category: 'Refrigeração',
     shortDescription: 'Manutenção em expositores verticais de bebidas com porta de vidro para estabelecimentos e residências.',
+    imageUrl: 'https://images.unsplash.com/photo-1567696911980-2eed69a46042?auto=format&fit=crop&w=800&q=80',
+    imageAlt: 'Conserto de expositor vertical de bebidas e cervejeira',
     heroHeadline: 'Conserto de Expositor de Bebidas em Caxias do Sul',
     heroSubheadline: 'Seu expositor mantendo garrafas e latas na temperatura ideal com diagnóstico ágil e atendimento no local.',
     commonProblems: [

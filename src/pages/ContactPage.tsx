@@ -14,8 +14,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Contato | Energy Manutenções - Assistência Técnica Autorizada"
-        description="Fale com a Energy Manutenções: Assistência técnica autorizada em Caxias do Sul e região. WhatsApp (54) 99179-6080. Rua Índia Ceci, 141, Bairro Marechal Floriano."
+        title="Contato | Energy Manutenções Caxias do Sul"
+        description="Fale com a Energy Manutenções. Telefone e WhatsApp (54) 99179-6080. Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul - RS."
         canonicalPath="/contato/"
         breadcrumbs={[{ name: 'Contato', url: '/contato/' }]}
       />
@@ -40,11 +40,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
             {/* Left side: NAP, Address, Quick WhatsApp Callout */}
             <div className="lg:col-span-5 space-y-6">
               <div className="p-6 sm:p-8 rounded-3xl bg-[#121217] border border-[#d4af37]/30 space-y-5">
-                <div className="space-y-1.5">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/30 text-[11px] font-bold text-[#f3e5ab] uppercase tracking-wider">
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />
-                    <span>Assistência Técnica Autorizada</span>
-                  </div>
+                <div className="space-y-1">
                   <h2 className="text-xl font-bold text-white tracking-tight">
                     {COMPANY.tradeName}
                   </h2>
@@ -87,11 +83,6 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     <MessageCircle className="w-5 h-5 fill-current" />
                     <span>Solicitar atendimento pelo WhatsApp</span>
                   </a>
-                </div>
-
-                <div className="pt-2 text-[11px] text-neutral-400 space-y-1">
-                  <p><strong>Razão Social:</strong> {COMPANY.legalName}</p>
-                  <p><strong>CNPJ:</strong> {COMPANY.cnpj} (Ativa)</p>
                 </div>
               </div>
 

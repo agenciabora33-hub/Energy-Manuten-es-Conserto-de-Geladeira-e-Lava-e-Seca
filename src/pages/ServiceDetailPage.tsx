@@ -73,36 +73,61 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, o
       {/* Hero Service Section */}
       <section className="pt-8 pb-14 sm:pt-12 sm:pb-20 bg-gradient-to-b from-[#0a0a0c] via-[#111118] to-[#0a0a0c] border-b border-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="max-w-3xl space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181824] border border-[#d4af37]/30 text-xs font-semibold text-[#d4af37]">
-              <Wrench className="w-3.5 h-3.5" />
-              <span>Assistência Técnica Especializada • {service.category}</span>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181824] border border-[#d4af37]/30 text-xs font-semibold text-[#d4af37]">
+                <Wrench className="w-3.5 h-3.5" />
+                <span>Assistência Técnica Especializada • {service.category}</span>
+              </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-              {service.h1}
-            </h1>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                {service.h1}
+              </h1>
 
-            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
-              {service.heroSubheadline}
-            </p>
+              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
+                {service.heroSubheadline}
+              </p>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
-              <a
-                href={targetWhatsAppUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#aa851d] text-[#0a0a0c] font-black text-sm sm:text-base shadow-lg hover:brightness-110 active:scale-95 transition-all"
-              >
-                <MessageCircle className="w-5 h-5 fill-current" />
-                <span>Solicitar {service.name}</span>
-              </a>
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-3.5">
+                <a
+                  href={targetWhatsAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#aa851d] text-[#0a0a0c] font-black text-sm sm:text-base shadow-lg hover:brightness-110 active:scale-95 transition-all"
+                >
+                  <MessageCircle className="w-5 h-5 fill-current" />
+                  <span>Solicitar {service.name}</span>
+                </a>
 
-              <div className="flex items-center gap-2 text-xs text-neutral-400">
-                <MapPin className="w-4 h-4 text-[#d4af37]" />
-                <span>Caxias do Sul, Farroupilha e Flores da Cunha</span>
+                <div className="flex items-center gap-2 text-xs text-neutral-400">
+                  <MapPin className="w-4 h-4 text-[#d4af37]" />
+                  <span>Caxias do Sul, Farroupilha e Flores da Cunha</span>
+                </div>
               </div>
             </div>
+
+            {/* Featured Service Photograph */}
+            {service.imageUrl && (
+              <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-neutral-800 shadow-[0_12px_40px_rgba(0,0,0,0.6)] group">
+                  <img
+                    src={service.imageUrl}
+                    alt={service.imageAlt || service.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c]/85 via-[#0a0a0c]/20 to-transparent" />
+                  <div className="absolute bottom-3.5 left-4 right-4 flex items-center justify-between">
+                    <span className="text-xs font-bold text-white tracking-wide">
+                      {service.name}
+                    </span>
+                    <span className="text-[10px] font-bold text-[#d4af37] bg-black/80 backdrop-blur-sm px-2.5 py-1 rounded-md border border-[#d4af37]/30 uppercase tracking-wider">
+                      {service.category}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -13,8 +13,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Sobre a Energy Manutenções | Assistência Técnica Autorizada em Caxias do Sul"
-        description="Conheça a Energy Manutenções: assistência técnica autorizada e especializada, ativa desde 2022, prestando serviços de excelência em Caxias do Sul e região."
+        title="Sobre a Energy Manutenções | Assistência Técnica em Caxias do Sul"
+        description="Conheça a Energy Manutenções: empresa ativa desde 2022, especializada em assistência técnica e manutenção de eletrodomésticos em Caxias do Sul e região."
         canonicalPath="/sobre/"
         breadcrumbs={[{ name: 'Sobre', url: '/sobre/' }]}
       />
@@ -31,7 +31,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               Sobre a Energy Manutenções
             </h1>
             <p className="mt-3 text-base text-neutral-300 leading-relaxed">
-              Assistência técnica autorizada e especializada na manutenção de eletrodomésticos para Caxias do Sul e municípios da Serra Gaúcha.
+              Atuação séria e transparente em manutenção e assistência técnica de eletrodomésticos para Caxias do Sul e municípios da Serra Gaúcha.
             </p>
           </div>
 
@@ -41,7 +41,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                 Nossa Atuação e Compromisso
               </h2>
               <p>
-                A Energy Manutenções é uma assistência técnica autorizada e empresa formalmente constituída, ativa desde <strong>18 de abril de 2022</strong>, sob a razão social <strong>Eduardo Borges Baumgarten</strong> (CNPJ 46.067.650/0001-55).
+                A Energy Manutenções é uma empresa de assistência técnica especializada, com atuação contínua desde <strong>18 de abril de 2022</strong> em Caxias do Sul e região da Serra Gaúcha.
               </p>
               <p>
                 Nossa atividade principal é a reparação e manutenção de equipamentos eletroeletrônicos e eletrodomésticos de uso doméstico e comercial leve. Atuamos com uma ampla gama de equipamentos essenciais para o dia a dia das famílias e empresas, incluindo geladeiras, máquinas de lavar, aparelhos lava e seca, secadoras, freezers, fornos elétricos, micro-ondas, adegas climatizadas, frigobares e lava-louças.
@@ -60,7 +60,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                 </div>
                 <p className="text-base font-bold text-white">18/04/2022</p>
                 <p className="text-xs text-neutral-400">
-                  Empresa ativa e regularizada com inscrição no Cadastro Nacional da Pessoa Jurídica.
+                  Atendimento com experiência e compromisso na manutenção de eletrodomésticos.
                 </p>
               </div>
 
@@ -98,19 +98,15 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            {/* Official Registration Details */}
+            {/* Informações Institucionais */}
             <div className="p-6 rounded-2xl bg-[#121217] border border-neutral-800 space-y-2 text-xs">
               <h3 className="text-sm font-bold text-white uppercase tracking-wider text-[#d4af37] mb-2">
-                Dados Cadastrais Oficiais
+                Informações Institucionais
               </h3>
-              <p><strong className="text-white">Nome Comercial:</strong> {COMPANY.tradeName}</p>
-              <p><strong className="text-white">Razão Social:</strong> {COMPANY.legalName}</p>
-              <p><strong className="text-white">CNPJ:</strong> {COMPANY.cnpj}</p>
-              <p><strong className="text-white">Situação Cadastral:</strong> {COMPANY.registrationStatus}</p>
-              <p><strong className="text-white">Natureza Jurídica:</strong> {COMPANY.legalNature}</p>
-              <p><strong className="text-white">Atividade Econômica Principal:</strong> {COMPANY.primaryActivity}</p>
-              <p><strong className="text-white">Endereço:</strong> {COMPANY.address.fullFormatted}</p>
-              <p><strong className="text-white">Contato Oficial:</strong> {COMPANY.contact.phone}</p>
+              <p><strong className="text-white">Empresa:</strong> {COMPANY.tradeName}</p>
+              <p><strong className="text-white">Segmento:</strong> {COMPANY.primaryActivity}</p>
+              <p><strong className="text-white">Sede Técnica:</strong> {COMPANY.address.fullFormatted}</p>
+              <p><strong className="text-white">Central de Atendimento:</strong> {COMPANY.contact.phone}</p>
             </div>
           </div>
         </div>

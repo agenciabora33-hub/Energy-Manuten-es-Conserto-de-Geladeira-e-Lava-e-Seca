@@ -38,18 +38,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {/* Column 1: Identity, NAP, CNPJ */}
           <div className="space-y-4">
-            <div className="flex flex-col items-start gap-2">
-              <button
-                onClick={() => onNavigate('/')}
-                className="focus:outline-none focus:ring-1 focus:ring-[#d4af37] rounded"
-              >
-                <EnergyLogo size="md" />
-              </button>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#d4af37]/15 text-[#f3e5ab] border border-[#d4af37]/30 text-[11px] font-bold uppercase tracking-wider">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />
-                <span>Assistência Técnica Autorizada</span>
-              </span>
-            </div>
+            <button
+              onClick={() => onNavigate('/')}
+              className="focus:outline-none focus:ring-1 focus:ring-[#d4af37] rounded"
+            >
+              <EnergyLogo size="md" />
+            </button>
             <p className="text-xs text-neutral-300 leading-relaxed">
               {COMPANY.description}
             </p>
@@ -77,9 +71,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            <div className="p-2.5 rounded-lg bg-[#111116] border border-neutral-800 text-[11px] text-neutral-400 space-y-1">
-              <p><strong className="text-neutral-300">Razão Social:</strong> {COMPANY.legalName}</p>
-              <p><strong className="text-neutral-300">CNPJ:</strong> {COMPANY.cnpj} (Ativa desde 18/04/2022)</p>
+            <div className="p-2.5 rounded-lg bg-[#111116] border border-neutral-800 text-[11px] text-neutral-400">
+              <p><strong className="text-neutral-300">CNPJ:</strong> {COMPANY.cnpj}</p>
             </div>
           </div>
 

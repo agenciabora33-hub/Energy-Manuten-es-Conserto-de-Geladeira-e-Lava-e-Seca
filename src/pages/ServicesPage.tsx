@@ -21,8 +21,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Serviços | Energy Manutenções - Assistência Técnica Autorizada"
-        description="Serviços de assistência técnica autorizada e especializada para conserto de geladeiras, máquinas de lavar, lava e seca, freezers e fornos em Caxias do Sul e região."
+        title="Serviços de Assistência Técnica | Energy Manutenções Caxias do Sul"
+        description="Conheça todos os serviços de conserto de geladeiras, máquinas de lavar, lava e seca, freezers e fornos em Caxias do Sul e região."
         canonicalPath="/servicos/"
         breadcrumbs={[{ name: 'Serviços', url: '/servicos/' }]}
       />
@@ -33,13 +33,13 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="max-w-3xl mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] mb-2 block">
-              Assistência Técnica Autorizada
+              Catálogo de Especialidades Técnicas
             </span>
             <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Serviços de Assistência Técnica Autorizada e Manutenção
+              Manutenção e Assistência Técnica de Eletrodomésticos
             </h1>
             <p className="mt-3 text-sm sm:text-base text-neutral-300 leading-relaxed">
-              Atendimento técnico autorizado e especializado em Caxias do Sul, Farroupilha e Flores da Cunha. Grande parte dos reparos pode ser realizada diretamente no endereço do cliente com agendamento prévio.
+              Atendimento técnico especializado em Caxias do Sul, Farroupilha e Flores da Cunha. Grande parte dos reparos pode ser realizada no endereço do cliente mediante agendamento prévio.
             </p>
           </div>
 

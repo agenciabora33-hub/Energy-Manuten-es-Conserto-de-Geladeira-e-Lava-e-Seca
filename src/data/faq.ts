@@ -14,7 +14,7 @@ export const FAQ_LIST: FAQItem[] = [
   {
     category: 'Marcas',
     question: 'Quais marcas são atendidas?',
-    answer: 'A Energy Manutenções é uma assistência técnica autorizada e especializada, prestando serviços para equipamentos das principais fabricantes do mercado, como Samsung, LG, Electrolux, Brastemp e Consul.'
+    answer: 'A Energy Manutenções atende equipamentos de diferentes fabricantes, com destaque para marcas como Samsung, LG, Electrolux, Brastemp e Consul. Não atuamos como assistência autorizada exclusiva de fabricantes.'
   },
   {
     category: 'Atendimento & Localização',

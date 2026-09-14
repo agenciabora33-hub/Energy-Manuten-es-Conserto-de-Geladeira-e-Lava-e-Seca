@@ -20,8 +20,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Energy Manutenções | Assistência Técnica Autorizada de Eletrodomésticos em Caxias do Sul"
-        description="Assistência técnica autorizada para conserto de geladeiras, máquinas de lavar, lava e seca e eletrodomésticos em Caxias do Sul e região."
+        title="Energy Manutenções | Assistência Técnica de Eletrodomésticos em Caxias do Sul"
+        description="Conserto de geladeiras, máquinas de lavar, lava e seca e outros eletrodomésticos, com atendimento profissional em Caxias do Sul e região."
         canonicalPath="/"
       />
 
@@ -32,27 +32,21 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            {/* Top Regional & Authority Chips */}
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#d4af37]/15 border border-[#d4af37]/35 text-xs font-bold text-[#f3e5ab] shadow-sm">
-                <ShieldCheck className="w-4 h-4 text-[#d4af37]" />
-                <span>Assistência Técnica Autorizada</span>
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161622] border border-neutral-800 text-xs font-semibold text-neutral-300 shadow-sm">
-                <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
-                <span>Caxias do Sul • Farroupilha • Flores da Cunha</span>
-              </div>
+            {/* Top Regional Coverage Chip */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161622] border border-[#d4af37]/30 text-xs font-semibold text-[#f3e5ab] shadow-sm">
+              <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span>Caxias do Sul • Farroupilha • Flores da Cunha</span>
             </div>
 
-            {/* H1 Rigoroso com Assistência Técnica Autorizada */}
+            {/* H1 Rigoroso do PRD */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
-              Assistência técnica autorizada em{' '}
+              Assistência técnica de eletrodomésticos em{' '}
               <span className="text-gold-gradient">Caxias do Sul</span>
             </h1>
 
-            {/* Subheadline Rigorosa */}
+            {/* Subheadline Rigorosa do PRD */}
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl mx-auto">
-              Assistência técnica autorizada e conserto de geladeiras, máquinas de lavar, lava e seca e outros eletrodomésticos, com atendimento profissional e a domicílio em Caxias do Sul e região.
+              Conserto de geladeiras, máquinas de lavar, lava e seca e outros eletrodomésticos, com atendimento profissional em Caxias do Sul e região.
             </p>
 
             {/* CTAs Primário e Secundário */}

@@ -15,6 +15,8 @@ export interface ServiceItem {
   shortDescription: string;
   heroHeadline: string;
   heroSubheadline: string;
+  imageUrl?: string;
+  imageAlt?: string;
   commonProblems: string[];
   symptoms: string[];
   whenToCall: string[];

@@ -41,8 +41,8 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Marcas Atendidas | Energy Manutenções - Assistência Técnica Autorizada"
-        description="Assistência técnica autorizada e especializada para diferentes marcas de eletrodomésticos em Caxias do Sul e região: Samsung, LG, Electrolux, Brastemp e Consul."
+        title="Marcas Atendidas | Energy Manutenções Caxias do Sul"
+        description="Assistência técnica para diferentes marcas de eletrodomésticos em Caxias do Sul e região: Samsung, LG, Electrolux, Brastemp e Consul."
         canonicalPath="/marcas/"
         breadcrumbs={[{ name: 'Marcas', url: '/marcas/' }]}
       />
@@ -114,9 +114,9 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onNavigate }) => {
           <div className="mt-12 p-6 rounded-2xl bg-[#14141d] border border-neutral-800 flex items-start gap-4">
             <AlertCircle className="w-5 h-5 text-[#d4af37] flex-shrink-0 mt-0.5" />
             <div className="text-xs text-neutral-300 space-y-1">
-              <p className="font-bold text-white">Transparência e Esclarecimento:</p>
+              <p className="font-bold text-white">Transparência e Esclarecimento Legal:</p>
               <p className="text-neutral-400 leading-relaxed">
-                A Energy Manutenções atua como assistência técnica autorizada e especializada para eletrodomésticos multimarcas. Todos os nomes de marcas, modelos e logotipos são de propriedade de seus respectivos titulares e são citados para identificação de compatibilidade técnica e direcionamento do atendimento qualificado.
+                A Energy Manutenções presta serviços de manutenção independente para eletrodomésticos de diversas fabricantes. Todos os nomes de marcas, logotipos e produtos são de propriedade exclusiva de seus respectivos titulares e são mencionados neste portal exclusivamente com finalidade informativa para indicar a compatibilidade dos serviços técnicos prestados. Não representamos nenhuma fabricante como posto de assistência técnica autorizada exclusiva.
               </p>
             </div>
           </div>

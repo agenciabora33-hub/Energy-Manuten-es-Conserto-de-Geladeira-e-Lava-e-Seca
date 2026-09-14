@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, MessageCircle, Phone, ChevronDown, ShieldCheck } from 'lucide-react';
+import { Menu, X, MessageCircle, Phone, ChevronDown } from 'lucide-react';
 import { EnergyLogo } from './EnergyLogo';
 import { COMPANY } from '../data/company';
 import { SERVICES_DATA } from '../data/services';
@@ -58,10 +58,6 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             <span>Atendimento a domicílio com agendamento</span>
           </div>
           <div className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5 text-[11px] px-2.5 py-0.5 rounded-full bg-[#d4af37]/15 text-[#f3e5ab] border border-[#d4af37]/35 font-bold uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />
-              <span>Assistência Técnica Autorizada</span>
-            </span>
             <a
               href={`tel:${COMPANY.contact.rawPhone}`}
               className="flex items-center gap-1.5 text-neutral-300 hover:text-[#d4af37] transition-colors"
@@ -69,8 +65,9 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               <Phone className="w-3 h-3 text-[#d4af37]" />
               <span>{COMPANY.contact.phone}</span>
             </a>
-            <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/20 font-medium">
-              CNPJ: {COMPANY.cnpj}
+            <span className="text-neutral-600">|</span>
+            <span className="text-[11px] text-neutral-400">
+              Segunda a Sábado
             </span>
           </div>
         </div>
@@ -205,12 +202,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#0e0e12] border-b border-[#d4af37]/20 px-4 pt-3 pb-6 space-y-3 shadow-2xl animate-in fade-in duration-200">
-          <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-[#14141d] border border-[#d4af37]/35 text-[#f3e5ab]">
-            <ShieldCheck className="w-4 h-4 text-[#d4af37] flex-shrink-0" />
-            <span className="text-xs font-bold uppercase tracking-wide">Assistência Técnica Autorizada</span>
-          </div>
-
+        <div className="xl:hidden bg-[#0e0e12] border-b border-[#d4af37]/20 px-4 pt-3 pb-6 space-y-2 shadow-2xl animate-in fade-in duration-200">
           <div className="grid grid-cols-1 gap-1">
             {navLinks.map((link) => (
               <button

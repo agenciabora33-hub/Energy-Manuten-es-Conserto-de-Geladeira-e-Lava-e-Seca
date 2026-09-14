@@ -67,7 +67,7 @@ export const SEOHead: React.FC<SEOProps> = ({
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: COMPANY.tradeName,
-      legalName: COMPANY.legalName,
+      legalName: COMPANY.tradeName,
       description: COMPANY.description,
       url: getAbsoluteUrl('/'),
       telephone: COMPANY.contact.phone,
