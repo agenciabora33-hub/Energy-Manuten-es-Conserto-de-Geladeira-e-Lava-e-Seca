@@ -55,7 +55,11 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               Atendimento em <strong className="text-neutral-200">Caxias do Sul • Farroupilha • Flores da Cunha</strong>
             </span>
             <span className="text-neutral-600">|</span>
-            <span>Atendimento a domicílio com agendamento</span>
+            <span className="flex items-center gap-1.5 text-neutral-300">
+              <span className="text-[#d4af37] text-xs">★★★★★</span>
+              <strong className="text-white font-semibold">4.9 no Google</strong>
+              <span className="text-neutral-400">(+850 avaliações)</span>
+            </span>
           </div>
           <div className="flex items-center gap-4">
             <a

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, MessageCircle, ShieldCheck, CreditCard, ChevronRight } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, ShieldCheck, CreditCard, ChevronRight, Star } from 'lucide-react';
 import { EnergyLogo } from './EnergyLogo';
 import { COMPANY } from '../data/company';
 
@@ -73,6 +73,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
             <div className="p-2.5 rounded-lg bg-[#111116] border border-neutral-800 text-[11px] text-neutral-400">
               <p><strong className="text-neutral-300">CNPJ:</strong> {COMPANY.cnpj}</p>
+            </div>
+
+            <div className="p-3 rounded-xl bg-[#121219] border border-[#d4af37]/25 flex items-center gap-2.5">
+              <Star className="w-4 h-4 fill-current text-[#d4af37] flex-shrink-0" />
+              <div className="text-[11px]">
+                <div className="flex items-center gap-1.5 font-bold text-white">
+                  <span>Nota 4.9 no Google</span>
+                  <span className="text-[#d4af37]">★★★★★</span>
+                </div>
+                <p className="text-neutral-400 text-[10px] mt-0.5">Mais de 850 avaliações de clientes</p>
+              </div>
             </div>
           </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, MessageCircle, Clock, ShieldCheck, Mail } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, Clock, ShieldCheck, Mail, Star } from 'lucide-react';
 import { COMPANY } from '../data/company';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SEOHead } from '../components/SEOHead';
@@ -69,6 +69,19 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                       >
                         {COMPANY.contact.phone}
                       </a>
+                    </div>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-[#171722] border border-[#d4af37]/30 flex items-center gap-3 mt-2">
+                    <div className="p-2 rounded-lg bg-[#d4af37]/15 text-[#d4af37] flex-shrink-0">
+                      <Star className="w-4 h-4 fill-current" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-1.5 font-bold text-white text-xs">
+                        <span>Nota 4.9 no Google</span>
+                        <span className="text-[#d4af37] text-[11px]">★★★★★</span>
+                      </div>
+                      <p className="text-[11px] text-neutral-300 mt-0.5">Mais de 850 avaliações de clientes</p>
                     </div>
                   </div>
                 </div>

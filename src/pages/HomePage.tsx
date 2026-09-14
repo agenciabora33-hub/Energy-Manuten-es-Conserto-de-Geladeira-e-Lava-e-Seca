@@ -32,10 +32,18 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            {/* Top Regional Coverage Chip */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161622] border border-[#d4af37]/30 text-xs font-semibold text-[#f3e5ab] shadow-sm">
-              <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
-              <span>Caxias do Sul • Farroupilha • Flores da Cunha</span>
+            {/* Top Regional Coverage & Google Reviews Chips */}
+            <div className="flex flex-wrap items-center justify-center gap-2.5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161622] border border-[#d4af37]/30 text-xs font-semibold text-[#f3e5ab] shadow-sm">
+                <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
+                <span>Caxias do Sul • Farroupilha • Flores da Cunha</span>
+              </div>
+
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#161622] border border-[#d4af37]/40 text-xs font-semibold text-white shadow-sm">
+                <div className="flex text-[#d4af37] text-xs">★★★★★</div>
+                <span className="font-bold">4.9 no Google</span>
+                <span className="text-[#d4af37] font-bold">(+850 avaliações)</span>
+              </div>
             </div>
 
             {/* H1 Rigoroso do PRD */}
@@ -243,6 +251,42 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
       {/* 8. ÁREAS ATENDIDAS */}
       <LocationSection onNavigate={onNavigate} />
+
+      {/* AVALIAÇÕES GOOGLE SOCIAL PROOF */}
+      <section className="py-10 bg-[#0b0b0f] border-t border-neutral-900" aria-label="Avaliações no Google">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#121219] via-[#171724] to-[#121219] border border-[#d4af37]/30 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
+            <div className="flex items-start sm:items-center gap-4 sm:gap-5">
+              <div className="p-3.5 sm:p-4 rounded-2xl bg-[#d4af37]/10 text-[#d4af37] border border-[#d4af37]/20 flex-shrink-0">
+                <Star className="w-8 h-8 fill-current text-[#d4af37]" />
+              </div>
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-2xl sm:text-3xl font-black text-white leading-none">4.9</span>
+                  <div className="flex text-[#d4af37] text-sm">★★★★★</div>
+                  <span className="px-2 py-0.5 rounded-full bg-[#d4af37]/15 text-[#f3e5ab] text-[11px] font-bold">Destaque no Google</span>
+                </div>
+                <h3 className="text-base sm:text-lg font-extrabold text-white">
+                  Mais de 850 avaliações no Google com nota 4.9
+                </h3>
+                <p className="text-xs sm:text-sm text-neutral-300">
+                  Reputação construída com transparência técnica, pontualidade no atendimento a domicílio e peças de qualidade na Serra Gaúcha.
+                </p>
+              </div>
+            </div>
+
+            <a
+              href={COMPANY.contact.defaultWhatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full lg:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#aa851d] text-[#0a0a0c] font-black text-xs sm:text-sm hover:brightness-110 active:scale-95 transition-all whitespace-nowrap shadow-md"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Solicitar Atendimento Técnico</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* 9. SEMINOVOS TEASER */}
       <section className="py-14 sm:py-18 bg-[#0a0a0c] border-t border-neutral-900" aria-labelledby="seminovos-teaser-heading">

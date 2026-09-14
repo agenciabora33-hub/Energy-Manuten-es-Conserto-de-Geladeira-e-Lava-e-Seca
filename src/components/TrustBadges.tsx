@@ -19,8 +19,8 @@ export const TrustBadges: React.FC = () => {
                   {'★★★★★'}
                 </div>
               </div>
-              <p className="text-[11px] text-neutral-300 font-medium mt-1">Destaque no Google</p>
-              <p className="text-[10px] text-neutral-400">Centenas de avaliações</p>
+              <p className="text-[11px] text-neutral-200 font-bold mt-1">Nota 4.9 no Google</p>
+              <p className="text-[10px] text-neutral-400 font-medium">+850 avaliações reais</p>
             </div>
           </div>
 

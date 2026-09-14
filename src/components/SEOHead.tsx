@@ -91,6 +91,13 @@ export const SEOHead: React.FC<SEOProps> = ({
         '@type': 'City',
         name: area.name,
       })),
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: COMPANY.reputation.googleRating,
+        bestRating: '5',
+        worstRating: '1',
+        ratingCount: COMPANY.reputation.reviewCount,
+      },
     };
 
     const schemasToInject: Record<string, unknown>[] = [baseLocalBusinessSchema];

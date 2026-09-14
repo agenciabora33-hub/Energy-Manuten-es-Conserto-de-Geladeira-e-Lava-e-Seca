@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Building2, MapPin, Calendar, CheckCircle2, Phone, MessageCircle } from 'lucide-react';
+import { Shield, Building2, MapPin, Calendar, CheckCircle2, Phone, MessageCircle, Star } from 'lucide-react';
 import { COMPANY } from '../data/company';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SEOHead } from '../components/SEOHead';
@@ -49,6 +49,28 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               <p>
                 Acreditamos que a confiança se constrói com diagnósticos claros, explicações técnicas sinceras e respeito às necessidades do cliente, buscando sempre entender a situação antes de propor qualquer intervenção.
               </p>
+            </div>
+
+            {/* Reputation Card */}
+            <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-r from-[#14141d] via-[#1a1a26] to-[#14141d] border border-[#d4af37]/35 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-start sm:items-center gap-4">
+                <div className="p-3.5 rounded-2xl bg-[#d4af37]/15 text-[#d4af37] flex-shrink-0">
+                  <Star className="w-6 h-6 fill-current text-[#d4af37]" />
+                </div>
+                <div className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xl font-black text-white">4.9</span>
+                    <span className="text-[#d4af37] text-sm">★★★★★</span>
+                    <span className="text-xs font-bold text-[#f3e5ab] bg-[#d4af37]/20 px-2.5 py-0.5 rounded-full border border-[#d4af37]/30">Destaque no Google</span>
+                  </div>
+                  <h3 className="text-sm sm:text-base font-bold text-white">
+                    Mais de 850 avaliações no Google com nota 4.9
+                  </h3>
+                  <p className="text-xs text-neutral-300">
+                    Prova social autêntica de clientes em Caxias do Sul e região, destacando nossa pontualidade, honestidade no diagnóstico e excelência no reparo.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Business Facts Grid */}
