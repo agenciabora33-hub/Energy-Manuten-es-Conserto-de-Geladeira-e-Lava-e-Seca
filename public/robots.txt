@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://{{DOMAIN}}/sitemap.xml
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://energy-manutencoes.vercel.app/sitemap.xml

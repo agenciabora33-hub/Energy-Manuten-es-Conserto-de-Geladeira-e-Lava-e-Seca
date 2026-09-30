@@ -2,6 +2,7 @@ import React from 'react';
 import { MessageCircle, Wrench, ShieldCheck, MapPin, ArrowRight, Phone, CheckCircle2, Star, Sparkles } from 'lucide-react';
 import { COMPANY } from '../data/company';
 import { SERVICES_DATA } from '../data/services';
+import { FAQ_LIST } from '../data/faq';
 import { TrustBadges } from '../components/TrustBadges';
 import { BrandSection } from '../components/BrandSection';
 import { LocationSection } from '../components/LocationSection';
@@ -17,12 +18,31 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+  const homeFaqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_LIST.slice(0, 6).map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+
+  const handleNav = (path: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(path);
+  };
+
   return (
     <>
       <SEOHead
         title="Energy Manutenções | Assistência Técnica de Eletrodomésticos em Caxias do Sul"
-        description="Conserto de geladeiras, máquinas de lavar, lava e seca e outros eletrodomésticos, com atendimento profissional em Caxias do Sul e região."
+        description="Conserto de geladeiras, máquinas de lavar, lava e seca e eletrodomésticos com atendimento profissional em Caxias do Sul, Farroupilha e Flores da Cunha."
         canonicalPath="/"
+        jsonLd={homeFaqSchema}
       />
 
       {/* 1. HERO SECTION */}
@@ -69,13 +89,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <span>Solicitar atendimento pelo WhatsApp</span>
               </a>
 
-              <button
-                onClick={() => onNavigate('/servicos/')}
+              <a
+                href="/servicos/"
+                onClick={(e) => handleNav('/servicos/', e)}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#14141d] hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-semibold text-sm transition-colors"
               >
                 <span>Conhecer nossos serviços</span>
                 <ArrowRight className="w-4 h-4 text-[#d4af37]" />
-              </button>
+              </a>
             </div>
 
             {/* Sub-notice with real NAP phone */}
@@ -122,13 +143,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 <span>Falar com a Energy</span>
               </a>
 
-              <button
-                onClick={() => onNavigate('/como-funciona/')}
+              <a
+                href="/como-funciona/"
+                onClick={(e) => handleNav('/como-funciona/', e)}
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#181822] text-neutral-300 hover:text-white border border-neutral-700 text-xs font-semibold transition-colors"
               >
                 <span>Ver como funciona o atendimento</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -150,13 +172,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               </p>
             </div>
 
-            <button
-              onClick={() => onNavigate('/servicos/')}
+            <a
+              href="/servicos/"
+              onClick={(e) => handleNav('/servicos/', e)}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#181824] hover:bg-[#20202e] text-[#f3e5ab] border border-[#d4af37]/30 text-xs font-semibold transition-colors self-start md:self-auto"
             >
               <span>Ver todos os serviços</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </a>
           </div>
 
           {/* Service Cards Grid */}
@@ -167,12 +190,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
 
           <div className="mt-8 text-center">
-            <button
-              onClick={() => onNavigate('/servicos/')}
+            <a
+              href="/servicos/"
+              onClick={(e) => handleNav('/servicos/', e)}
               className="text-xs font-semibold text-[#d4af37] hover:underline"
             >
               Consultar também fornos elétricos, lava-louças, frigobares, adegas e expositores de bebidas →
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -331,13 +355,14 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <span>Consultar seminovos pelo WhatsApp</span>
                 </a>
 
-                <button
-                  onClick={() => onNavigate('/eletrodomesticos-seminovos/')}
+                <a
+                  href="/eletrodomesticos-seminovos/"
+                  onClick={(e) => handleNav('/eletrodomesticos-seminovos/', e)}
                   className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-[#13131c] text-neutral-300 hover:text-white border border-neutral-700 text-xs font-semibold transition-colors"
                 >
                   <span>Ver página de seminovos</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
-                </button>
+                </a>
               </div>
             </div>
           </div>

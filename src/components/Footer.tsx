@@ -8,6 +8,11 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+  const handleNav = (path: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(path);
+  };
+
   return (
     <footer className="bg-[#070709] border-t border-[#d4af37]/20 text-neutral-400 text-sm">
       {/* Upper Footer CTA Strip */}
@@ -38,12 +43,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
           {/* Column 1: Identity, NAP, CNPJ */}
           <div className="space-y-4">
-            <button
-              onClick={() => onNavigate('/')}
-              className="focus:outline-none focus:ring-1 focus:ring-[#d4af37] rounded"
+            <a
+              href="/"
+              onClick={(e) => handleNav('/', e)}
+              className="inline-block focus:outline-none focus:ring-1 focus:ring-[#d4af37] rounded"
+              aria-label="Energy Manutenções - Página Inicial"
             >
               <EnergyLogo size="md" />
-            </button>
+            </a>
             <p className="text-xs text-neutral-300 leading-relaxed">
               {COMPANY.description}
             </p>
@@ -87,91 +94,100 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </div>
           </div>
 
-          {/* Column 2: Principais Serviços */}
+          {/* Column 2: Principais Serviços (Crawlable internal links with keywords) */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#d4af37] mb-4">
               Serviços Especializados
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button
-                  onClick={() => onNavigate('/conserto-geladeira-caxias-do-sul/')}
+                <a
+                  href="/conserto-geladeira-caxias-do-sul/"
+                  onClick={(e) => handleNav('/conserto-geladeira-caxias-do-sul/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
-                  <span>Conserto de Geladeira</span>
-                </button>
+                  <span>Conserto de Geladeira em Caxias do Sul</span>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/conserto-maquina-de-lavar-caxias-do-sul/')}
+                <a
+                  href="/conserto-maquina-de-lavar-caxias-do-sul/"
+                  onClick={(e) => handleNav('/conserto-maquina-de-lavar-caxias-do-sul/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Conserto de Máquina de Lavar</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/conserto-lava-e-seca-caxias-do-sul/')}
+                <a
+                  href="/conserto-lava-e-seca-caxias-do-sul/"
+                  onClick={(e) => handleNav('/conserto-lava-e-seca-caxias-do-sul/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Conserto de Lava e Seca</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/conserto-secadora-caxias-do-sul/')}
+                <a
+                  href="/conserto-secadora-caxias-do-sul/"
+                  onClick={(e) => handleNav('/conserto-secadora-caxias-do-sul/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Conserto de Secadora de Roupas</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/conserto-freezer-caxias-do-sul/')}
+                <a
+                  href="/conserto-freezer-caxias-do-sul/"
+                  onClick={(e) => handleNav('/conserto-freezer-caxias-do-sul/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Conserto de Freezer</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/conserto-micro-ondas-caxias-do-sul/')}
+                <a
+                  href="/conserto-micro-ondas-caxias-do-sul/"
+                  onClick={(e) => handleNav('/conserto-micro-ondas-caxias-do-sul/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Conserto de Micro-ondas</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/conserto-forno-eletrico-caxias-do-sul/')}
+                <a
+                  href="/conserto-forno-eletrico-caxias-do-sul/"
+                  onClick={(e) => handleNav('/conserto-forno-eletrico-caxias-do-sul/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Conserto de Forno Elétrico</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/conserto-lava-loucas-caxias-do-sul/')}
+                <a
+                  href="/conserto-lava-loucas-caxias-do-sul/"
+                  onClick={(e) => handleNav('/conserto-lava-loucas-caxias-do-sul/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Conserto de Lava-louças</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/servicos/')}
+                <a
+                  href="/servicos/"
+                  onClick={(e) => handleNav('/servicos/', e)}
                   className="text-[#d4af37] font-semibold hover:underline flex items-center gap-1.5 pt-1"
                 >
                   <span>Ver lista completa de serviços →</span>
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -183,67 +199,74 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button
-                  onClick={() => onNavigate('/caxias-do-sul/')}
+                <a
+                  href="/caxias-do-sul/"
+                  onClick={(e) => handleNav('/caxias-do-sul/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Caxias do Sul (Sede)</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/farroupilha/')}
+                <a
+                  href="/farroupilha/"
+                  onClick={(e) => handleNav('/farroupilha/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Farroupilha</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/flores-da-cunha/')}
+                <a
+                  href="/flores-da-cunha/"
+                  onClick={(e) => handleNav('/flores-da-cunha/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Flores da Cunha</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/areas-atendidas/')}
+                <a
+                  href="/areas-atendidas/"
+                  onClick={(e) => handleNav('/areas-atendidas/', e)}
                   className="text-neutral-400 hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Todas as áreas atendidas</span>
-                </button>
+                </a>
               </li>
               <li className="pt-2">
-                <button
-                  onClick={() => onNavigate('/eletrodomesticos-seminovos/')}
+                <a
+                  href="/eletrodomesticos-seminovos/"
+                  onClick={(e) => handleNav('/eletrodomesticos-seminovos/', e)}
                   className="text-[#f3e5ab] hover:underline font-medium flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Eletrodomésticos Seminovos (60 dias garantia mecânica)</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/marcas/')}
+                <a
+                  href="/marcas/"
+                  onClick={(e) => handleNav('/marcas/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Marcas: Samsung, LG, Electrolux, Brastemp, Consul</span>
-                </button>
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/blog/')}
+                <a
+                  href="/blog/"
+                  onClick={(e) => handleNav('/blog/', e)}
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <ChevronRight className="w-3 h-3 text-[#d4af37]" />
                   <span>Artigos e Dicas Técnicas</span>
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -255,29 +278,29 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h4>
             <ul className="space-y-1.5 text-xs">
               <li>
-                <button onClick={() => onNavigate('/sobre/')} className="hover:text-white transition-colors">
+                <a href="/sobre/" onClick={(e) => handleNav('/sobre/', e)} className="hover:text-white transition-colors block py-0.5">
                   Sobre a Empresa
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('/como-funciona/')} className="hover:text-white transition-colors">
+                <a href="/como-funciona/" onClick={(e) => handleNav('/como-funciona/', e)} className="hover:text-white transition-colors block py-0.5">
                   Como Funciona o Atendimento
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('/faq/')} className="hover:text-white transition-colors">
+                <a href="/faq/" onClick={(e) => handleNav('/faq/', e)} className="hover:text-white transition-colors block py-0.5">
                   Dúvidas Frequentes (FAQ)
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('/contato/')} className="hover:text-white transition-colors">
+                <a href="/contato/" onClick={(e) => handleNav('/contato/', e)} className="hover:text-white transition-colors block py-0.5">
                   Fale Conosco
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('/politica-de-privacidade/')} className="hover:text-white transition-colors">
+                <a href="/politica-de-privacidade/" onClick={(e) => handleNav('/politica-de-privacidade/', e)} className="hover:text-white transition-colors block py-0.5">
                   Política de Privacidade
-                </button>
+                </a>
               </li>
             </ul>
 
@@ -313,12 +336,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="mt-6 pt-6 border-t border-neutral-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
           <p>© {new Date().getFullYear()} Energy Manutenções. Todos os direitos reservados. CNPJ: {COMPANY.cnpj}.</p>
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => onNavigate('/politica-de-privacidade/')}
+            <a
+              href="/politica-de-privacidade/"
+              onClick={(e) => handleNav('/politica-de-privacidade/', e)}
               className="hover:text-neutral-300 underline underline-offset-2"
             >
               Privacidade
-            </button>
+            </a>
             <a
               href={COMPANY.contact.defaultWhatsAppUrl}
               target="_blank"

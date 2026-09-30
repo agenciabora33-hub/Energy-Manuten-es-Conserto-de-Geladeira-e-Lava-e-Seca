@@ -8,12 +8,18 @@ interface NotFoundPageProps {
 }
 
 export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigate }) => {
+  const handleNav = (path: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(path);
+  };
+
   return (
     <>
       <SEOHead
         title="Página Não Encontrada (404) | Energy Manutenções"
         description="A página que você está procurando não foi encontrada. Mas podemos ajudar você a encontrar assistência para seu eletrodoméstico em Caxias do Sul."
         canonicalPath="/404/"
+        robots="noindex, nofollow"
       />
 
       <section className="min-h-[65vh] flex items-center justify-center py-16 px-4 sm:px-6 bg-[#0a0a0c]">
@@ -32,13 +38,14 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigate }) => {
           </div>
 
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button
-              onClick={() => onNavigate('/servicos/')}
+            <a
+              href="/servicos/"
+              onClick={(e) => handleNav('/servicos/', e)}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#d4af37] to-[#aa851d] text-[#0a0a0c] font-bold text-sm shadow hover:brightness-110 active:scale-95 transition-all"
             >
               <Wrench className="w-4 h-4" />
               <span>Ver serviços</span>
-            </button>
+            </a>
 
             <a
               href={COMPANY.contact.defaultWhatsAppUrl}
@@ -52,13 +59,14 @@ export const NotFoundPage: React.FC<NotFoundPageProps> = ({ onNavigate }) => {
           </div>
 
           <div className="pt-2">
-            <button
-              onClick={() => onNavigate('/')}
+            <a
+              href="/"
+              onClick={(e) => handleNav('/', e)}
               className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-white transition-colors"
             >
               <Home className="w-3.5 h-3.5" />
               <span>Voltar para a página inicial</span>
-            </button>
+            </a>
           </div>
         </div>
       </section>

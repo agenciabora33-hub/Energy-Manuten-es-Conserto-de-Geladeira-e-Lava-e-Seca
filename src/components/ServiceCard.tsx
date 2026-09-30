@@ -12,13 +12,20 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onNavigate })
   const [imageError, setImageError] = useState(false);
   const targetWhatsAppUrl = COMPANY.buildWhatsAppUrl();
 
+  const handleLinkClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(service.path);
+  };
+
   return (
     <article className="group rounded-2xl bg-[#121217] border border-neutral-800/90 hover:border-[#d4af37]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:shadow-[0_12px_36px_rgba(212,175,55,0.08)]">
       <div>
-        {/* Service Photograph Block */}
-        <div
-          onClick={() => onNavigate(service.path)}
-          className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-900 cursor-pointer"
+        {/* Service Photograph Block as crawlable link */}
+        <a
+          href={service.path}
+          onClick={handleLinkClick}
+          aria-label={`Ver informações sobre ${service.name}`}
+          className="relative block aspect-[16/10] w-full overflow-hidden bg-neutral-900 cursor-pointer"
         >
           {service.imageUrl && !imageError ? (
             <img
@@ -52,15 +59,14 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onNavigate })
               A Domicílio
             </span>
           </div>
-        </div>
+        </a>
 
         {/* Card Body Content */}
         <div className="p-5 sm:p-6 pt-3 sm:pt-4">
-          <h3
-            onClick={() => onNavigate(service.path)}
-            className="text-lg font-bold text-white group-hover:text-[#f3e5ab] transition-colors leading-snug cursor-pointer"
-          >
-            {service.name}
+          <h3 className="text-lg font-bold text-white group-hover:text-[#f3e5ab] transition-colors leading-snug">
+            <a href={service.path} onClick={handleLinkClick}>
+              {service.name}
+            </a>
           </h3>
 
           <p className="text-xs text-neutral-400 mt-2 leading-relaxed line-clamp-2">
@@ -84,13 +90,14 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, onNavigate })
 
       {/* Card Footer Actions */}
       <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-2 border-t border-neutral-800/80 flex items-center justify-between gap-2">
-        <button
-          onClick={() => onNavigate(service.path)}
+        <a
+          href={service.path}
+          onClick={handleLinkClick}
           className="text-xs font-semibold text-neutral-300 hover:text-white flex items-center gap-1.5 focus:outline-none focus:ring-1 focus:ring-[#d4af37] rounded py-1"
         >
           <span>Ver detalhes do serviço</span>
           <ArrowRight className="w-3.5 h-3.5 text-[#d4af37] group-hover:translate-x-0.5 transition-transform" />
-        </button>
+        </a>
 
         <a
           href={targetWhatsAppUrl}

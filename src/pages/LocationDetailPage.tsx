@@ -13,10 +13,54 @@ interface LocationDetailPageProps {
 }
 
 export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location, onNavigate }) => {
+  const handleNav = (path: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(path);
+  };
+
   const breadcrumbItems = [
     { name: 'Áreas Atendidas', url: '/areas-atendidas/' },
     { name: location.cityName, url: location.path },
   ];
+
+  // Specific local schema
+  const localSchemas: Record<string, unknown>[] = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      name: `${COMPANY.tradeName} - Atendimento em ${location.cityName}`,
+      description: location.metaDescription,
+      url: `https://energy-manutencoes.vercel.app${location.path}`,
+      telephone: COMPANY.contact.phone,
+      areaServed: {
+        '@type': 'City',
+        name: location.cityName,
+      },
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: COMPANY.address.street,
+        addressLocality: COMPANY.address.city,
+        addressRegion: COMPANY.address.state,
+        postalCode: COMPANY.address.postalCode,
+        addressCountry: COMPANY.address.country,
+      },
+    },
+  ];
+
+  if (location.faqs && location.faqs.length > 0) {
+    localSchemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: location.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.answer,
+        },
+      })),
+    });
+  }
 
   return (
     <>
@@ -25,6 +69,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location
         description={location.metaDescription}
         canonicalPath={location.path}
         breadcrumbs={breadcrumbItems}
+        jsonLd={localSchemas}
       />
 
       <Breadcrumbs items={breadcrumbItems} onNavigate={onNavigate} />
@@ -139,21 +184,22 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location
                 </div>
               </div>
 
-              {/* Service shortcut links */}
+              {/* Service shortcut links with real <a> tags */}
               <div className="p-6 rounded-2xl bg-[#121217] border border-neutral-800">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-[#d4af37] mb-3">
                   Atalhos de Serviços
                 </h4>
                 <div className="space-y-2 text-xs">
-                  {SERVICES_DATA.slice(0, 5).map((s) => (
-                    <button
+                  {SERVICES_DATA.slice(0, 6).map((s) => (
+                    <a
                       key={s.id}
-                      onClick={() => onNavigate(s.path)}
-                      className="w-full text-left flex items-center justify-between text-neutral-300 hover:text-white py-1 transition-colors"
+                      href={s.path}
+                      onClick={(e) => handleNav(s.path, e)}
+                      className="w-full text-left flex items-center justify-between text-neutral-300 hover:text-white py-1 transition-colors group"
                     >
-                      <span className="truncate">{s.name}</span>
-                      <ChevronRight className="w-3.5 h-3.5 text-neutral-600" />
-                    </button>
+                      <span className="truncate group-hover:text-[#f3e5ab]">{s.name}</span>
+                      <ChevronRight className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#d4af37] transition-colors" />
+                    </a>
                   ))}
                 </div>
               </div>

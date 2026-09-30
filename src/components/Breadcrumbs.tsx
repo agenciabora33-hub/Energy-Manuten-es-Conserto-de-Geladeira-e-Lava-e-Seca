@@ -15,14 +15,18 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, onNavigate }) =
     >
       <ol className="flex items-center space-x-2 whitespace-nowrap">
         <li className="flex items-center">
-          <button
-            onClick={() => onNavigate('/')}
+          <a
+            href="/"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('/');
+            }}
             className="flex items-center gap-1 text-neutral-400 hover:text-[#d4af37] transition-colors focus:outline-none focus:ring-1 focus:ring-[#d4af37] rounded px-1 py-0.5"
             aria-label="Página Inicial"
           >
             <Home className="w-3.5 h-3.5" />
             <span>Início</span>
-          </button>
+          </a>
         </li>
 
         {items.map((item, index) => {
@@ -35,12 +39,16 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, onNavigate }) =
                   {item.name}
                 </span>
               ) : (
-                <button
-                  onClick={() => onNavigate(item.url)}
+                <a
+                  href={item.url}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    onNavigate(item.url);
+                  }}
                   className="text-neutral-400 hover:text-[#d4af37] transition-colors focus:outline-none focus:ring-1 focus:ring-[#d4af37] rounded px-1 py-0.5"
                 >
                   {item.name}
-                </button>
+                </a>
               )}
             </li>
           );

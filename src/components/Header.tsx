@@ -23,7 +23,8 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
   }, []);
 
   // Close mobile menu on navigation
-  const handleNavClick = (path: string) => {
+  const handleNavClick = (path: string, e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
     onNavigate(path);
@@ -79,14 +80,15 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
-          <button
-            onClick={() => handleNavClick('/')}
+          {/* Logo as crawlable link */}
+          <a
+            href="/"
+            onClick={(e) => handleNavClick('/', e)}
             className="flex items-center focus:outline-none focus:ring-2 focus:ring-[#d4af37] rounded-lg p-1 text-left"
             aria-label="Energy Manutenções - Página Inicial"
           >
             <EnergyLogo size="md" />
-          </button>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden xl:flex items-center space-x-1 2xl:space-x-2 text-sm font-medium" aria-label="Navegação Principal">
@@ -101,8 +103,9 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                     onMouseEnter={() => setServicesDropdownOpen(true)}
                     onMouseLeave={() => setServicesDropdownOpen(false)}
                   >
-                    <button
-                      onClick={() => handleNavClick(link.path)}
+                    <a
+                      href={link.path}
+                      onClick={(e) => handleNavClick(link.path, e)}
                       className={`inline-flex items-center gap-1 px-3 py-2 rounded-md transition-colors ${
                         isActive
                           ? 'text-[#f3e5ab] bg-[#18181f] border border-[#d4af37]/30'
@@ -113,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                     >
                       <span>{link.name}</span>
                       <ChevronDown className={`w-3.5 h-3.5 transition-transform ${servicesDropdownOpen ? 'rotate-180 text-[#d4af37]' : 'text-neutral-500'}`} />
-                    </button>
+                    </a>
 
                     {/* Services Dropdown Menu */}
                     {servicesDropdownOpen && (
@@ -124,23 +127,25 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                           </div>
                           <div className="grid grid-cols-1 gap-1 max-h-[360px] overflow-y-auto">
                             {SERVICES_DATA.slice(0, 8).map((service) => (
-                              <button
+                              <a
                                 key={service.path}
-                                onClick={() => handleNavClick(service.path)}
+                                href={service.path}
+                                onClick={(e) => handleNavClick(service.path, e)}
                                 className="w-full text-left px-2.5 py-1.5 text-xs text-neutral-300 hover:text-white hover:bg-[#1a1a24] rounded-lg transition-colors flex items-center justify-between"
                               >
                                 <span className="truncate">{service.name}</span>
                                 <span className="text-[10px] text-neutral-500 font-mono">{service.category}</span>
-                              </button>
+                              </a>
                             ))}
                           </div>
                           <div className="mt-2 pt-2 border-t border-neutral-800">
-                            <button
-                              onClick={() => handleNavClick('/servicos/')}
-                              className="w-full text-center text-xs font-semibold text-[#d4af37] hover:underline py-1"
+                            <a
+                              href="/servicos/"
+                              onClick={(e) => handleNavClick('/servicos/', e)}
+                              className="block w-full text-center text-xs font-semibold text-[#d4af37] hover:underline py-1"
                             >
                               Ver todos os 11 serviços →
-                            </button>
+                            </a>
                           </div>
                         </div>
                       </div>
@@ -150,9 +155,10 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
               }
 
               return (
-                <button
+                <a
                   key={link.path}
-                  onClick={() => handleNavClick(link.path)}
+                  href={link.path}
+                  onClick={(e) => handleNavClick(link.path, e)}
                   className={`px-3 py-2 rounded-md transition-colors ${
                     isActive
                       ? 'text-[#f3e5ab] bg-[#18181f] border border-[#d4af37]/30'
@@ -160,7 +166,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
                   }`}
                 >
                   {link.name}
-                </button>
+                </a>
               );
             })}
           </nav>
@@ -209,30 +215,33 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
         <div className="xl:hidden bg-[#0e0e12] border-b border-[#d4af37]/20 px-4 pt-3 pb-6 space-y-2 shadow-2xl animate-in fade-in duration-200">
           <div className="grid grid-cols-1 gap-1">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.path}
-                onClick={() => handleNavClick(link.path)}
-                className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                href={link.path}
+                onClick={(e) => handleNavClick(link.path, e)}
+                className={`w-full block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   currentPath === link.path
                     ? 'bg-[#1a1a24] text-[#f3e5ab] font-bold border border-[#d4af37]/30'
                     : 'text-neutral-300 hover:bg-neutral-900'
                 }`}
               >
                 {link.name}
-              </button>
+              </a>
             ))}
-            <button
-              onClick={() => handleNavClick('/marcas/')}
-              className="w-full text-left px-4 py-2 text-sm text-neutral-400 hover:text-white"
+            <a
+              href="/marcas/"
+              onClick={(e) => handleNavClick('/marcas/', e)}
+              className="w-full block px-4 py-2 text-sm text-neutral-400 hover:text-white"
             >
               Marcas Atendidas
-            </button>
-            <button
-              onClick={() => handleNavClick('/blog/')}
-              className="w-full text-left px-4 py-2 text-sm text-neutral-400 hover:text-white"
+            </a>
+            <a
+              href="/blog/"
+              onClick={(e) => handleNavClick('/blog/', e)}
+              className="w-full block px-4 py-2 text-sm text-neutral-400 hover:text-white"
             >
               Artigos Técnicos / Blog
-            </button>
+            </a>
           </div>
 
           <div className="pt-3 border-t border-neutral-800 flex flex-col gap-2.5">

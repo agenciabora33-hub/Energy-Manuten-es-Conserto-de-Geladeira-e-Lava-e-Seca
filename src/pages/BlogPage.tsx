@@ -18,6 +18,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
     (post) => selectedCategory === 'Todas' || post.category === selectedCategory
   );
 
+  const handleNav = (path: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(path);
+  };
+
   return (
     <>
       <SEOHead
@@ -79,7 +84,9 @@ export const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
                   </div>
 
                   <h2 className="text-lg font-bold text-white group-hover:text-[#f3e5ab] transition-colors leading-snug mb-2">
-                    {post.title}
+                    <a href={post.path} onClick={(e) => handleNav(post.path, e)}>
+                      {post.title}
+                    </a>
                   </h2>
 
                   <p className="text-xs text-neutral-400 leading-relaxed">
@@ -88,13 +95,14 @@ export const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-neutral-800 flex items-center justify-between">
-                  <button
-                    onClick={() => onNavigate(post.path)}
+                  <a
+                    href={post.path}
+                    onClick={(e) => handleNav(post.path, e)}
                     className="text-xs font-semibold text-neutral-200 group-hover:text-[#d4af37] flex items-center gap-1.5 transition-colors"
                   >
                     <span>Ler artigo completo</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </article>
             ))}

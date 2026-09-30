@@ -1,153 +1,202 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página Inicial -->
   <url>
-    <loc>https://{{DOMAIN}}/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Catálogo de Serviços -->
   <url>
-    <loc>https://{{DOMAIN}}/servicos/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://energy-manutencoes.vercel.app/servicos/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
+
+  <!-- Páginas de Serviços Específicos -->
   <url>
-    <loc>https://{{DOMAIN}}/conserto-geladeira-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://energy-manutencoes.vercel.app/conserto-geladeira-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-maquina-de-lavar-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://energy-manutencoes.vercel.app/conserto-maquina-de-lavar-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-lava-e-seca-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://energy-manutencoes.vercel.app/conserto-lava-e-seca-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-secadora-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/conserto-secadora-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-freezer-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/conserto-freezer-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-micro-ondas-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/conserto-micro-ondas-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-forno-eletrico-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/conserto-forno-eletrico-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-lava-loucas-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/conserto-lava-loucas-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-frigobar-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/conserto-frigobar-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-adega-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/conserto-adega-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/conserto-expositor-de-bebidas-caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/conserto-expositor-de-bebidas-caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Localidades Atendidas (SEO Local) -->
   <url>
-    <loc>https://{{DOMAIN}}/marcas/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://{{DOMAIN}}/areas-atendidas/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://{{DOMAIN}}/caxias-do-sul/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://{{DOMAIN}}/farroupilha/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://{{DOMAIN}}/flores-da-cunha/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://{{DOMAIN}}/eletrodomesticos-seminovos/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/areas-atendidas/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/sobre/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <loc>https://energy-manutencoes.vercel.app/caxias-do-sul/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/como-funciona/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://energy-manutencoes.vercel.app/farroupilha/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/faq/</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://energy-manutencoes.vercel.app/flores-da-cunha/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+
+  <!-- Marcas & Comercial -->
   <url>
-    <loc>https://{{DOMAIN}}/contato/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/marcas/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/blog/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/eletrodomesticos-seminovos/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Institucional & Suporte -->
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/sobre/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://{{DOMAIN}}/politica-de-privacidade/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://energy-manutencoes.vercel.app/como-funciona/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/faq/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/contato/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/politica-de-privacidade/</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- Blog e Artigos Técnicos de Resolução de Problemas -->
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/blog/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/blog/geladeira-nao-gela-principais-causas/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/blog/maquina-de-lavar-nao-centrifuga/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/blog/lava-e-seca-nao-seca-causas/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/blog/quando-vale-a-pena-consertar-geladeira/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/blog/geladeira-fazendo-barulho-quando-procurar-assistencia/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://energy-manutencoes.vercel.app/blog/como-identificar-sinais-problema-maquina-lavar/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

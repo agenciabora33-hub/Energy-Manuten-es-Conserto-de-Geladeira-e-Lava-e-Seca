@@ -13,9 +13,9 @@ import {
 } from 'lucide-react';
 import { ServiceItem } from '../types';
 import { COMPANY } from '../data/company';
+import { SERVICES_DATA } from '../data/services';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SEOHead } from '../components/SEOHead';
-import { BrandSection } from '../components/BrandSection';
 import { CTASection } from '../components/CTASection';
 
 interface ServiceDetailPageProps {
@@ -27,13 +27,18 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, o
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const targetWhatsAppUrl = COMPANY.buildWhatsAppUrl();
 
+  const handleNav = (path: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(path);
+  };
+
   const breadcrumbItems = [
     { name: 'Serviços', url: '/servicos/' },
     { name: service.name, url: service.path }
   ];
 
   // Service JSON-LD Schema
-  const serviceSchema = {
+  const serviceSchema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: service.name,
@@ -58,6 +63,27 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, o
     description: service.metaDescription,
   };
 
+  const schemas: Record<string, unknown>[] = [serviceSchema];
+
+  // Inject FAQPage Schema for Rich Results in Google Search
+  if (service.faqs && service.faqs.length > 0) {
+    schemas.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: service.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    });
+  }
+
+  // Related services
+  const relatedServices = SERVICES_DATA.filter((s) => s.id !== service.id).slice(0, 4);
+
   return (
     <>
       <SEOHead
@@ -65,7 +91,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, o
         description={service.metaDescription}
         canonicalPath={service.path}
         breadcrumbs={breadcrumbItems}
-        jsonLd={serviceSchema}
+        jsonLd={schemas}
       />
 
       <Breadcrumbs items={breadcrumbItems} onNavigate={onNavigate} />
@@ -224,7 +250,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, o
         </div>
       </section>
 
-      {/* Specific Service FAQs */}
+      {/* Specific Service FAQs with Schema */}
       {service.faqs && service.faqs.length > 0 && (
         <section className="py-12 sm:py-16 bg-[#0a0a0c]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -267,8 +293,48 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, o
         </section>
       )}
 
+      {/* Related Services Internal Linking Block */}
+      <section className="py-12 bg-[#0c0c11] border-t border-neutral-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col sm:flex-row items-baseline justify-between mb-6 gap-2">
+            <h3 className="text-lg font-bold text-white">
+              Outros Serviços de Assistência Técnica
+            </h3>
+            <a
+              href="/servicos/"
+              onClick={(e) => handleNav('/servicos/', e)}
+              className="text-xs text-[#d4af37] hover:underline flex items-center gap-1"
+            >
+              <span>Ver catálogo completo</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {relatedServices.map((rel) => (
+              <a
+                key={rel.id}
+                href={rel.path}
+                onClick={(e) => handleNav(rel.path, e)}
+                className="p-4 rounded-xl bg-[#14141c] border border-neutral-800 hover:border-[#d4af37]/40 transition-colors block group"
+              >
+                <span className="text-[10px] font-bold text-[#d4af37] uppercase tracking-wider block mb-1">
+                  {rel.category}
+                </span>
+                <p className="text-sm font-semibold text-white group-hover:text-[#f3e5ab] transition-colors mb-1">
+                  {rel.name}
+                </p>
+                <p className="text-xs text-neutral-400 line-clamp-2">
+                  {rel.shortDescription}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Localities covered for this service */}
-      <section className="py-10 bg-[#0d0d12] border-t border-neutral-900 text-xs text-neutral-300">
+      <section className="py-10 bg-[#08080c] border-t border-neutral-900 text-xs text-neutral-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div>
             <p className="font-bold text-white">
@@ -279,26 +345,29 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, o
             </p>
           </div>
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => onNavigate('/caxias-do-sul/')}
-              className="hover:text-[#d4af37] underline"
+            <a
+              href="/caxias-do-sul/"
+              onClick={(e) => handleNav('/caxias-do-sul/', e)}
+              className="hover:text-[#d4af37] underline text-neutral-300"
             >
               Caxias do Sul
-            </button>
+            </a>
             <span>•</span>
-            <button
-              onClick={() => onNavigate('/farroupilha/')}
-              className="hover:text-[#d4af37] underline"
+            <a
+              href="/farroupilha/"
+              onClick={(e) => handleNav('/farroupilha/', e)}
+              className="hover:text-[#d4af37] underline text-neutral-300"
             >
               Farroupilha
-            </button>
+            </a>
             <span>•</span>
-            <button
-              onClick={() => onNavigate('/flores-da-cunha/')}
-              className="hover:text-[#d4af37] underline"
+            <a
+              href="/flores-da-cunha/"
+              onClick={(e) => handleNav('/flores-da-cunha/', e)}
+              className="hover:text-[#d4af37] underline text-neutral-300"
             >
               Flores da Cunha
-            </button>
+            </a>
           </div>
         </div>
       </section>

@@ -45,12 +45,16 @@ export const BrandSection: React.FC<BrandSectionProps> = ({ onNavigate }) => {
 
         {onNavigate && (
           <div className="text-center mt-6">
-            <button
-              onClick={() => onNavigate('/marcas/')}
+            <a
+              href="/marcas/"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('/marcas/');
+              }}
               className="text-xs font-semibold text-[#d4af37] hover:underline"
             >
               Saiba mais sobre as marcas atendidas pela Energy Manutenções →
-            </button>
+            </a>
           </div>
         )}
       </div>

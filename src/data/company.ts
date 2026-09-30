@@ -4,10 +4,16 @@
  * Todos os dados foram extraídos do PRD oficial.
  */
 
-export const COMPANY_DOMAIN = '{{DOMAIN}}';
+export const COMPANY_DOMAIN = 'energy-manutencoes.vercel.app';
+export const SITE_URL = 'https://energy-manutencoes.vercel.app';
 
 export function getAbsoluteUrl(path: string): string {
-  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  if (!path || path === '') return SITE_URL;
+  let cleanPath = path.startsWith('/') ? path : `/${path}`;
+  const hasExtension = /\.[a-z0-9]{2,5}$/i.test(cleanPath);
+  if (!hasExtension && !cleanPath.endsWith('/')) {
+    cleanPath = `${cleanPath}/`;
+  }
   return `https://${COMPANY_DOMAIN}${cleanPath}`;
 }
 
@@ -20,6 +26,7 @@ export const COMPANY = {
   legalNature: 'Empresário Individual',
   primaryActivity: 'Reparação e manutenção de equipamentos eletroeletrônicos de uso pessoal e doméstico.',
   description: 'Manutenção e assistência técnica de eletrodomésticos em Caxias do Sul e região.',
+  websiteUrl: 'https://energy-manutencoes.vercel.app',
   logoUrl: '/logo.png',
   logoExternalUrl: 'https://i.ibb.co/VYBYP2zH/ALTA-ENETGY-400-X150.png',
   faviconUrl: '/favicon.png',

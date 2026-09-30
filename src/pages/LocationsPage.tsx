@@ -11,6 +11,11 @@ interface LocationsPageProps {
 }
 
 export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
+  const handleNav = (path: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(path);
+  };
+
   return (
     <>
       <SEOHead
@@ -51,7 +56,9 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
                   </div>
 
                   <h2 className="text-2xl font-bold text-white mb-2">
-                    {loc.cityName}
+                    <a href={loc.path} onClick={(e) => handleNav(loc.path, e)}>
+                      {loc.cityName}
+                    </a>
                   </h2>
 
                   <p className="text-xs text-neutral-400 leading-relaxed mb-4">
@@ -72,13 +79,14 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
                 </div>
 
                 <div className="pt-6 mt-6 border-t border-neutral-800 flex items-center justify-between">
-                  <button
-                    onClick={() => onNavigate(loc.path)}
+                  <a
+                    href={loc.path}
+                    onClick={(e) => handleNav(loc.path, e)}
                     className="text-xs font-semibold text-neutral-200 hover:text-[#f3e5ab] flex items-center gap-1"
                   >
                     <span>Ver página de {loc.cityName}</span>
                     <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
-                  </button>
+                  </a>
 
                   <a
                     href={COMPANY.buildWhatsAppUrl()}
