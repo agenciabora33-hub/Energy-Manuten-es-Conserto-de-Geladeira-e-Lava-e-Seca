@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="168" height="40" viewBox="0 0 168 40" fill="none">
+  <!-- Container pill following Google Search Profile Brand Guidelines -->
+  <rect x="0.5" y="0.5" width="167" height="39" rx="19.5" fill="#131314" stroke="#5E5E5E" stroke-width="1"/>
+  <!-- Official Google Multi-color G Icon -->
+  <g transform="translate(14, 10)">
+    <path d="M19.6 10.23c0-.82-.07-1.42-.25-2.05H10v3.72h5.5c-.15.96-.74 2.31-2.04 3.22v2.45h3.16c1.89-1.73 2.98-4.3 2.98-7.34z" fill="#4285F4"/>
+    <path d="M10 20c2.7 0 4.98-.89 6.64-2.43l-3.16-2.45c-.83.58-1.96.99-3.48.99-2.73 0-5.06-1.81-5.9-4.32H.79v2.53C2.54 17.84 5.99 20 10 20z" fill="#34A853"/>
+    <path d="M4.1 11.79c-.23-.68-.36-1.4-.36-2.14s.13-1.46.35-2.14V4.98H.79C.07 6.42-.32 8.01-.32 9.65s.39 3.23 1.11 4.67l3.31-2.53z" fill="#FBBC05"/>
+    <path d="M10 3.88c1.88 0 3.13.81 3.85 1.48l2.84-2.76C14.94 1.01 12.7 0 10 0 5.99 0 2.54 2.16.79 5.67l3.31 2.53c.84-2.51 3.17-4.32 5.9-4.32z" fill="#EA4335"/>
+  </g>
+  <!-- Google Search Typography -->
+  <text x="42" y="25" fill="#FFFFFF" font-family="'Google Sans', Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" font-size="14" font-weight="500" letter-spacing="0.2">Google Search</text>
+</svg>

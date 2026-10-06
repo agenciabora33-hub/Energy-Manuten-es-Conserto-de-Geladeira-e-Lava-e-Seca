@@ -63,6 +63,12 @@ export const COMPANY = {
     badgeText: 'Mais de 850 avaliações no Google com nota 4.9',
   },
 
+  googleSearchProfile: {
+    url: 'https://profile.google.com/@example',
+    badgeSvgUrl: '/path/to/google-search-badge.svg',
+    ariaLabel: 'Find us on Google Search',
+  },
+
   confirmedAreas: [
     { name: 'Caxias do Sul', slug: 'caxias-do-sul', path: '/caxias-do-sul/' },
     { name: 'Farroupilha', slug: 'farroupilha', path: '/farroupilha/' },

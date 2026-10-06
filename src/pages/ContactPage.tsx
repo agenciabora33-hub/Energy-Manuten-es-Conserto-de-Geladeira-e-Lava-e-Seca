@@ -84,6 +84,25 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                       <p className="text-[11px] text-neutral-300 mt-0.5">Mais de 850 avaliações de clientes</p>
                     </div>
                   </div>
+
+                  {/* Google Search Profile Badge */}
+                  <div className="pt-1">
+                    <a
+                      href="https://profile.google.com/@example"
+                      aria-label="Find us on Google Search"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block hover:opacity-90 active:scale-95 transition-all"
+                    >
+                      <img
+                        src="/path/to/google-search-badge.svg"
+                        alt="Google Search"
+                        width={168}
+                        height={40}
+                        className="h-10 w-auto"
+                      />
+                    </a>
+                  </div>
                 </div>
 
                 <div className="pt-3 border-t border-neutral-800">
