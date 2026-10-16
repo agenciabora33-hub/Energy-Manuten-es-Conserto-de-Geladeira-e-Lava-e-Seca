@@ -120,6 +120,40 @@ function createServiceSchema(serviceName: string, description: string, url: stri
 }
 
 const STATIC_ROUTES: StaticRoute[] = [
+  // 0. Página Inicial
+  {
+    path: '/',
+    title: 'Energy Manutenções | Assistência Técnica de Eletrodomésticos em Caxias do Sul',
+    description: 'Assistência técnica e conserto de geladeiras, máquinas de lavar, lava e seca e eletrodomésticos em Caxias do Sul, Farroupilha e Flores da Cunha. Avaliação 4.9 no Google (+850 avaliações). Atendimento a domicílio.',
+    h1: 'Assistência Técnica de Eletrodomésticos em Caxias do Sul e Região',
+    breadcrumbs: [
+      { name: 'Início', url: '/' }
+    ],
+    contentHtml: `
+      <p class="lead">Assistência técnica especializada no conserto e manutenção de geladeiras, máquinas de lavar roupas, lava e seca, secadoras, freezers e eletrodomésticos da linha branca em Caxias do Sul, Farroupilha e Flores da Cunha.</p>
+      <h2>Serviços em Destaque</h2>
+      <ul>
+        <li><a href="/conserto-geladeira-caxias-do-sul/">Conserto de Geladeiras em Caxias do Sul</a></li>
+        <li><a href="/conserto-maquina-de-lavar-caxias-do-sul/">Conserto de Máquinas de Lavar em Caxias do Sul</a></li>
+        <li><a href="/conserto-lava-e-seca-caxias-do-sul/">Conserto de Lava e Seca em Caxias do Sul</a></li>
+        <li><a href="/conserto-secadora-caxias-do-sul/">Conserto de Secadoras de Roupas</a></li>
+        <li><a href="/conserto-freezer-caxias-do-sul/">Conserto de Freezers</a></li>
+        <li><a href="/conserto-micro-ondas-caxias-do-sul/">Conserto de Fornos Micro-ondas</a></li>
+      </ul>
+      <h2>Cidades Atendidas na Serra Gaúcha</h2>
+      <ul>
+        <li><a href="/caxias-do-sul/">Assistência Técnica em Caxias do Sul</a></li>
+        <li><a href="/farroupilha/">Assistência Técnica em Farroupilha</a></li>
+        <li><a href="/flores-da-cunha/">Assistência Técnica em Flores da Cunha</a></li>
+      </ul>
+      <h2>Por Que Escolher a Energy Manutenções?</h2>
+      <p>Mais de 850 clientes satisfeitos com nota 4.9 no Google. Técnicos qualificados, garantia em todos os serviços executados e peças originais.</p>
+    `,
+    schemas: [
+      BASE_BUSINESS_SCHEMA,
+      createBreadcrumbSchema([{ name: 'Início', url: '/' }])
+    ]
+  },
   // 1. Serviços Index
   {
     path: '/servicos/',
@@ -1191,7 +1225,54 @@ export function generateStaticHtmlFiles() {
     console.log(`Pre-rendered: ${route.path} -> ${targetFilePath}`);
   }
 
-  console.log(`Successfully pre-rendered ${STATIC_ROUTES.length} static routes for Google Search Console!`);
+  // 9. Generate and write validated W3C Sitemaps (XML and Text for Bing & Google)
+  const today = new Date().toISOString().split('T')[0];
+  const sitemapXmlEntries = STATIC_ROUTES.map((r) => {
+    const priority =
+      r.path === '/'
+        ? '1.0'
+        : r.path === '/servicos/' ||
+          r.path.includes('geladeira') ||
+          r.path.includes('maquina-de-lavar') ||
+          r.path.includes('lava-e-seca') ||
+          r.path === '/caxias-do-sul/'
+        ? '0.95'
+        : r.path.startsWith('/conserto-') || r.path === '/areas-atendidas/'
+        ? '0.90'
+        : r.path === '/politica-de-privacidade/'
+        ? '0.30'
+        : '0.85';
+
+    const changefreq =
+      r.path === '/' || r.path === '/servicos/' || r.path.startsWith('/conserto-')
+        ? 'weekly'
+        : r.path === '/politica-de-privacidade/'
+        ? 'yearly'
+        : 'monthly';
+
+    const loc = `${SITE_URL}${r.path}`;
+    return `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+  }).join('\n');
+
+  const sitemapXmlContent = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\n        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">\n${sitemapXmlEntries}\n</urlset>\n`;
+
+  const sitemapTxtContent = STATIC_ROUTES.map((r) => `${SITE_URL}${r.path}`).join('\n') + '\n';
+
+  // Write to dist
+  fs.writeFileSync(path.join(distDir, 'sitemap.xml'), sitemapXmlContent, 'utf8');
+  fs.writeFileSync(path.join(distDir, 'sitemap.txt'), sitemapTxtContent, 'utf8');
+  fs.writeFileSync(path.join(distDir, 'urllist.txt'), sitemapTxtContent, 'utf8');
+
+  // Write to public for source control sync
+  const publicDir = path.resolve(process.cwd(), 'public');
+  if (fs.existsSync(publicDir)) {
+    fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapXmlContent, 'utf8');
+    fs.writeFileSync(path.join(publicDir, 'sitemap.txt'), sitemapTxtContent, 'utf8');
+    fs.writeFileSync(path.join(publicDir, 'urllist.txt'), sitemapTxtContent, 'utf8');
+  }
+
+  console.log(`Generated validated sitemap.xml, sitemap.txt, and urllist.txt with ${STATIC_ROUTES.length} URLs!`);
+  console.log(`Successfully pre-rendered ${STATIC_ROUTES.length} static routes for Google Search Console & Bing Webmaster Tools!`);
 }
 
 generateStaticHtmlFiles();

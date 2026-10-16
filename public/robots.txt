@@ -11,3 +11,4 @@ User-agent: Bingbot
 Allow: /
 
 Sitemap: https://energy-manutencoes.vercel.app/sitemap.xml
+Sitemap: https://energy-manutencoes.vercel.app/sitemap.txt

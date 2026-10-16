@@ -171,19 +171,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             })}
           </nav>
 
-          {/* Desktop Right CTA (WhatsApp) */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a
-              href={COMPANY.contact.defaultWhatsAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-gradient-to-r from-[#d4af37] to-[#aa851d] text-[#0a0a0c] font-bold text-sm shadow-[0_2px_12px_rgba(212,175,55,0.3)] hover:brightness-110 active:scale-[0.98] transition-all"
-              aria-label="Falar com a Energy Manutenções pelo WhatsApp"
-            >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>WhatsApp</span>
-            </a>
-          </div>
+
 
           {/* Mobile Right Controls: Compact WhatsApp icon + Menu Toggle */}
           <div className="flex items-center gap-2 xl:hidden">
