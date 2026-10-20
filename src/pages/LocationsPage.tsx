@@ -19,8 +19,8 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Assistência Técnica em Caxias do Sul e Região | Energy"
-        description="Áreas atendidas pela Energy Manutenções: Caxias do Sul, Farroupilha e Flores da Cunha. Atendimento a domicílio mediante agendamento."
+        title="Áreas Atendidas na Serra Gaúcha | Energy Manutenções"
+        description="Conheça as cidades atendidas pela Energy Manutenções: Caxias do Sul, Farroupilha e Flores da Cunha. Atendimento presencial a domicílio com garantia."
         canonicalPath="/areas-atendidas/"
         breadcrumbs={[{ name: 'Áreas Atendidas', url: '/areas-atendidas/' }]}
       />
@@ -34,7 +34,7 @@ export const LocationsPage: React.FC<LocationsPageProps> = ({ onNavigate }) => {
               Serra Gaúcha
             </span>
             <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Assistência técnica de eletrodomésticos em Caxias do Sul e região
+              Cidades Atendidas na Serra Gaúcha
             </h1>
             <p className="mt-3 text-sm sm:text-base text-neutral-300 leading-relaxed">
               Realizamos atendimento a domicílio mediante agendamento prévio. Conheça as cidades confirmadas onde atuamos regularmente com serviços de reparo para geladeiras, lavadoras, lava e seca e demais eletrodomésticos.

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, Calendar, ArrowLeft, MessageCircle, AlertCircle, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Clock, Calendar, ArrowLeft, MessageCircle, AlertCircle, CheckCircle2, ArrowRight, Wrench } from 'lucide-react';
 import { BlogPost } from '../types';
 import { COMPANY, getAbsoluteUrl } from '../data/company';
 import { BLOG_POSTS } from '../data/blog';
@@ -138,6 +138,98 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onNavigate }) 
                 <MessageCircle className="w-4 h-4 fill-current" />
                 <span>{post.whatsappCTA}</span>
               </a>
+            </div>
+
+            {/* Contextual Internal Links to Specialized Services */}
+            <div className="mt-8 p-6 rounded-2xl bg-[#111118] border border-neutral-800 space-y-4">
+              <h3 className="text-base font-bold text-white flex items-center gap-2">
+                <Wrench className="w-4 h-4 text-[#d4af37]" />
+                <span>Serviços de Assistência Técnica Relacionados em Caxias do Sul</span>
+              </h3>
+              <p className="text-xs text-neutral-300">
+                Se o seu equipamento está com defeito ou você precisa de um orçamento seguro com garantia de 90 dias, confira nossas especialidades:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                {post.category === 'Refrigeração' ? (
+                  <>
+                    <a
+                      href="/conserto-geladeira-caxias-do-sul/"
+                      onClick={(e) => handleNav('/conserto-geladeira-caxias-do-sul/', e)}
+                      className="p-2.5 rounded-lg bg-[#181822] hover:bg-[#1e1e2c] text-neutral-200 hover:text-white transition-colors flex items-center justify-between"
+                    >
+                      <span>Conserto de Geladeira em Caxias do Sul</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                    </a>
+                    <a
+                      href="/conserto-freezer-caxias-do-sul/"
+                      onClick={(e) => handleNav('/conserto-freezer-caxias-do-sul/', e)}
+                      className="p-2.5 rounded-lg bg-[#181822] hover:bg-[#1e1e2c] text-neutral-200 hover:text-white transition-colors flex items-center justify-between"
+                    >
+                      <span>Conserto de Freezer em Caxias do Sul</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                    </a>
+                    <a
+                      href="/conserto-frigobar-caxias-do-sul/"
+                      onClick={(e) => handleNav('/conserto-frigobar-caxias-do-sul/', e)}
+                      className="p-2.5 rounded-lg bg-[#181822] hover:bg-[#1e1e2c] text-neutral-200 hover:text-white transition-colors flex items-center justify-between"
+                    >
+                      <span>Conserto de Frigobar</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                    </a>
+                    <a
+                      href="/conserto-expositor-de-bebidas-caxias-do-sul/"
+                      onClick={(e) => handleNav('/conserto-expositor-de-bebidas-caxias-do-sul/', e)}
+                      className="p-2.5 rounded-lg bg-[#181822] hover:bg-[#1e1e2c] text-neutral-200 hover:text-white transition-colors flex items-center justify-between"
+                    >
+                      <span>Conserto de Expositor de Bebidas</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                    </a>
+                  </>
+                ) : (
+                  <>
+                    <a
+                      href="/conserto-maquina-de-lavar-caxias-do-sul/"
+                      onClick={(e) => handleNav('/conserto-maquina-de-lavar-caxias-do-sul/', e)}
+                      className="p-2.5 rounded-lg bg-[#181822] hover:bg-[#1e1e2c] text-neutral-200 hover:text-white transition-colors flex items-center justify-between"
+                    >
+                      <span>Conserto de Máquina de Lavar</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                    </a>
+                    <a
+                      href="/conserto-lava-e-seca-caxias-do-sul/"
+                      onClick={(e) => handleNav('/conserto-lava-e-seca-caxias-do-sul/', e)}
+                      className="p-2.5 rounded-lg bg-[#181822] hover:bg-[#1e1e2c] text-neutral-200 hover:text-white transition-colors flex items-center justify-between"
+                    >
+                      <span>Conserto de Lava e Seca</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                    </a>
+                    <a
+                      href="/conserto-secadora-caxias-do-sul/"
+                      onClick={(e) => handleNav('/conserto-secadora-caxias-do-sul/', e)}
+                      className="p-2.5 rounded-lg bg-[#181822] hover:bg-[#1e1e2c] text-neutral-200 hover:text-white transition-colors flex items-center justify-between"
+                    >
+                      <span>Conserto de Secadora de Roupas</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                    </a>
+                    <a
+                      href="/servicos/"
+                      onClick={(e) => handleNav('/servicos/', e)}
+                      className="p-2.5 rounded-lg bg-[#181822] hover:bg-[#1e1e2c] text-[#d4af37] hover:text-white transition-colors flex items-center justify-between"
+                    >
+                      <span>Ver Todos os 11 Serviços</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#d4af37]" />
+                    </a>
+                  </>
+                )}
+              </div>
+              <div className="pt-2 border-t border-neutral-800 text-xs text-neutral-400 flex flex-wrap items-center gap-2">
+                <span>Atendimento presencial nas cidades:</span>
+                <a href="/caxias-do-sul/" onClick={(e) => handleNav('/caxias-do-sul/', e)} className="text-[#d4af37] underline">Caxias do Sul</a>
+                <span>•</span>
+                <a href="/farroupilha/" onClick={(e) => handleNav('/farroupilha/', e)} className="text-[#d4af37] underline">Farroupilha</a>
+                <span>•</span>
+                <a href="/flores-da-cunha/" onClick={(e) => handleNav('/flores-da-cunha/', e)} className="text-[#d4af37] underline">Flores da Cunha</a>
+              </div>
             </div>
           </div>
 

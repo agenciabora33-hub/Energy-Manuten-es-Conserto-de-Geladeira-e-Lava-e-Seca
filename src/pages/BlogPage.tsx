@@ -26,8 +26,8 @@ export const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Blog & Dicas Técnicas | Energy Manutenções Caxias do Sul"
-        description="Artigos informativos e orientações técnicas sobre geladeiras, lavadoras de roupa e lava e seca. Dicas de funcionamento e quando buscar assistência."
+        title="Blog e Dicas de Eletrodomésticos | Energy Manutenções"
+        description="Artigos técnicos e dicas de manutenção para geladeiras, lavadoras e lava e seca em Caxias do Sul. Aprenda a cuidar melhor dos seus aparelhos."
         canonicalPath="/blog/"
         breadcrumbs={[{ name: 'Blog', url: '/blog/' }]}
       />
@@ -41,7 +41,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ onNavigate }) => {
               Conhecimento Técnico & Prevenção
             </span>
             <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Artigos Técnicos e Orientações para Eletrodomésticos
+              Blog e Dicas Técnicas de Eletrodomésticos
             </h1>
             <p className="mt-3 text-sm sm:text-base text-neutral-300 leading-relaxed">
               Conteúdo fundamentado na prática de manutenção para ajudar você a identificar sintomas reais, entender o funcionamento dos equipamentos e saber o momento certo de procurar assistência.

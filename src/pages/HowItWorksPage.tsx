@@ -44,8 +44,8 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onNavigate }) =>
   return (
     <>
       <SEOHead
-        title="Como Funciona o Atendimento | Energy Manutenções Caxias do Sul"
-        description="Entenda o passo a passo do atendimento a domicílio da Energy Manutenções: contato pelo WhatsApp, avaliação inicial, visita técnica e solução transparente."
+        title="Como Funciona o Atendimento | Energy Manutenções"
+        description="Passo a passo do atendimento a domicílio: contato pelo WhatsApp, agendamento de visita técnica, diagnóstico transparente e conserto com garantia."
         canonicalPath="/como-funciona/"
         breadcrumbs={[{ name: 'Como Funciona', url: '/como-funciona/' }]}
       />
@@ -59,7 +59,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onNavigate }) =>
               Passo a Passo Transparente
             </span>
             <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Como funciona o atendimento da Energy Manutenções
+              Como Funciona o Atendimento da Energy
             </h1>
             <p className="mt-3 text-base text-neutral-300 leading-relaxed">
               Estruturamos nosso atendimento para que o processo seja simples, seguro e sem surpresas. Saiba o que esperar desde a primeira mensagem até a conclusão do reparo.

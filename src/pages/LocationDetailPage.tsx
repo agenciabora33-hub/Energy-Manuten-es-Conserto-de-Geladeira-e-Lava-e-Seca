@@ -184,13 +184,22 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location
                 </div>
               </div>
 
-              {/* Service shortcut links with real <a> tags */}
-              <div className="p-6 rounded-2xl bg-[#121217] border border-neutral-800">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#d4af37] mb-3">
-                  Atalhos de Serviços
-                </h4>
-                <div className="space-y-2 text-xs">
-                  {SERVICES_DATA.slice(0, 6).map((s) => (
+              {/* Service shortcut links with real <a> tags for all 11 services */}
+              <div className="p-6 rounded-2xl bg-[#121217] border border-neutral-800 space-y-4">
+                <div className="flex items-center justify-between border-b border-neutral-800 pb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#d4af37]">
+                    Serviços em {location.cityName}
+                  </h4>
+                  <a
+                    href="/servicos/"
+                    onClick={(e) => handleNav('/servicos/', e)}
+                    className="text-[11px] text-[#d4af37] hover:underline"
+                  >
+                    Ver todos (11)
+                  </a>
+                </div>
+                <div className="space-y-1.5 text-xs max-h-[380px] overflow-y-auto pr-1">
+                  {SERVICES_DATA.map((s) => (
                     <a
                       key={s.id}
                       href={s.path}
@@ -201,6 +210,44 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location
                       <ChevronRight className="w-3.5 h-3.5 text-neutral-600 group-hover:text-[#d4af37] transition-colors" />
                     </a>
                   ))}
+                </div>
+
+                <div className="pt-3 border-t border-neutral-800 space-y-2">
+                  <p className="text-[11px] font-bold uppercase tracking-wider text-[#d4af37]">
+                    Outras Cidades Atendidas
+                  </p>
+                  <div className="flex flex-col gap-1 text-xs">
+                    {location.id !== 'caxias-do-sul' && (
+                      <a
+                        href="/caxias-do-sul/"
+                        onClick={(e) => handleNav('/caxias-do-sul/', e)}
+                        className="text-neutral-300 hover:text-white hover:underline flex items-center justify-between py-0.5"
+                      >
+                        <span>Caxias do Sul (Sede Marechal Floriano)</span>
+                        <ChevronRight className="w-3 h-3 text-neutral-500" />
+                      </a>
+                    )}
+                    {location.id !== 'farroupilha' && (
+                      <a
+                        href="/farroupilha/"
+                        onClick={(e) => handleNav('/farroupilha/', e)}
+                        className="text-neutral-300 hover:text-white hover:underline flex items-center justify-between py-0.5"
+                      >
+                        <span>Farroupilha - RS</span>
+                        <ChevronRight className="w-3 h-3 text-neutral-500" />
+                      </a>
+                    )}
+                    {location.id !== 'flores-da-cunha' && (
+                      <a
+                        href="/flores-da-cunha/"
+                        onClick={(e) => handleNav('/flores-da-cunha/', e)}
+                        className="text-neutral-300 hover:text-white hover:underline flex items-center justify-between py-0.5"
+                      >
+                        <span>Flores da Cunha - RS</span>
+                        <ChevronRight className="w-3 h-3 text-neutral-500" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>

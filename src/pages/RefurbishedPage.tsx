@@ -38,8 +38,8 @@ export const RefurbishedPage: React.FC<RefurbishedPageProps> = ({ onNavigate }) 
   return (
     <>
       <SEOHead
-        title="Eletrodomésticos Seminovos em Caxias do Sul | Energy Manutenções"
-        description="Eletrodomésticos seminovos revisados com 60 dias de garantia mecânica. Possibilidade de troca de usado mediante análise. Consulte no WhatsApp."
+        title="Eletrodomésticos Seminovos em Caxias do Sul | Energy"
+        description="Geladeiras e máquinas de lavar seminovas revisadas com garantia mecânica de 60 dias em Caxias do Sul. Consulte modelos disponíveis no WhatsApp."
         canonicalPath="/eletrodomesticos-seminovos/"
         breadcrumbs={[{ name: 'Seminovos', url: '/eletrodomesticos-seminovos/' }]}
       />
@@ -55,7 +55,7 @@ export const RefurbishedPage: React.FC<RefurbishedPageProps> = ({ onNavigate }) 
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-              Eletrodomésticos seminovos revisados
+              Eletrodomésticos Seminovos Revisados com Garantia
             </h1>
 
             <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">

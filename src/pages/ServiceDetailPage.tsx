@@ -337,36 +337,91 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ service, o
       <section className="py-10 bg-[#08080c] border-t border-neutral-900 text-xs text-neutral-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           <div>
-            <p className="font-bold text-white">
+            <p className="font-bold text-white text-sm">
               Atendimento presencial a domicílio para {service.name}:
             </p>
             <p className="text-neutral-400 mt-0.5">
-              Caxias do Sul (sede no Marechal Floriano), Farroupilha e Flores da Cunha.
+              Técnicos especializados atendendo Caxias do Sul (sede no Marechal Floriano), Farroupilha e Flores da Cunha.
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3 font-medium">
             <a
               href="/caxias-do-sul/"
               onClick={(e) => handleNav('/caxias-do-sul/', e)}
-              className="hover:text-[#d4af37] underline text-neutral-300"
+              className="px-3 py-1.5 rounded-lg bg-[#14141d] border border-neutral-800 hover:border-[#d4af37]/40 text-neutral-200 hover:text-white transition-colors"
             >
-              Caxias do Sul
+              Caxias do Sul (Sede)
             </a>
-            <span>•</span>
             <a
               href="/farroupilha/"
               onClick={(e) => handleNav('/farroupilha/', e)}
-              className="hover:text-[#d4af37] underline text-neutral-300"
+              className="px-3 py-1.5 rounded-lg bg-[#14141d] border border-neutral-800 hover:border-[#d4af37]/40 text-neutral-200 hover:text-white transition-colors"
             >
               Farroupilha
             </a>
-            <span>•</span>
             <a
               href="/flores-da-cunha/"
               onClick={(e) => handleNav('/flores-da-cunha/', e)}
-              className="hover:text-[#d4af37] underline text-neutral-300"
+              className="px-3 py-1.5 rounded-lg bg-[#14141d] border border-neutral-800 hover:border-[#d4af37]/40 text-neutral-200 hover:text-white transition-colors"
             >
               Flores da Cunha
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Internal Linking & Quick Navigation Mesh */}
+      <section className="py-10 bg-[#0e0e14] border-t border-neutral-900 text-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-6">
+          <div className="border-b border-neutral-800/80 pb-4 flex flex-col sm:flex-row items-baseline justify-between gap-2">
+            <h4 className="text-sm font-bold text-white">
+              Guia Rápido de Eletrodomésticos e Informações Úteis
+            </h4>
+            <span className="text-neutral-400">Energy Manutenções • Assistência Técnica na Serra Gaúcha</span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+            <a
+              href="/servicos/"
+              onClick={(e) => handleNav('/servicos/', e)}
+              className="p-2.5 rounded-lg bg-[#14141b] border border-neutral-800/80 text-neutral-300 hover:text-white hover:border-[#d4af37]/40 transition-colors"
+            >
+              Todos os Serviços
+            </a>
+            <a
+              href="/marcas/"
+              onClick={(e) => handleNav('/marcas/', e)}
+              className="p-2.5 rounded-lg bg-[#14141b] border border-neutral-800/80 text-neutral-300 hover:text-white hover:border-[#d4af37]/40 transition-colors"
+            >
+              Marcas Atendidas
+            </a>
+            <a
+              href="/eletrodomesticos-seminovos/"
+              onClick={(e) => handleNav('/eletrodomesticos-seminovos/', e)}
+              className="p-2.5 rounded-lg bg-[#14141b] border border-neutral-800/80 text-neutral-300 hover:text-white hover:border-[#d4af37]/40 transition-colors"
+            >
+              Seminovos com Garantia
+            </a>
+            <a
+              href="/como-funciona/"
+              onClick={(e) => handleNav('/como-funciona/', e)}
+              className="p-2.5 rounded-lg bg-[#14141b] border border-neutral-800/80 text-neutral-300 hover:text-white hover:border-[#d4af37]/40 transition-colors"
+            >
+              Como Funciona a Visita
+            </a>
+            <a
+              href="/faq/"
+              onClick={(e) => handleNav('/faq/', e)}
+              className="p-2.5 rounded-lg bg-[#14141b] border border-neutral-800/80 text-neutral-300 hover:text-white hover:border-[#d4af37]/40 transition-colors"
+            >
+              Perguntas Frequentes
+            </a>
+            <a
+              href="/blog/"
+              onClick={(e) => handleNav('/blog/', e)}
+              className="p-2.5 rounded-lg bg-[#14141b] border border-neutral-800/80 text-neutral-300 hover:text-white hover:border-[#d4af37]/40 transition-colors"
+            >
+              Blog & Diagnósticos
             </a>
           </div>
         </div>

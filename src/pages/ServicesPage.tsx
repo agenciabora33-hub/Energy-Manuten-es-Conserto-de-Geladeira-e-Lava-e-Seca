@@ -21,8 +21,8 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Serviços de Assistência Técnica | Energy Manutenções Caxias do Sul"
-        description="Conheça todos os serviços de conserto de geladeiras, máquinas de lavar, lava e seca, freezers e fornos em Caxias do Sul e região."
+        title="Serviços de Assistência Técnica | Energy Manutenções"
+        description="Conserto de geladeiras, máquinas de lavar, lava e seca, freezers e fornos em Caxias do Sul e região. Atendimento a domicílio com agendamento ágil."
         canonicalPath="/servicos/"
         breadcrumbs={[{ name: 'Serviços', url: '/servicos/' }]}
       />
@@ -36,7 +36,7 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
               Catálogo de Especialidades Técnicas
             </span>
             <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Manutenção e Assistência Técnica de Eletrodomésticos
+              Serviços de Assistência Técnica de Eletrodomésticos
             </h1>
             <p className="mt-3 text-sm sm:text-base text-neutral-300 leading-relaxed">
               Atendimento técnico especializado em Caxias do Sul, Farroupilha e Flores da Cunha. Grande parte dos reparos pode ser realizada no endereço do cliente mediante agendamento prévio.

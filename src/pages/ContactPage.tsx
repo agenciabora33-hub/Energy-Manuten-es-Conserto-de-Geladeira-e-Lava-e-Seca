@@ -14,8 +14,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Contato | Energy Manutenções Caxias do Sul"
-        description="Fale com a Energy Manutenções. Telefone e WhatsApp (54) 99179-6080. Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul - RS."
+        title="Contato e Localização | Energy Manutenções Caxias"
+        description="Entre em contato com a Energy Manutenções em Caxias do Sul. Telefone e WhatsApp (54) 99179-6080. Sede na Rua Índia Ceci, 141, Marechal Floriano."
         canonicalPath="/contato/"
         breadcrumbs={[{ name: 'Contato', url: '/contato/' }]}
       />
@@ -29,7 +29,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
               Canais Oficiais de Atendimento
             </span>
             <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Fale com a Energy Manutenções
+              Contato e Localização da Energy Manutenções
             </h1>
             <p className="mt-3 text-base text-neutral-300 leading-relaxed">
               O WhatsApp é o nosso principal canal de comunicação e agendamento. Se preferir, você também pode preencher o formulário para adiantar as informações do seu eletrodoméstico.

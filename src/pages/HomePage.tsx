@@ -39,8 +39,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Energy Manutenções | Assistência Técnica de Eletrodomésticos em Caxias do Sul"
-        description="Conserto de geladeiras, máquinas de lavar, lava e seca e eletrodomésticos com atendimento profissional em Caxias do Sul, Farroupilha e Flores da Cunha."
+        title="Assistência Técnica em Caxias do Sul | Energy Manutenções"
+        description="Assistência técnica e conserto de geladeiras, lavadoras e eletrodomésticos em Caxias do Sul e região. Nota 4.9 no Google com atendimento a domicílio."
         canonicalPath="/"
         jsonLd={homeFaqSchema}
       />

@@ -13,8 +13,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Sobre a Energy Manutenções | Assistência Técnica em Caxias do Sul"
-        description="Conheça a Energy Manutenções: empresa ativa desde 2022, especializada em assistência técnica e manutenção de eletrodomésticos em Caxias do Sul e região."
+        title="Sobre a Energy Manutenções | Assistência em Caxias do Sul"
+        description="Empresa especializada em assistência técnica e conserto de eletrodomésticos em Caxias do Sul, Farroupilha e Flores da Cunha. Nota 4.9 no Google."
         canonicalPath="/sobre/"
         breadcrumbs={[{ name: 'Sobre', url: '/sobre/' }]}
       />

@@ -41,8 +41,8 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onNavigate }) => {
   return (
     <>
       <SEOHead
-        title="Marcas Atendidas | Energy Manutenções Caxias do Sul"
-        description="Assistência técnica para diferentes marcas de eletrodomésticos em Caxias do Sul e região: Samsung, LG, Electrolux, Brastemp e Consul."
+        title="Marcas Atendidas em Caxias do Sul | Energy Manutenções"
+        description="Conserto e manutenção multimarcas em Caxias do Sul e região: Samsung, LG, Electrolux, Brastemp e Consul com peças confiáveis e garantia técnica."
         canonicalPath="/marcas/"
         breadcrumbs={[{ name: 'Marcas', url: '/marcas/' }]}
       />
@@ -56,7 +56,7 @@ export const BrandsPage: React.FC<BrandsPageProps> = ({ onNavigate }) => {
               Multi-marcas em Linha Branca
             </span>
             <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Assistência para diferentes marcas de eletrodomésticos
+              Marcas de Eletrodomésticos Atendidas
             </h1>
             <p className="mt-3 text-sm sm:text-base text-neutral-300 leading-relaxed">
               {COMPANY.brandNotice}

@@ -12,8 +12,8 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
   return (
     <>
       <SEOHead
-        title="Política de Privacidade | Energy Manutenções"
-        description="Termos de privacidade e tratamento de dados da Energy Manutenções em conformidade com a legislação aplicável (LGPD)."
+        title="Política de Privacidade e Dados | Energy Manutenções"
+        description="Informações sobre a privacidade dos dados coletados durante o agendamento de assistência técnica conforme a Lei Geral de Proteção de Dados (LGPD)."
         canonicalPath="/politica-de-privacidade/"
         breadcrumbs={[{ name: 'Política de Privacidade', url: '/politica-de-privacidade/' }]}
       />
@@ -27,7 +27,7 @@ export const PrivacyPolicyPage: React.FC<PrivacyPolicyPageProps> = ({ onNavigate
               Privacidade & Proteção de Dados
             </span>
             <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Política de Privacidade
+              Política de Privacidade e Proteção de Dados
             </h1>
             <p className="mt-3 text-sm text-neutral-400">
               Última atualização: Setembro de 2026.
