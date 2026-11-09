@@ -286,7 +286,7 @@ const STATIC_ROUTES: StaticRoute[] = [
   {
     path: '/conserto-lava-e-seca-caxias-do-sul/',
     title: 'Conserto de Lava e Seca em Caxias do Sul | Energy Manutenções',
-    description: 'Assistência técnica para lava e seca em Caxias do Sul. Especialistas em Samsung, LG e Electrolux. Não seca, trava a porta ou apresenta erro? Fale conosco.',
+    description: 'Lava e seca não seca, trava a porta ou dá erro? Técnico a domicílio em Caxias do Sul. Samsung, LG e Electrolux. Chame no WhatsApp.',
     h1: 'Conserto de Lava e Seca em Caxias do Sul',
     breadcrumbs: [
       { name: 'Início', url: '/' },
@@ -305,13 +305,119 @@ const STATIC_ROUTES: StaticRoute[] = [
       </ul>
     `,
     schemas: [
-      BASE_BUSINESS_SCHEMA,
-      createServiceSchema('Conserto de Lava e Seca em Caxias do Sul', 'Assistência técnica especializada em lava e seca Inverter em Caxias do Sul.', '/conserto-lava-e-seca-caxias-do-sul/'),
-      createBreadcrumbSchema([
-        { name: 'Início', url: '/' },
-        { name: 'Serviços', url: '/servicos/' },
-        { name: 'Conserto de Lava e Seca', url: '/conserto-lava-e-seca-caxias-do-sul/' }
-      ])
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'LocalBusiness',
+            '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+            name: 'Energy Manutenções',
+            url: 'https://energy-manutencoes.vercel.app/',
+            telephone: '+5554991796080',
+            image: 'https://energy-manutencoes.vercel.app/logo.png',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Rua Índia Ceci, 141',
+              addressLocality: 'Caxias do Sul',
+              addressRegion: 'RS',
+              postalCode: '95013-120',
+              addressCountry: 'BR'
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: -29.1764,
+              longitude: -51.1895
+            },
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+              opens: '08:00',
+              closes: '18:30'
+            },
+            areaServed: [
+              { '@type': 'City', name: 'Caxias do Sul' },
+              { '@type': 'City', name: 'Farroupilha' },
+              { '@type': 'City', name: 'Flores da Cunha' }
+            ]
+          },
+          {
+            '@type': 'Service',
+            name: 'Conserto de Lava e Seca',
+            serviceType: 'Assistência técnica de lava e seca',
+            provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+            areaServed: 'Caxias do Sul, RS'
+          },
+          {
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Minha lava e seca não seca as roupas. O que pode ser?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'As causas mais comuns são duto de secagem obstruído, resistência de aquecimento com defeito ou problema em sensor e termostato. Só o diagnóstico no local confirma a causa.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'O que significam os códigos de erro dE, 4E e OE?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Cada marca usa códigos diferentes, e eles costumam indicar porta, abastecimento de água ou drenagem. Envie uma foto do display pelo WhatsApp que o técnico orienta.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'A porta da lava e seca travou. O que fazer?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Não force a porta. Desligue o equipamento, aguarde alguns minutos e, se continuar travada, chame um técnico.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Vocês atendem em casa?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim, atendemos a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Quanto custa o conserto?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'O valor depende do defeito e das peças. Envie o modelo e o problema pelo WhatsApp para receber um orçamento rápido.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'O serviço tem garantia?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim, o serviço é realizado com garantia. Pergunte as condições pelo WhatsApp.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Quais marcas vocês atendem?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Samsung, LG e Electrolux.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Qual o horário de atendimento?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'De segunda a sábado, das 08:00 às 18:30.'
+                }
+              }
+            ]
+          }
+        ]
+      }
     ]
   },
 
@@ -1063,6 +1169,194 @@ const STATIC_ROUTES: StaticRoute[] = [
   }
 ];
 
+function buildLavaESecaCrawlableBody(): string {
+  const WHATSAPP_URL = 'https://wa.me/5554991796080?text=Ol%C3%A1!%20Preciso%20de%20conserto%20para%20minha%20lava%20e%20seca%20em%20Caxias%20do%20Sul.';
+  const PHONE_URL = 'tel:+5554991796080';
+
+  return `
+    <!-- 5.1 Cabeçalho enxuto -->
+    <header id="cabecalho" style="background: #0a0a0c; border-bottom: 1px solid #222;">
+      <div style="background: #14141d; border-bottom: 1px solid #222; padding: 6px 12px; text-align: center; font-size: 12px; color: #ccc;">
+        <span style="color: #d4af37; font-weight: bold;">★ 4.9 no Google (+850 avaliações)</span>
+        <span style="margin: 0 6px; color: #555;">|</span>
+        <span>Caxias do Sul, Farroupilha e Flores da Cunha</span>
+      </div>
+      <div style="max-width: 1100px; margin: 0 auto; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;">
+        <a href="/" style="font-weight: bold; color: #fff; text-decoration: none; font-size: 18px;" aria-label="Energy Manutenções - Página Inicial">
+          Energy Manutenções
+        </a>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="${PHONE_URL}" data-location="cabecalho" style="color: #ccc; text-decoration: none; font-size: 13px;">(54) 99179-6080</a>
+          <a href="${WHATSAPP_URL}" data-location="cabecalho" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 8px 16px; border-radius: 8px; font-weight: bold; font-size: 13px; text-decoration: none;">WhatsApp</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 5.2 Hero (acima da dobra) -->
+    <section id="hero" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px; border-bottom: 1px solid #1a1a24;">
+      <p style="color: #d4af37; font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 8px;">Especialista em Lava e Seca Inverter</p>
+      <h1 style="font-size: 2.25rem; color: #fff; line-height: 1.2; margin: 0 0 16px 0;">Conserto de Lava e Seca em Caxias do Sul</h1>
+      <p style="font-size: 1.1rem; color: #ccc; line-height: 1.6; max-width: 700px; margin-bottom: 24px;">
+        Sua lava e seca não seca, trava a porta ou mostra erro no display? Técnico a domicílio, orçamento rápido pelo WhatsApp.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+        <a href="${WHATSAPP_URL}" data-location="hero" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 16px; text-decoration: none; display: inline-block;">
+          Chamar no WhatsApp
+        </a>
+        <a href="${PHONE_URL}" data-location="hero" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none; display: inline-block;">
+          Ligar agora
+        </a>
+      </div>
+      <p style="font-size: 13px; color: #888; margin-top: 12px;">
+        Atendimento a domicílio • Segunda a sábado, 08:00 às 18:30 • Serviço com garantia
+      </p>
+    </section>
+
+    <!-- 5.3 Faixa de confiança -->
+    <section id="confianca" style="background: #0e0e14; border-bottom: 1px solid #1a1a24; padding: 24px 16px;">
+      <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; text-align: center;">
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #d4af37;">★ 4.9 no Google</strong><br><small style="color: #888;">Avaliação dos clientes</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">+850 avaliações</strong><br><small style="color: #888;">Histórico comprovado</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">Atendimento a domicílio</strong><br><small style="color: #888;">Na sua residência</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #f3e5ab;">Samsung • LG • Electrolux</strong><br><small style="color: #888;">Principais marcas</small></div>
+      </div>
+    </section>
+
+    <!-- 5.4 Problemas que resolvemos -->
+    <section id="problemas" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px;">
+      <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 20px;">Sua lava e seca está com algum desses problemas?</h2>
+      <ul style="color: #ccc; line-height: 1.8; font-size: 15px;">
+        <li><strong>Não seca as roupas:</strong> Roupas saem úmidas ou só mornas. Pode ser duto obstruído ou resistência com defeito.</li>
+        <li><strong>Erro no display:</strong> Códigos como dE, 4E, OE, FE, dC, LE e tE indicam problemas específicos. Um técnico identifica a causa.</li>
+        <li><strong>Porta travada:</strong> A porta não abre ao fim do ciclo de lavagem ou secagem.</li>
+        <li><strong>Barulho e vibração:</strong> Ruído forte ou balanço excessivo costuma envolver amortecedores e suspensão.</li>
+        <li><strong>Vazamento de água:</strong> Água saindo pela gaveta de sabão ou pela borracha da porta (fole).</li>
+        <li><strong>Não liga ou para no meio do ciclo:</strong> Pode envolver placa de potência, sensores ou termostato.</li>
+      </ul>
+      <p style="margin-top: 16px;">
+        <a href="${WHATSAPP_URL}" data-location="problemas" style="color: #25d366; font-weight: bold; text-decoration: underline;">Falar com um técnico no WhatsApp sobre o defeito →</a>
+      </p>
+    </section>
+
+    <!-- 5.5 Como funciona o atendimento -->
+    <section id="como-funciona" style="background: #0e0e14; border-top: 1px solid #1a1a24; border-bottom: 1px solid #1a1a24; padding: 40px 16px;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 20px;">Como funciona</h2>
+        <ol style="color: #ccc; line-height: 1.8; font-size: 15px;">
+          <li><strong>1. Chame no WhatsApp:</strong> Conte o problema e a marca da sua lava e seca.</li>
+          <li><strong>2. Agendamos a visita:</strong> O técnico vai até a sua casa em Caxias do Sul ou região.</li>
+          <li><strong>3. Conserto com garantia:</strong> Diagnóstico no local e reparo com peças adequadas.</li>
+        </ol>
+        <div style="margin-top: 24px;">
+          <a href="${WHATSAPP_URL}" data-location="como-funciona" style="background: #25d366; color: #000; padding: 12px 24px; border-radius: 10px; font-weight: bold; text-decoration: none; display: inline-block;">Agendar visita pelo WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5.6 Marcas atendidas -->
+    <section id="marcas" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px;">
+      <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 12px;">Marcas de lava e seca que atendemos</h2>
+      <p style="color: #ccc; font-size: 15px;">Atendemos Samsung, LG e Electrolux.</p>
+    </section>
+
+    <!-- 5.7 Peças e reparos mais comuns -->
+    <section id="reparos" style="background: #0e0e14; border-top: 1px solid #1a1a24; border-bottom: 1px solid #1a1a24; padding: 40px 16px;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 16px;">Reparos mais realizados em lava e seca</h2>
+        <ul style="color: #ccc; line-height: 1.8; font-size: 15px;">
+          <li>Duto de secagem</li>
+          <li>Resistência de aquecimento</li>
+          <li>Termostatos</li>
+          <li>Placas de potência</li>
+          <li>Amortecedores e suspensão</li>
+          <li>Borracha da porta (fole)</li>
+          <li>Travas de porta</li>
+        </ul>
+        <p style="color: #aaa; font-size: 14px; margin-top: 12px;">Tecnologia Inverter e sistemas de secagem.</p>
+      </div>
+    </section>
+
+    <!-- 5.8 Região atendida -->
+    <section id="regiao" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px;">
+      <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 12px;">Atendimento em Caxias do Sul e região</h2>
+      <p style="color: #ccc; font-size: 15px; line-height: 1.6;">
+        Atendemos Caxias do Sul, Farroupilha e Flores da Cunha, com sede no bairro Marechal Floriano.
+      </p>
+    </section>
+
+    <!-- 5.9 Perguntas frequentes (FAQ) -->
+    <section id="faq" style="background: #0e0e14; border-top: 1px solid #1a1a24; border-bottom: 1px solid #1a1a24; padding: 40px 16px;">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 24px;">Perguntas frequentes sobre conserto de lava e seca</h2>
+        
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Minha lava e seca não seca as roupas. O que pode ser?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">As causas mais comuns são duto de secagem obstruído, resistência de aquecimento com defeito ou problema em sensor e termostato. Só o diagnóstico no local confirma a causa.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">O que significam os códigos de erro dE, 4E e OE?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Cada marca usa códigos diferentes, e eles costumam indicar porta, abastecimento de água ou drenagem. Envie uma foto do display pelo WhatsApp que o técnico orienta.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">A porta da lava e seca travou. O que fazer?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Não force a porta. Desligue o equipamento, aguarde alguns minutos e, se continuar travada, chame um técnico.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Vocês atendem em casa?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Sim, atendemos a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Quanto custa o conserto?</summary>
+          <!-- CONFIRMAR COM CLIENTE: [VALOR_ORCAMENTO] -->
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">O valor depende do defeito e das peças. Envie o modelo e o problema pelo WhatsApp para receber um orçamento rápido.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">O serviço tem garantia?</summary>
+          <!-- CONFIRMAR COM CLIENTE: [GARANTIA] -->
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Sim, o serviço é realizado com garantia. Pergunte as condições pelo WhatsApp.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Quais marcas vocês atendem?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Samsung, LG e Electrolux.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Qual o horário de atendimento?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">De segunda a sábado, das 08:00 às 18:30.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 5.10 Chamada final -->
+    <section id="final" style="max-width: 800px; margin: 40px auto; padding: 30px 16px; text-align: center; background: #14141d; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 12px;">Sua lava e seca parada? Fale com um técnico agora.</h2>
+      <p style="color: #ccc; margin-bottom: 24px;">Atendimento a domicílio com agendamento ágil em Caxias do Sul e cidades vizinhas.</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+        <a href="${WHATSAPP_URL}" data-location="final" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 15px; text-decoration: none;">Chamar no WhatsApp</a>
+        <a href="${PHONE_URL}" data-location="final" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none;">Ligar agora</a>
+      </div>
+    </section>
+
+    <!-- 9. Rodapé enxuto (único) -->
+    <footer id="rodape" style="border-top: 1px solid #222; padding: 30px 16px; text-align: center; font-size: 12px; color: #888; background: #070709;">
+      <p style="color: #ccc; font-weight: bold; margin-bottom: 8px;">Energy Manutenções | CNPJ: 46.067.650/0001-55</p>
+      <p style="margin-bottom: 8px;">Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul – RS, CEP 95013-120<br>Atendimento: Segunda a Sábado, das 08:00 às 18:30</p>
+      <p style="margin-bottom: 12px;">
+        <a href="/" style="color: #aaa; text-decoration: underline; margin-right: 12px;">Início</a>
+        <a href="/contato/" style="color: #aaa; text-decoration: underline; margin-right: 12px;">Contato</a>
+        <a href="/politica-de-privacidade/" style="color: #aaa; text-decoration: underline;">Política de Privacidade</a>
+      </p>
+      <p style="color: #777;">Atendimento a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha.</p>
+    </footer>
+  `;
+}
+
 function buildCrawlableBody(route: StaticRoute): string {
   const breadcrumbLinks = route.breadcrumbs
     .map(b => `<a href="${b.url}" style="color: #d4af37; text-decoration: underline;">${b.name}</a>`)
@@ -1079,11 +1373,6 @@ function buildCrawlableBody(route: StaticRoute): string {
       <p style="margin: 0.25rem 0 0.5rem 0; color: #bbb; font-size: 0.85rem;">
         Telefone / WhatsApp: <a href="https://wa.me/5554991796080" style="color: #d4af37; font-weight: bold;">(54) 99179-6080</a>
       </p>
-      <div>
-        <a href="https://profile.google.com/@example" aria-label="Find us on Google Search">
-          <img src="/path/to/google-search-badge.svg" alt="Google Search" style="height: 38px; width: auto; display: inline-block;">
-        </a>
-      </div>
     </header>
 
     <main style="max-width: 960px; margin: 0 auto; padding: 2rem 1rem; color: #ddd; line-height: 1.7;">
@@ -1210,11 +1499,21 @@ export function generateStaticHtmlFiles() {
     );
 
     // 7. Inject semantic crawlable body into <div id="root">
-    const crawlableBody = buildCrawlableBody(route);
+    const crawlableBody = route.path === '/conserto-lava-e-seca-caxias-do-sul/'
+      ? buildLavaESecaCrawlableBody()
+      : buildCrawlableBody(route);
+
     html = html.replace(
       /<div\s+id=["']root["']>[\s\S]*?<\/div>/i,
       () => `<div id="root">${crawlableBody}</div>`
     );
+
+    // Etapa 1: Limpeza técnica para /conserto-lava-e-seca-caxias-do-sul/ (remover keywords e tags de verificação vazias)
+    if (route.path === '/conserto-lava-e-seca-caxias-do-sul/') {
+      html = html.replace(/<meta\s+name=["']keywords["'][\s\S]*?\/?>\s*/i, '');
+      html = html.replace(/<meta\s+name=["']google-site-verification["']\s+content=["']\s*["']\s*\/?>\s*/i, '');
+      html = html.replace(/<meta\s+name=["']msvalidate\.01["']\s+content=["']\s*["']\s*\/?>\s*/i, '');
+    }
 
     // 8. Write to dist${route.path}index.html
     const routeDirPath = path.join(distDir, route.path.replace(/^\//, ''));

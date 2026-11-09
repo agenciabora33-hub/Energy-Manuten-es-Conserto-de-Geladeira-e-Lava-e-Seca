@@ -93,24 +93,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </div>
             </div>
 
-            {/* Google Search Profile Badge */}
-            <div className="pt-1">
-              <a
-                href="https://profile.google.com/@example"
-                aria-label="Find us on Google Search"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block hover:opacity-90 active:scale-95 transition-all"
-              >
-                <img
-                  src="/path/to/google-search-badge.svg"
-                  alt="Google Search"
-                  width={168}
-                  height={40}
-                  className="h-10 w-auto"
-                />
-              </a>
-            </div>
+
           </div>
 
           {/* Column 2: Principais Serviços (Crawlable internal links with keywords) */}

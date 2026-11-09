@@ -18,6 +18,7 @@ import { BlogPage } from './pages/BlogPage';
 import { BlogPostPage } from './pages/BlogPostPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { LavaESecaLandingPage } from './pages/LavaESecaLandingPage';
 
 import { SERVICES_DATA } from './data/services';
 import { LOCATIONS_DATA } from './data/locations';
@@ -70,7 +71,12 @@ export default function App() {
       return <ServicesPage onNavigate={handleNavigate} />;
     }
 
-    // 3. Individual Service Pages
+    // 3. Dedicated Landing Page for Lava e Seca Google Ads
+    if (currentPath === '/conserto-lava-e-seca-caxias-do-sul/') {
+      return <LavaESecaLandingPage onNavigate={handleNavigate} />;
+    }
+
+    // 4. Individual Service Pages
     const matchedService = SERVICES_DATA.find(
       (s) => normalizePath(s.path) === currentPath
     );
@@ -78,17 +84,17 @@ export default function App() {
       return <ServiceDetailPage service={matchedService} onNavigate={handleNavigate} />;
     }
 
-    // 4. Brands Page
+    // 5. Brands Page
     if (currentPath === '/marcas/') {
       return <BrandsPage onNavigate={handleNavigate} />;
     }
 
-    // 5. Locations Index
+    // 6. Locations Index
     if (currentPath === '/areas-atendidas/') {
       return <LocationsPage onNavigate={handleNavigate} />;
     }
 
-    // 6. Individual Location Pages
+    // 7. Individual Location Pages
     const matchedLocation = LOCATIONS_DATA.find(
       (loc) => normalizePath(loc.path) === currentPath
     );
@@ -96,37 +102,37 @@ export default function App() {
       return <LocationDetailPage location={matchedLocation} onNavigate={handleNavigate} />;
     }
 
-    // 7. Refurbished (Seminovos) Page
+    // 8. Refurbished (Seminovos) Page
     if (currentPath === '/eletrodomesticos-seminovos/') {
       return <RefurbishedPage onNavigate={handleNavigate} />;
     }
 
-    // 8. How It Works
+    // 9. How It Works
     if (currentPath === '/como-funciona/') {
       return <HowItWorksPage onNavigate={handleNavigate} />;
     }
 
-    // 9. FAQ
+    // 10. FAQ
     if (currentPath === '/faq/') {
       return <FAQPage onNavigate={handleNavigate} />;
     }
 
-    // 10. About
+    // 11. About
     if (currentPath === '/sobre/') {
       return <AboutPage onNavigate={handleNavigate} />;
     }
 
-    // 11. Contact
+    // 12. Contact
     if (currentPath === '/contato/') {
       return <ContactPage onNavigate={handleNavigate} />;
     }
 
-    // 12. Blog Index
+    // 13. Blog Index
     if (currentPath === '/blog/') {
       return <BlogPage onNavigate={handleNavigate} />;
     }
 
-    // 13. Individual Blog Post Pages
+    // 14. Individual Blog Post Pages
     const matchedBlogPost = BLOG_POSTS.find(
       (post) => normalizePath(post.path) === currentPath
     );
@@ -134,23 +140,25 @@ export default function App() {
       return <BlogPostPage post={matchedBlogPost} onNavigate={handleNavigate} />;
     }
 
-    // 14. Privacy Policy
+    // 15. Privacy Policy
     if (currentPath === '/politica-de-privacidade/') {
       return <PrivacyPolicyPage onNavigate={handleNavigate} />;
     }
 
-    // 15. Fallback 404
+    // 16. Fallback 404
     return <NotFoundPage onNavigate={handleNavigate} />;
   };
 
+  const isLavaESecaLP = currentPath === '/conserto-lava-e-seca-caxias-do-sul/';
+
   return (
     <div className="min-h-screen bg-[#0a0a0c] text-neutral-100 flex flex-col font-sans selection:bg-[#d4af37] selection:text-[#0a0a0c]">
-      <Header currentPath={currentPath} onNavigate={handleNavigate} />
+      {!isLavaESecaLP && <Header currentPath={currentPath} onNavigate={handleNavigate} />}
       <main className="flex-1">
         {renderPage()}
       </main>
-      <Footer onNavigate={handleNavigate} />
-      <WhatsAppFloating />
+      {!isLavaESecaLP && <Footer onNavigate={handleNavigate} />}
+      {!isLavaESecaLP && <WhatsAppFloating />}
     </div>
   );
 }
