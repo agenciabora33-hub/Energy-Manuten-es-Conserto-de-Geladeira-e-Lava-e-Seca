@@ -194,48 +194,152 @@ const STATIC_ROUTES: StaticRoute[] = [
   {
     path: '/conserto-geladeira-caxias-do-sul/',
     title: 'Conserto de Geladeira em Caxias do Sul | Energy Manutenções',
-    description: 'Assistência técnica para geladeiras em Caxias do Sul. Conserto de Frost Free, Duplex, Inverse e convencionais a domicílio. Solicite no WhatsApp.',
+    description: 'Geladeira parou de gelar, vaza água ou faz barulho? Técnico a domicílio em Caxias do Sul. Frost Free, Inverse e Duplex. Chame no WhatsApp.',
     h1: 'Conserto de Geladeira em Caxias do Sul e Região',
     breadcrumbs: [
       { name: 'Início', url: '/' },
       { name: 'Serviços', url: '/servicos/' },
       { name: 'Conserto de Geladeira', url: '/conserto-geladeira-caxias-do-sul/' }
     ],
-    contentHtml: `
-      <p class="lead">Avaliação técnica criteriosa para geladeiras que não gelam, vazam água, emitem barulhos anormais ou apresentam falhas no sistema de degelo e compressor em Caxias do Sul, Farroupilha e Flores da Cunha.</p>
-      <h2>Problemas Frequentes Solucionados</h2>
-      <ul>
-        <li>Geladeira parou de gelar na parte de baixo enquanto o freezer continua congelando</li>
-        <li>Alimentos congelando no compartimento de refrigerador</li>
-        <li>Vazamento de água sob o eletrodoméstico ou na gaveta de legumes</li>
-        <li>Bloqueio de gelo no evaporador e duto de ar entupido</li>
-        <li>Motor compressor não liga, estala ou desarma pelo protetor térmico</li>
-        <li>Borracha de vedação gasta gerando condensação excessiva</li>
-      </ul>
-      <h2>Marcas Atendidas</h2>
-      <p>Samsung, LG, Electrolux, Brastemp, Consul e outros fabricantes renomados do mercado.</p>
-      <h2>Perguntas Frequentes sobre Conserto de Geladeira</h2>
-      <section>
-        <h3>O atendimento é feito na minha residência?</h3>
-        <p>Sim, realizamos o diagnóstico e conserto diretamente no local em Caxias do Sul e cidades vizinhas mediante agendamento prévio.</p>
-      </section>
-      <section>
-        <h3>Vocês atendem geladeiras Inverse e Frost Free?</h3>
-        <p>Sim, nossos técnicos atendem sistemas Frost Free, inversores (Inverter), modelos duplex e side by side.</p>
-      </section>
-    `,
+    contentHtml: ``,
     schemas: [
-      BASE_BUSINESS_SCHEMA,
-      createServiceSchema('Conserto de Geladeira em Caxias do Sul', 'Assistência técnica para geladeiras Frost Free, Duplex e Inverse.', '/conserto-geladeira-caxias-do-sul/'),
-      createBreadcrumbSchema([
-        { name: 'Início', url: '/' },
-        { name: 'Serviços', url: '/servicos/' },
-        { name: 'Conserto de Geladeira', url: '/conserto-geladeira-caxias-do-sul/' }
-      ]),
-      createFAQSchema([
-        { question: 'O atendimento é feito na minha residência?', answer: 'Sim, realizamos o diagnóstico e conserto diretamente no local em Caxias do Sul e cidades vizinhas mediante agendamento prévio.' },
-        { question: 'Vocês atendem geladeiras Inverse e Frost Free?', answer: 'Sim, nossos técnicos atendem sistemas Frost Free, inversores (Inverter), modelos duplex e side by side.' }
-      ])
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'LocalBusiness',
+            '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+            name: 'Energy Manutenções',
+            url: 'https://energy-manutencoes.vercel.app/',
+            telephone: '+5554991796080',
+            image: 'https://energy-manutencoes.vercel.app/logo.png',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Rua Índia Ceci, 141',
+              addressLocality: 'Caxias do Sul',
+              addressRegion: 'RS',
+              postalCode: '95013-120',
+              addressCountry: 'BR'
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: -29.1764,
+              longitude: -51.1895
+            },
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+              opens: '08:00',
+              closes: '18:30'
+            },
+            areaServed: [
+              { '@type': 'City', name: 'Caxias do Sul' },
+              { '@type': 'City', name: 'Farroupilha' },
+              { '@type': 'City', name: 'Flores da Cunha' }
+            ]
+          },
+          {
+            '@type': 'Service',
+            name: 'Conserto de Geladeira',
+            serviceType: 'Assistência técnica de geladeiras, freezers e adegas',
+            provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+            areaServed: 'Caxias do Sul, RS'
+          },
+          {
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'Minha geladeira não gela embaixo, mas o freezer congela. O que pode ser?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Costuma ser bloqueio de gelo no evaporador, duto de ar entupido ou falha no sistema de degelo. Só o diagnóstico no local confirma a causa.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Por que os alimentos estão congelando no refrigerador?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Pode haver problema na circulação de ar ou no controle de temperatura. Um técnico precisa avaliar o equipamento.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Minha geladeira está vazando água. É grave?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'O vazamento costuma estar ligado ao sistema de degelo e ao dreno. Quanto antes for avaliado, menor o risco de danos ao piso e ao equipamento.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'O compressor não liga ou fica estalando. O que fazer?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Evite ligar e desligar várias vezes. Chame um técnico para avaliar o compressor e o protetor térmico.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'O atendimento é feito na minha residência?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim, realizamos o diagnóstico e o conserto no local em Caxias do Sul e cidades vizinhas, mediante agendamento.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Vocês atendem geladeiras Inverse e Frost Free?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim, atendemos Frost Free, Inverse, Inverter, Duplex e side by side.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Quais marcas vocês atendem?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Samsung, LG, Electrolux, Brastemp, Consul e outros fabricantes.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Vocês fazem manutenção em freezers e adegas?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim, além de geladeiras, fazemos manutenção de freezers e adegas.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Quanto custa o conserto?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'O valor depende do defeito e das peças. Envie o modelo e o problema pelo WhatsApp para receber um orçamento rápido.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'O serviço tem garantia?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim, o serviço é realizado com garantia. Pergunte as condições pelo WhatsApp.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Qual o horário de atendimento?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'De segunda a sábado, das 08:00 às 18:30.'
+                }
+              }
+            ]
+          }
+        ]
+      }
     ]
   },
 
@@ -1357,6 +1461,236 @@ function buildLavaESecaCrawlableBody(): string {
   `;
 }
 
+function buildGeladeiraCrawlableBody(): string {
+  const WHATSAPP_URL = 'https://wa.me/5554991796080?text=Ol%C3%A1!%20Preciso%20de%20conserto%20para%20minha%20geladeira%20em%20Caxias%20do%20Sul.';
+  const WHATSAPP_FREEZER_URL = 'https://wa.me/5554991796080?text=Ol%C3%A1!%20Preciso%20de%20manuten%C3%A7%C3%A3o%20em%20um%20freezer%20ou%20adega%20em%20Caxias%20do%20Sul.';
+  const PHONE_URL = 'tel:+5554991796080';
+
+  return `
+    <!-- 6.1 Cabeçalho enxuto -->
+    <header id="cabecalho" style="background: #0a0a0c; border-bottom: 1px solid #222;">
+      <div style="background: #14141d; border-bottom: 1px solid #222; padding: 6px 12px; text-align: center; font-size: 12px; color: #ccc;">
+        <span style="color: #d4af37; font-weight: bold;">★ 4.9 no Google (+850 avaliações)</span>
+        <span style="margin: 0 6px; color: #555;">|</span>
+        <span>Caxias do Sul, Farroupilha e Flores da Cunha</span>
+      </div>
+      <div style="max-width: 1100px; margin: 0 auto; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;">
+        <a href="/" style="font-weight: bold; color: #fff; text-decoration: none; font-size: 18px;" aria-label="Energy Manutenções - Página Inicial">
+          Energy Manutenções
+        </a>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="${PHONE_URL}" data-location="cabecalho" style="color: #ccc; text-decoration: none; font-size: 13px;">(54) 99179-6080</a>
+          <a href="${WHATSAPP_URL}" data-location="cabecalho" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 8px 16px; border-radius: 8px; font-weight: bold; font-size: 13px; text-decoration: none;">WhatsApp</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 6.2 Hero (acima da dobra) -->
+    <section id="hero" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px; border-bottom: 1px solid #1a1a24;">
+      <p style="color: #d4af37; font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 8px;">Atendimento de Emergência a Domicílio</p>
+      <h1 style="font-size: 2.25rem; color: #fff; line-height: 1.2; margin: 0 0 16px 0;">Conserto de Geladeira em Caxias do Sul e Região</h1>
+      <p style="font-size: 1.1rem; color: #ccc; line-height: 1.6; max-width: 700px; margin-bottom: 24px;">
+        Geladeira parou de gelar, vaza água ou faz barulho? Técnico a domicílio para Frost Free, Inverse, Duplex e side by side. Orçamento rápido pelo WhatsApp.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+        <a href="${WHATSAPP_URL}" data-location="hero" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 16px; text-decoration: none; display: inline-block;">
+          Chamar no WhatsApp
+        </a>
+        <a href="${PHONE_URL}" data-location="hero" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none; display: inline-block;">
+          Ligar agora
+        </a>
+      </div>
+      <p style="font-size: 13px; color: #888; margin-top: 12px;">
+        Atendimento a domicílio • Segunda a sábado, 08:00 às 18:30 • Serviço com garantia
+      </p>
+    </section>
+
+    <!-- 6.3 Faixa de confiança -->
+    <section id="confianca" style="background: #0e0e14; border-bottom: 1px solid #1a1a24; padding: 24px 16px;">
+      <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; text-align: center;">
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #d4af37;">★ 4.9 no Google</strong><br><small style="color: #888;">Avaliação dos clientes</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">+850 avaliações</strong><br><small style="color: #888;">Histórico comprovado</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">Atendimento a domicílio</strong><br><small style="color: #888;">Na sua residência</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #f3e5ab;">Samsung • LG • Electrolux • Brastemp • Consul</strong><br><small style="color: #888;">Principais marcas</small></div>
+      </div>
+    </section>
+
+    <!-- 6.4 Sintomas -->
+    <section id="sintomas" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px;">
+      <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 20px;">O que está acontecendo com a sua geladeira?</h2>
+      <ul style="color: #ccc; line-height: 1.8; font-size: 15px;">
+        <li>
+          <strong>Não gela embaixo, mas o freezer congela:</strong> Costuma estar ligado a bloqueio de gelo no evaporador ou duto de ar entupido.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20Minha%20geladeira%20n%C3%A3o%20est%C3%A1%20gelando%20embaixo%2C%20mas%20o%20freezer%20congela.%20Moro%20em%20Caxias%20do%20Sul." data-location="sintomas" data-symptom="nao-gela-embaixo" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Alimentos congelando na parte de baixo:</strong> Quando verduras e bebidas congelam no refrigerador, o técnico precisa avaliar a circulação de ar e o controle de temperatura.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20Os%20alimentos%20est%C3%A3o%20congelando%20na%20parte%20de%20baixo%20da%20minha%20geladeira.%20Moro%20em%20Caxias%20do%20Sul." data-location="sintomas" data-symptom="congelando-alimentos" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Vazando água:</strong> Água embaixo da geladeira ou na gaveta de legumes.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20Minha%20geladeira%20est%C3%A1%20vazando%20%C3%A1gua.%20Moro%20em%20Caxias%20do%20Sul." data-location="sintomas" data-symptom="vazando-agua" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Gelo acumulado e ar entupido:</strong> Bloqueio de gelo no evaporador e duto de ar prejudicam o resfriamento.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20Minha%20geladeira%20est%C3%A1%20com%20gelo%20acumulado%20e%20n%C3%A3o%20gela%20direito.%20Moro%20em%20Caxias%20do%20Sul." data-location="sintomas" data-symptom="gelo-evaporador" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Compressor não liga, estala ou desarma:</strong> O motor compressor pode desarmar pelo protetor térmico.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20O%20compressor%20da%20minha%20geladeira%20n%C3%A3o%20liga%20ou%20fica%20estalando.%20Moro%20em%20Caxias%20do%20Sul." data-location="sintomas" data-symptom="compressor" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Barulho anormal:</strong> Ruídos fora do normal precisam de avaliação técnica.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20Minha%20geladeira%20est%C3%A1%20fazendo%20barulho%20anormal.%20Moro%20em%20Caxias%20do%20Sul." data-location="sintomas" data-symptom="barulho" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Borracha de vedação gasta:</strong> Vedação ruim causa condensação excessiva e gasto de energia.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20A%20borracha%20de%20veda%C3%A7%C3%A3o%20da%20minha%20geladeira%20est%C3%A1%20gasta.%20Moro%20em%20Caxias%20do%20Sul." data-location="sintomas" data-symptom="borracha-vedacao" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar sobre isso no WhatsApp →</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 6.5 Como funciona o atendimento -->
+    <section id="como-funciona" style="background: #0e0e14; border-top: 1px solid #1a1a24; border-bottom: 1px solid #1a1a24; padding: 40px 16px;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 20px;">Como funciona</h2>
+        <ol style="color: #ccc; line-height: 1.8; font-size: 15px;">
+          <li><strong>1. Chame no WhatsApp:</strong> Conte o problema e a marca da sua geladeira.</li>
+          <li><strong>2. Agendamos a visita:</strong> O técnico vai até a sua casa em Caxias do Sul ou região.</li>
+          <li><strong>3. Conserto com garantia:</strong> Diagnóstico no local e reparo com peças adequadas.</li>
+        </ol>
+        <div style="margin-top: 24px;">
+          <a href="${WHATSAPP_URL}" data-location="como-funciona" style="background: #25d366; color: #000; padding: 12px 24px; border-radius: 10px; font-weight: bold; text-decoration: none; display: inline-block;">Agendar visita pelo WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6.6 Enquanto o técnico não chega -->
+    <section id="cuidados" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px;">
+      <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 16px;">Geladeira parou de gelar? Cuidados enquanto você espera</h2>
+      <ul style="color: #ccc; line-height: 1.8; font-size: 15px;">
+        <li>Mantenha a porta fechada o máximo possível para conservar o frio.</li>
+        <li>Passe alimentos perecíveis para uma caixa térmica, se possível com gelo.</li>
+        <li>Não raspe o gelo com faca ou objeto pontiagudo: você pode furar o evaporador.</li>
+        <li>Se o compressor estiver estalando ou desarmando, não fique ligando e desligando da tomada.</li>
+      </ul>
+      <p style="color: #aaa; margin-top: 16px;">Descreva o problema no WhatsApp e orientamos o melhor próximo passo.</p>
+    </section>
+
+    <!-- 6.7 Tipos e marcas atendidos -->
+    <section id="tipos-marcas" style="background: #0e0e14; border-top: 1px solid #1a1a24; border-bottom: 1px solid #1a1a24; padding: 40px 16px;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 12px;">Tipos de geladeira e marcas que atendemos</h2>
+        <p style="color: #ccc; font-size: 15px; line-height: 1.6;">
+          Atendemos geladeiras Frost Free, Inverse, Duplex, convencionais, com tecnologia Inverter e side by side, das marcas Samsung, LG, Electrolux, Brastemp, Consul e outros fabricantes.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6.8 Também fazemos manutenção em freezers e adegas -->
+    <section id="freezer-adega" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px; text-align: center;">
+      <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 12px;">Também fazemos manutenção de freezers e adegas</h2>
+      <p style="color: #ccc; font-size: 15px; max-width: 700px; margin: 0 auto 20px auto; line-height: 1.6;">
+        Além de geladeiras, a Energy Manutenções faz manutenção de freezers e adegas em Caxias do Sul e região. Descreva o equipamento e o problema pelo WhatsApp.
+      </p>
+      <a href="${WHATSAPP_FREEZER_URL}" data-location="freezer-adega" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 12px 24px; border-radius: 10px; font-weight: bold; font-size: 14px; text-decoration: none; display: inline-block;">
+        Solicitar manutenção de freezer ou adega
+      </a>
+    </section>
+
+    <!-- 6.9 Perguntas frequentes (FAQ) -->
+    <section id="faq" style="background: #0e0e14; border-top: 1px solid #1a1a24; border-bottom: 1px solid #1a1a24; padding: 40px 16px;">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 24px;">Perguntas frequentes sobre conserto de geladeira</h2>
+        
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Minha geladeira não gela embaixo, mas o freezer congela. O que pode ser?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Costuma ser bloqueio de gelo no evaporador, duto de ar entupido ou falha no sistema de degelo. Só o diagnóstico no local confirma a causa.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Por que os alimentos estão congelando no refrigerador?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Pode haver problema na circulação de ar ou no controle de temperatura. Um técnico precisa avaliar o equipamento.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Minha geladeira está vazando água. É grave?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">O vazamento costuma estar ligado ao sistema de degelo e ao dreno. Quanto antes for avaliado, menor o risco de danos ao piso e ao equipamento.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">O compressor não liga ou fica estalando. O que fazer?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Evite ligar e desligar várias vezes. Chame um técnico para avaliar o compressor e o protetor térmico.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">O atendimento é feito na minha residência?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Sim, realizamos o diagnóstico e o conserto no local em Caxias do Sul e cidades vizinhas, mediante agendamento.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Vocês atendem geladeiras Inverse e Frost Free?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Sim, atendemos Frost Free, Inverse, Inverter, Duplex e side by side.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Quais marcas vocês atendem?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Samsung, LG, Electrolux, Brastemp, Consul e outros fabricantes.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Vocês fazem manutenção em freezers e adegas?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Sim, além de geladeiras, fazemos manutenção de freezers e adegas.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Quanto custa o conserto?</summary>
+          <!-- CONFIRMAR COM CLIENTE: [VALOR_ORCAMENTO] -->
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">O valor depende do defeito e das peças. Envie o modelo e o problema pelo WhatsApp para receber um orçamento rápido.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">O serviço tem garantia?</summary>
+          <!-- CONFIRMAR COM CLIENTE: [GARANTIA] -->
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Sim, o serviço é realizado com garantia. Pergunte as condições pelo WhatsApp.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Qual o horário de atendimento?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">De segunda a sábado, das 08:00 às 18:30.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- 6.10 Chamada final -->
+    <section id="final" style="max-width: 800px; margin: 40px auto; padding: 30px 16px; text-align: center; background: #14141d; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 12px;">Precisa de atendimento ou orçamento?</h2>
+      <p style="color: #ccc; margin-bottom: 24px;">Atendimento a domicílio com agendamento ágil em Caxias do Sul e cidades vizinhas.</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+        <a href="${WHATSAPP_URL}" data-location="final" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 15px; text-decoration: none;">Chamar no WhatsApp</a>
+        <a href="${PHONE_URL}" data-location="final" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none;">Ligar agora</a>
+      </div>
+    </section>
+
+    <!-- 6.11 Região atendida -->
+    <section id="regiao" style="text-align: center; padding: 16px; border-top: 1px solid #222;">
+      <p style="color: #888; font-size: 13px; margin: 0;">Atendemos Caxias do Sul, Farroupilha e Flores da Cunha, com sede no bairro Marechal Floriano.</p>
+    </section>
+
+    <!-- 10. Rodapé enxuto (único) - NUNCA exibir o nome do proprietário -->
+    <footer id="rodape" style="border-top: 1px solid #222; padding: 30px 16px; text-align: center; font-size: 12px; color: #888; background: #070709;">
+      <p style="color: #ccc; font-weight: bold; margin-bottom: 8px;">Energy Manutenções | CNPJ: 46.067.650/0001-55</p>
+      <p style="margin-bottom: 8px;">Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul – RS, CEP 95013-120<br>Atendimento: Segunda a Sábado, das 08:00 às 18:30</p>
+      <p style="margin-bottom: 12px;">
+        <a href="/" style="color: #aaa; text-decoration: underline; margin-right: 12px;">Início</a>
+        <a href="/contato/" style="color: #aaa; text-decoration: underline; margin-right: 12px;">Contato</a>
+        <a href="/politica-de-privacidade/" style="color: #aaa; text-decoration: underline;">Política de Privacidade</a>
+      </p>
+      <p style="color: #777;">Atendimento a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha. Manutenção de geladeiras, freezers e adegas.</p>
+    </footer>
+  `;
+}
+
 function buildCrawlableBody(route: StaticRoute): string {
   const breadcrumbLinks = route.breadcrumbs
     .map(b => `<a href="${b.url}" style="color: #d4af37; text-decoration: underline;">${b.name}</a>`)
@@ -1499,17 +1833,23 @@ export function generateStaticHtmlFiles() {
     );
 
     // 7. Inject semantic crawlable body into <div id="root">
-    const crawlableBody = route.path === '/conserto-lava-e-seca-caxias-do-sul/'
-      ? buildLavaESecaCrawlableBody()
-      : buildCrawlableBody(route);
+    const crawlableBody =
+      route.path === '/conserto-lava-e-seca-caxias-do-sul/'
+        ? buildLavaESecaCrawlableBody()
+        : route.path === '/conserto-geladeira-caxias-do-sul/'
+        ? buildGeladeiraCrawlableBody()
+        : buildCrawlableBody(route);
 
     html = html.replace(
       /<div\s+id=["']root["']>[\s\S]*?<\/div>/i,
       () => `<div id="root">${crawlableBody}</div>`
     );
 
-    // Etapa 1: Limpeza técnica para /conserto-lava-e-seca-caxias-do-sul/ (remover keywords e tags de verificação vazias)
-    if (route.path === '/conserto-lava-e-seca-caxias-do-sul/') {
+    // Etapa 1: Limpeza técnica para landing pages Google Ads (remover keywords e tags de verificação vazias)
+    if (
+      route.path === '/conserto-lava-e-seca-caxias-do-sul/' ||
+      route.path === '/conserto-geladeira-caxias-do-sul/'
+    ) {
       html = html.replace(/<meta\s+name=["']keywords["'][\s\S]*?\/?>\s*/i, '');
       html = html.replace(/<meta\s+name=["']google-site-verification["']\s+content=["']\s*["']\s*\/?>\s*/i, '');
       html = html.replace(/<meta\s+name=["']msvalidate\.01["']\s+content=["']\s*["']\s*\/?>\s*/i, '');

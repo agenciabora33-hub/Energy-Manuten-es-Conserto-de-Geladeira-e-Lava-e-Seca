@@ -19,6 +19,7 @@ import { BlogPostPage } from './pages/BlogPostPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { LavaESecaLandingPage } from './pages/LavaESecaLandingPage';
+import { GeladeiraLandingPage } from './pages/GeladeiraLandingPage';
 
 import { SERVICES_DATA } from './data/services';
 import { LOCATIONS_DATA } from './data/locations';
@@ -71,9 +72,12 @@ export default function App() {
       return <ServicesPage onNavigate={handleNavigate} />;
     }
 
-    // 3. Dedicated Landing Page for Lava e Seca Google Ads
+    // 3. Dedicated Landing Pages for Google Ads
     if (currentPath === '/conserto-lava-e-seca-caxias-do-sul/') {
       return <LavaESecaLandingPage onNavigate={handleNavigate} />;
+    }
+    if (currentPath === '/conserto-geladeira-caxias-do-sul/') {
+      return <GeladeiraLandingPage onNavigate={handleNavigate} />;
     }
 
     // 4. Individual Service Pages
@@ -149,16 +153,18 @@ export default function App() {
     return <NotFoundPage onNavigate={handleNavigate} />;
   };
 
-  const isLavaESecaLP = currentPath === '/conserto-lava-e-seca-caxias-do-sul/';
+  const isDedicatedLP =
+    currentPath === '/conserto-lava-e-seca-caxias-do-sul/' ||
+    currentPath === '/conserto-geladeira-caxias-do-sul/';
 
   return (
     <div className="min-h-screen bg-[#0a0a0c] text-neutral-100 flex flex-col font-sans selection:bg-[#d4af37] selection:text-[#0a0a0c]">
-      {!isLavaESecaLP && <Header currentPath={currentPath} onNavigate={handleNavigate} />}
+      {!isDedicatedLP && <Header currentPath={currentPath} onNavigate={handleNavigate} />}
       <main className="flex-1">
         {renderPage()}
       </main>
-      {!isLavaESecaLP && <Footer onNavigate={handleNavigate} />}
-      {!isLavaESecaLP && <WhatsAppFloating />}
+      {!isDedicatedLP && <Footer onNavigate={handleNavigate} />}
+      {!isDedicatedLP && <WhatsAppFloating />}
     </div>
   );
 }
