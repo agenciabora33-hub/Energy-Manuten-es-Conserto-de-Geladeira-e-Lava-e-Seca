@@ -347,42 +347,127 @@ const STATIC_ROUTES: StaticRoute[] = [
   {
     path: '/conserto-maquina-de-lavar-caxias-do-sul/',
     title: 'Conserto de Máquina de Lavar em Caxias do Sul | Energy Manutenções',
-    description: 'Assistência técnica para máquinas de lavar roupas em Caxias do Sul. Conserto de lavadoras que não centrifugam, vazam ou não ligam. Chame no WhatsApp.',
+    description: 'Lavadora não centrifuga, não solta água ou faz barulho? Técnico a domicílio em Caxias do Sul. Brastemp, Consul, Electrolux, Samsung e LG. Chame no WhatsApp.',
     h1: 'Conserto de Máquina de Lavar em Caxias do Sul',
     breadcrumbs: [
       { name: 'Início', url: '/' },
       { name: 'Serviços', url: '/servicos/' },
       { name: 'Conserto de Máquina de Lavar', url: '/conserto-maquina-de-lavar-caxias-do-sul/' }
     ],
-    contentHtml: `
-      <p class="lead">Diagnóstico e conserto especializado para máquinas de lavar que não centrifugam, não drenam a água, fazem barulho excessivo no rolamento ou travam o cesto durante a lavagem.</p>
-      <h2>Problemas Comuns em Lavadoras</h2>
-      <ul>
-        <li>Máquina de lavar não solta a água (falha na eletrobomba de drenagem)</li>
-        <li>Lavadora não centrifuga ou bate roupa fraco</li>
-        <li>Barulho alto metálico de rolamento estourado durante a centrifugação</li>
-        <li>Vazamento de água pela parte inferior ou mangueiras</li>
-        <li>Painel não liga, pisca ou não avança as etapas do ciclo</li>
-      </ul>
-      <h2>Marcas Atendidas</h2>
-      <p>Brastemp, Consul, Electrolux, Samsung, LG e demais marcas.</p>
-      <h2>Perguntas Frequentes</h2>
-      <section>
-        <h3>Vale a pena consertar máquina com barulho no rolamento?</h3>
-        <p>Geralmente sim, a troca do kit mecânico (retentor, rolamentos e eixo) renova a vida útil da máquina por muitos anos com custo bem menor que uma nova.</p>
-      </section>
-    `,
+    contentHtml: ``,
     schemas: [
-      BASE_BUSINESS_SCHEMA,
-      createServiceSchema('Conserto de Máquina de Lavar em Caxias do Sul', 'Conserto e manutenção de lavadoras de roupa a domicílio em Caxias do Sul.', '/conserto-maquina-de-lavar-caxias-do-sul/'),
-      createBreadcrumbSchema([
-        { name: 'Início', url: '/' },
-        { name: 'Serviços', url: '/servicos/' },
-        { name: 'Conserto de Máquina de Lavar', url: '/conserto-maquina-de-lavar-caxias-do-sul/' }
-      ]),
-      createFAQSchema([
-        { question: 'Vale a pena consertar máquina com barulho no rolamento?', answer: 'Geralmente sim, a troca do kit mecânico (retentor, rolamentos e eixo) renova a vida útil da máquina por muitos anos com custo bem menor que uma nova.' }
-      ])
+      {
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'LocalBusiness',
+            '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+            name: 'Energy Manutenções',
+            url: 'https://energy-manutencoes.vercel.app/',
+            telephone: '+5554991796080',
+            image: 'https://energy-manutencoes.vercel.app/logo.png',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: 'Rua Índia Ceci, 141',
+              addressLocality: 'Caxias do Sul',
+              addressRegion: 'RS',
+              postalCode: '95013-120',
+              addressCountry: 'BR'
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: -29.1764,
+              longitude: -51.1895
+            },
+            openingHoursSpecification: {
+              '@type': 'OpeningHoursSpecification',
+              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+              opens: '08:00',
+              closes: '18:30'
+            },
+            areaServed: [
+              { '@type': 'City', name: 'Caxias do Sul' },
+              { '@type': 'City', name: 'Farroupilha' },
+              { '@type': 'City', name: 'Flores da Cunha' }
+            ]
+          },
+          {
+            '@type': 'Service',
+            name: 'Conserto de Máquina de Lavar',
+            serviceType: 'Assistência técnica de máquinas de lavar roupas',
+            provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+            areaServed: 'Caxias do Sul, RS'
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Início',
+                item: 'https://energy-manutencoes.vercel.app/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Serviços',
+                item: 'https://energy-manutencoes.vercel.app/servicos/'
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: 'Conserto de Máquina de Lavar',
+                item: 'https://energy-manutencoes.vercel.app/conserto-maquina-de-lavar-caxias-do-sul/'
+              }
+            ]
+          },
+          {
+            '@type': 'FAQPage',
+            mainEntity: [
+              {
+                '@type': 'Question',
+                name: 'A máquina de lavar não solta água nem centrifuga. O que pode ser?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Geralmente indica entupimento no filtro, trava na eletrobomba de drenagem ou falha no atuador de freio. O técnico avalia no local e realiza o reparo rapidamente.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Vale a pena trocar os rolamentos de uma lavadora com barulho alto?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim! A troca do conjunto mecânico (rolamentos e retentor) recupera totalmente a vida útil da máquina de lavar, por uma fração do preço de um eletrodoméstico novo.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'O atendimento é realizado em domicílio?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim, realizamos o diagnóstico e o conserto diretamente na sua residência em Caxias do Sul, Farroupilha e Flores da Cunha.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'O serviço tem garantia?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Sim, todos os serviços e peças substituídas contam com garantia comprovada. Pergunte as condições diretamente pelo WhatsApp.'
+                }
+              },
+              {
+                '@type': 'Question',
+                name: 'Quais marcas de máquina de lavar vocês atendem?',
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: 'Atendemos Brastemp, Consul, Electrolux, Samsung, LG, Panasonic, Colormaq e demais marcas nacionais e importadas.'
+                }
+              }
+            ]
+          }
+        ]
+      }
     ]
   },
 
@@ -1691,6 +1776,192 @@ function buildGeladeiraCrawlableBody(): string {
   `;
 }
 
+function buildMaquinaDeLavarCrawlableBody(): string {
+  const WHATSAPP_URL = 'https://wa.me/5554991796080?text=Ol%C3%A1!%20Preciso%20de%20conserto%20para%20minha%20m%C3%A1quina%20de%20lavar%20em%20Caxias%20do%20Sul.';
+  const PHONE_URL = 'tel:+5554991796080';
+
+  return `
+    <!-- A. Topbar de Confiança (Trust Bar) -->
+    <div style="background: #14141d; border-bottom: 1px solid #222; padding: 6px 12px; text-align: center; font-size: 12px; color: #ccc;">
+      <span style="color: #d4af37; font-weight: bold;">★ 4.9 no Google (+850 avaliações)</span>
+      <span style="margin: 0 6px; color: #555;">|</span>
+      <span>Atendimento Ágil em Caxias do Sul, Farroupilha e Flores da Cunha</span>
+      <span style="margin: 0 6px; color: #555;">|</span>
+      <a href="${WHATSAPP_URL}" data-location="topbar" target="_blank" rel="noopener noreferrer" style="color: #25d366; font-weight: bold; text-decoration: none;">(54) 99179-6080</a>
+    </div>
+
+    <!-- B. Header / Navegação & Breadcrumb Schema-ready -->
+    <header id="cabecalho" style="background: #0a0a0c; border-bottom: 1px solid #222;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between;">
+        <a href="/" style="font-weight: bold; color: #fff; text-decoration: none; font-size: 18px;" aria-label="Energy Manutenções - Página Inicial">
+          Energy Manutenções
+        </a>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="${PHONE_URL}" data-location="cabecalho" style="color: #ccc; text-decoration: none; font-size: 13px;">(54) 99179-6080</a>
+          <a href="${WHATSAPP_URL}" data-location="cabecalho" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 8px 16px; border-radius: 8px; font-weight: bold; font-size: 13px; text-decoration: none;">WhatsApp</a>
+        </div>
+      </div>
+      <div style="background: #0d0d12; border-top: 1px solid #1a1a24; padding: 6px 16px; font-size: 12px; color: #888;">
+        <div style="max-width: 1100px; margin: 0 auto;">
+          <a href="/" style="color: #bbb; text-decoration: none;">Início</a>
+          <span style="margin: 0 6px; color: #555;">/</span>
+          <a href="/servicos/" style="color: #bbb; text-decoration: none;">Serviços</a>
+          <span style="margin: 0 6px; color: #555;">/</span>
+          <span style="color: #f3e5ab;">Conserto de Máquina de Lavar</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- C. Seção Hero (Impacto Imediato) -->
+    <section id="hero" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px; border-bottom: 1px solid #1a1a24;">
+      <p style="color: #d4af37; font-size: 12px; font-weight: bold; text-transform: uppercase; margin-bottom: 8px;">Assistência Especializada a Domicílio</p>
+      <h1 style="font-size: 2.25rem; color: #fff; line-height: 1.2; margin: 0 0 16px 0;">Conserto de Máquina de Lavar em Caxias do Sul</h1>
+      <p style="font-size: 1.1rem; color: #ccc; line-height: 1.6; max-width: 700px; margin-bottom: 24px;">
+        Diagnóstico especializado e atendimento a domicílio para lavadoras que não centrifugam, não drenam ou apresentam ruídos excessivos.
+      </p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+        <a href="${WHATSAPP_URL}" data-location="hero" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 16px; text-decoration: none; display: inline-block;">
+          Solicitar Orçamento no WhatsApp
+        </a>
+        <a href="${PHONE_URL}" data-location="hero" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none; display: inline-block;">
+          Ligar agora
+        </a>
+      </div>
+      <p style="font-size: 13px; color: #888; margin-top: 12px;">
+        Atendimento a domicílio • Segunda a sábado, 08:00 às 18:30 • Serviço com garantia
+      </p>
+    </section>
+
+    <!-- D. Integração Obrigatória com Linha de Lavanderia (Cross-link em Destaque) -->
+    <section id="cross-link-lava-e-seca" style="background: #14141d; border-bottom: 1px solid #222; padding: 20px 16px;">
+      <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+        <p style="color: #ddd; font-size: 14px; margin: 0; line-height: 1.6;">
+          👉 Clique aqui para conhecer nossa assistência especializada em <a href="https://energy-manutencoes.vercel.app/conserto-lava-e-seca-caxias-do-sul/" style="color: #f3e5ab; font-weight: bold; text-decoration: underline;">conserto e manutenção de lava e seca</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Faixa de Confiança -->
+    <section id="confianca" style="background: #0e0e14; border-bottom: 1px solid #1a1a24; padding: 24px 16px;">
+      <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; text-align: center;">
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #d4af37;">★ 4.9 no Google</strong><br><small style="color: #888;">Avaliação dos clientes</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">+850 avaliações</strong><br><small style="color: #888;">Histórico comprovado</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">Atendimento a domicílio</strong><br><small style="color: #888;">Na sua residência</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #f3e5ab;">Brastemp • Consul • Electrolux</strong><br><small style="color: #888;">Principais marcas</small></div>
+      </div>
+    </section>
+
+    <!-- E. Diagnóstico Rápido de Falhas (Foco em Intenção de Busca do Google Ads) -->
+    <section id="falhas" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px;">
+      <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 20px;">Sua lavadora está apresentando alguma dessas falhas?</h2>
+      <ul style="color: #ccc; line-height: 1.8; font-size: 15px;">
+        <li>
+          <strong>Máquina não solta água / Falha na eletrobomba:</strong> Água parada no cesto ao final da lavagem ou eletrobomba travada por fiapos e moedas.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20Minha%20m%C3%A1quina%20de%20lavar%20n%C3%A3o%20est%C3%A1%20soltando%20%C3%A1gua.%20Moro%20em%20Caxias%20do%20Sul." data-location="falhas" data-symptom="nao-solta-agua" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar com técnico sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Lavadora não centrifuga ou bate fraco:</strong> Cesto não gira com velocidade, roupas saem encharcadas ou motor opera sem tração mecânica.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20Minha%20lavadora%20n%C3%A3o%20est%C3%A1%20centrifugando%20ou%20est%C3%A1%20batendo%20fraco.%20Moro%20em%20Caxias%20do%20Sul." data-location="falhas" data-symptom="nao-centrifuga" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar com técnico sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Ruído metálico alto (rolamento estourado):</strong> Barulho semelhante a turbina de avião na centrifugação provocado por vazamento de graxa no rolamento.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20Minha%20m%C3%A1quina%20de%20lavar%20est%C3%A1%20com%20um%20ru%C3%ADdo%20met%C3%A1lico%20muito%20alto%20na%20centrifuga%C3%A7%C3%A3o.%20Moro%20em%20Caxias%20do%20Sul." data-location="falhas" data-symptom="ruido-metalico" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar com técnico sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Vazamentos na parte inferior:</strong> Poça de água sob a lavadora, falha na mangueira de drenagem, bomba ou vedação do retentor.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20Minha%20m%C3%A1quina%20de%20lavar%20est%C3%A1%20vazando%20%C3%A1gua%20por%20baixo.%20Moro%20em%20Caxias%20do%20Sul." data-location="falhas" data-symptom="vazamentos" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar com técnico sobre isso no WhatsApp →</a>
+        </li>
+        <li style="margin-top: 12px;">
+          <strong>Placa ou painel que não liga:</strong> Lavadora não acende os LEDs, apaga no meio do ciclo ou apresenta códigos de erro no painel eletrônico.
+          <br><a href="https://wa.me/5554991796080?text=Ol%C3%A1!%20A%20placa%2Fpainel%20da%20minha%20m%C3%A1quina%20de%20lavar%20n%C3%A3o%20liga.%20Moro%20em%20Caxias%20do%20Sul." data-location="falhas" data-symptom="painel-placa" style="color: #25d366; font-size: 13px; text-decoration: underline;">Falar com técnico sobre isso no WhatsApp →</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Como Funciona o Atendimento -->
+    <section id="como-funciona" style="background: #0e0e14; border-top: 1px solid #1a1a24; border-bottom: 1px solid #1a1a24; padding: 40px 16px;">
+      <div style="max-width: 1100px; margin: 0 auto;">
+        <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 20px;">Como funciona o atendimento</h2>
+        <ol style="color: #ccc; line-height: 1.8; font-size: 15px;">
+          <li><strong>1. Contato no WhatsApp:</strong> Informe a marca e o sintoma da máquina de lavar.</li>
+          <li><strong>2. Visita Técnica no Local:</strong> O profissional comparece na sua residência para diagnóstico preciso.</li>
+          <li><strong>3. Reparo com Garantia:</strong> Substituição de peças adequadas e teste operacional completo.</li>
+        </ol>
+        <div style="margin-top: 24px;">
+          <a href="${WHATSAPP_URL}" data-location="como-funciona" style="background: #25d366; color: #000; padding: 12px 24px; border-radius: 10px; font-weight: bold; text-decoration: none; display: inline-block;">Agendar Visita Técnica</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- F. Seção de Marcas Atendidas -->
+    <section id="marcas" style="max-width: 1100px; margin: 0 auto; padding: 40px 16px; text-align: center;">
+      <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 12px;">Marcas de máquinas de lavar que atendemos</h2>
+      <p style="color: #ccc; font-size: 15px; max-width: 700px; margin: 0 auto 20px auto; line-height: 1.6;">
+        Atendemos Brastemp, Consul, Electrolux, Samsung, LG e demais marcas nacionais e importadas.
+      </p>
+    </section>
+
+    <!-- G. Seção de Perguntas Frequentes (FAQ com Accordion) -->
+    <section id="faq" style="background: #0e0e14; border-top: 1px solid #1a1a24; border-bottom: 1px solid #1a1a24; padding: 40px 16px;">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 1.6rem; color: #fff; margin-bottom: 24px;">Perguntas frequentes sobre conserto de lavadoras</h2>
+        
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">A máquina de lavar não solta água nem centrifuga. O que pode ser?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Geralmente indica entupimento no filtro, trava na eletrobomba de drenagem ou falha no atuador de freio. O técnico avalia no local e realiza o reparo rapidamente.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Vale a pena trocar os rolamentos de uma lavadora com barulho alto?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Sim! A troca do conjunto mecânico (rolamentos e retentor) recupera totalmente a vida útil da máquina de lavar, por uma fração do preço de um eletrodoméstico novo.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">O atendimento é realizado em domicílio?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Sim, realizamos o diagnóstico e o conserto diretamente na sua residência em Caxias do Sul, Farroupilha e Flores da Cunha.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">O serviço tem garantia?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Sim, todos os serviços e peças substituídas contam com garantia comprovada. Pergunte as condições diretamente pelo WhatsApp.</p>
+        </details>
+
+        <details style="margin-bottom: 14px; background: #14141d; padding: 14px; border-radius: 8px; border: 1px solid #222;">
+          <summary style="font-weight: bold; color: #fff; cursor: pointer;">Quais marcas de máquina de lavar vocês atendem?</summary>
+          <p style="color: #ccc; margin-top: 10px; line-height: 1.6;">Atendemos Brastemp, Consul, Electrolux, Samsung, LG, Panasonic, Colormaq e demais marcas nacionais e importadas.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Chamada Final -->
+    <section id="final" style="max-width: 800px; margin: 40px auto; padding: 30px 16px; text-align: center; background: #14141d; border-radius: 12px; border: 1px solid #333;">
+      <h2 style="font-size: 1.8rem; color: #fff; margin-bottom: 12px;">Sua máquina de lavar parada? Resolva hoje mesmo.</h2>
+      <p style="color: #ccc; margin-bottom: 24px;">Atendimento a domicílio com agendamento ágil em Caxias do Sul e cidades vizinhas.</p>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
+        <a href="${WHATSAPP_URL}" data-location="final" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 15px; text-decoration: none;">Chamar no WhatsApp</a>
+        <a href="${PHONE_URL}" data-location="final" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none;">Ligar agora</a>
+      </div>
+    </section>
+
+    <!-- Região Atendida -->
+    <section id="regiao" style="text-align: center; padding: 16px; border-top: 1px solid #222;">
+      <p style="color: #888; font-size: 13px; margin: 0;">Atendemos Caxias do Sul, Farroupilha e Flores da Cunha, com sede no bairro Marechal Floriano.</p>
+    </section>
+
+    <!-- H. Rodapé Padronizado (Corporate Strict - NUNCA exibir o nome do proprietário) -->
+    <footer id="rodape" style="border-top: 1px solid #222; padding: 30px 16px; text-align: center; font-size: 12px; color: #888; background: #070709;">
+      <p style="color: #ccc; font-weight: bold; margin-bottom: 8px;">Energy Manutenções | CNPJ: 46.067.650/0001-55</p>
+      <p style="margin-bottom: 8px;">Endereço: Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul – RS, CEP 95013-120<br>Atendimento: Segunda a Sábado, das 08:00 às 18:30 | Contato oficial: (54) 99179-6080</p>
+      <p style="margin-bottom: 12px;">
+        <a href="/" style="color: #aaa; text-decoration: underline; margin-right: 12px;">Início</a>
+        <a href="/contato/" style="color: #aaa; text-decoration: underline; margin-right: 12px;">Contato</a>
+        <a href="/politica-de-privacidade/" style="color: #aaa; text-decoration: underline;">Política de Privacidade</a>
+      </p>
+      <p style="color: #777;">Atendimento a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha. Assistência de máquinas de lavar, lava e seca e eletrodomésticos da linha branca.</p>
+    </footer>
+  `;
+}
+
 function buildCrawlableBody(route: StaticRoute): string {
   const breadcrumbLinks = route.breadcrumbs
     .map(b => `<a href="${b.url}" style="color: #d4af37; text-decoration: underline;">${b.name}</a>`)
@@ -1838,6 +2109,8 @@ export function generateStaticHtmlFiles() {
         ? buildLavaESecaCrawlableBody()
         : route.path === '/conserto-geladeira-caxias-do-sul/'
         ? buildGeladeiraCrawlableBody()
+        : route.path === '/conserto-maquina-de-lavar-caxias-do-sul/'
+        ? buildMaquinaDeLavarCrawlableBody()
         : buildCrawlableBody(route);
 
     html = html.replace(
@@ -1848,7 +2121,8 @@ export function generateStaticHtmlFiles() {
     // Etapa 1: Limpeza técnica para landing pages Google Ads (remover keywords e tags de verificação vazias)
     if (
       route.path === '/conserto-lava-e-seca-caxias-do-sul/' ||
-      route.path === '/conserto-geladeira-caxias-do-sul/'
+      route.path === '/conserto-geladeira-caxias-do-sul/' ||
+      route.path === '/conserto-maquina-de-lavar-caxias-do-sul/'
     ) {
       html = html.replace(/<meta\s+name=["']keywords["'][\s\S]*?\/?>\s*/i, '');
       html = html.replace(/<meta\s+name=["']google-site-verification["']\s+content=["']\s*["']\s*\/?>\s*/i, '');

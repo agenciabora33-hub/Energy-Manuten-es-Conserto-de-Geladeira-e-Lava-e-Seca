@@ -1,0 +1,804 @@
+import React, { useEffect } from 'react';
+import {
+  MessageCircle,
+  Phone,
+  ShieldCheck,
+  Clock,
+  Home,
+  CheckCircle2,
+  AlertTriangle,
+  ChevronDown,
+  Star,
+  Zap,
+  Wrench,
+  ChevronRight,
+  Sparkles,
+  ArrowRight
+} from 'lucide-react';
+import { COMPANY, getAbsoluteUrl } from '../data/company';
+import { EnergyLogo } from '../components/EnergyLogo';
+import imgLavadora from '../assets/images/conserto_lavadora_1789402043101.jpg';
+
+interface MaquinaDeLavarLandingPageProps {
+  onNavigate: (path: string) => void;
+}
+
+export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps> = ({ onNavigate }) => {
+  const WHATSAPP_BASE_URL = 'https://wa.me/5554991796080';
+  const WHATSAPP_DEFAULT_URL =
+    'https://wa.me/5554991796080?text=Ol%C3%A1!%20Preciso%20de%20conserto%20para%20minha%20m%C3%A1quina%20de%20lavar%20em%20Caxias%20do%20Sul.';
+  const PHONE_URL = 'tel:+5554991796080';
+
+  const PAGE_TITLE = 'Conserto de Máquina de Lavar em Caxias do Sul | Energy Manutenções';
+  const PAGE_DESC =
+    'Lavadora não centrifuga, não solta água ou faz barulho? Técnico a domicílio em Caxias do Sul. Brastemp, Consul, Electrolux, Samsung e LG. Chame no WhatsApp.';
+  const CANONICAL_URL = 'https://energy-manutencoes.vercel.app/conserto-maquina-de-lavar-caxias-do-sul/';
+
+  // Head cleaning, dataLayer tracking, JSON-LD
+  useEffect(() => {
+    // 1. Title
+    document.title = PAGE_TITLE;
+
+    // 2. Helper to set/update meta tag
+    const setMetaTag = (attribute: 'name' | 'property', key: string, content: string) => {
+      let el = document.querySelector(`meta[${attribute}="${key}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attribute, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', content);
+    };
+
+    // 3. Update description and social tags
+    setMetaTag('name', 'description', PAGE_DESC);
+    setMetaTag('name', 'robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    setMetaTag('property', 'og:title', PAGE_TITLE);
+    setMetaTag('property', 'og:description', PAGE_DESC);
+    setMetaTag('property', 'og:url', CANONICAL_URL);
+    setMetaTag('property', 'og:type', 'website');
+    setMetaTag('property', 'og:image', getAbsoluteUrl('/logo.png'));
+    setMetaTag('name', 'twitter:title', PAGE_TITLE);
+    setMetaTag('name', 'twitter:description', PAGE_DESC);
+    setMetaTag('name', 'twitter:image', getAbsoluteUrl('/logo.png'));
+
+    // 4. Update canonical
+    let linkCanonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!linkCanonical) {
+      linkCanonical = document.createElement('link');
+      linkCanonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute('href', CANONICAL_URL);
+
+    // 5. Remover meta keywords e tags de verificação vazias
+    const keywordsEl = document.querySelector('meta[name="keywords"]');
+    if (keywordsEl) keywordsEl.remove();
+
+    const gVerify = document.querySelector('meta[name="google-site-verification"][content=""]');
+    if (gVerify) gVerify.remove();
+
+    const msVerify = document.querySelector('meta[name="msvalidate.01"][content=""]');
+    if (msVerify) msVerify.remove();
+
+    // 6. JSON-LD Graph (LocalBusiness, Service, BreadcrumbList, FAQPage) - NUNCA exibir nome de proprietário
+    const jsonLdGraph = {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'LocalBusiness',
+          '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+          name: 'Energy Manutenções',
+          url: 'https://energy-manutencoes.vercel.app/',
+          telephone: '+5554991796080',
+          image: 'https://energy-manutencoes.vercel.app/logo.png',
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Rua Índia Ceci, 141',
+            addressLocality: 'Caxias do Sul',
+            addressRegion: 'RS',
+            postalCode: '95013-120',
+            addressCountry: 'BR',
+          },
+          geo: {
+            '@type': 'GeoCoordinates',
+            latitude: -29.1764,
+            longitude: -51.1895,
+          },
+          openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            opens: '08:00',
+            closes: '18:30',
+          },
+          areaServed: [
+            { '@type': 'City', name: 'Caxias do Sul' },
+            { '@type': 'City', name: 'Farroupilha' },
+            { '@type': 'City', name: 'Flores da Cunha' },
+          ],
+        },
+        {
+          '@type': 'Service',
+          name: 'Conserto de Máquina de Lavar',
+          serviceType: 'Assistência técnica de máquinas de lavar roupas',
+          provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+          areaServed: 'Caxias do Sul, RS',
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: 'Início',
+              item: 'https://energy-manutencoes.vercel.app/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: 'Serviços',
+              item: 'https://energy-manutencoes.vercel.app/servicos/',
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: 'Conserto de Máquina de Lavar',
+              item: CANONICAL_URL,
+            },
+          ],
+        },
+        {
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'A máquina de lavar não solta água nem centrifuga. O que pode ser?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Geralmente indica entupimento no filtro, trava na eletrobomba de drenagem ou falha no atuador de freio. O técnico avalia no local e realiza o reparo rapidamente.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Vale a pena trocar os rolamentos de uma lavadora com barulho alto?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Sim! A troca do conjunto mecânico (rolamentos e retentor) recupera totalmente a vida útil da máquina de lavar, por uma fração do preço de um eletrodoméstico novo.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'O atendimento é realizado em domicílio?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Sim, realizamos o diagnóstico e o conserto diretamente na sua residência em Caxias do Sul, Farroupilha e Flores da Cunha.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'O serviço tem garantia?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Sim, todos os serviços e peças substituídas contam com garantia comprovada. Pergunte as condições diretamente pelo WhatsApp.',
+              },
+            },
+            {
+              '@type': 'Question',
+              name: 'Quais marcas de máquina de lavar vocês atendem?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Atendemos Brastemp, Consul, Electrolux, Samsung, LG, Panasonic, Colormaq e demais marcas nacionais e importadas.',
+              },
+            },
+          ],
+        },
+      ],
+    };
+
+    const scriptId = 'lavadora-jsonld';
+    let scriptEl = document.getElementById(scriptId) as HTMLScriptElement | null;
+    if (!scriptEl) {
+      scriptEl = document.createElement('script');
+      scriptEl.id = scriptId;
+      scriptEl.type = 'application/ld+json';
+      document.head.appendChild(scriptEl);
+    }
+    scriptEl.textContent = JSON.stringify(jsonLdGraph);
+
+    return () => {
+      scriptEl?.remove();
+    };
+  }, []);
+
+  // Disparo dos eventos do dataLayer
+  const trackConversion = (type: 'whatsapp' | 'telefone', locationId: string, symptom?: string) => {
+    if (typeof window !== 'undefined') {
+      const win = window as unknown as { dataLayer?: Record<string, unknown>[] };
+      win.dataLayer = win.dataLayer || [];
+      if (type === 'whatsapp') {
+        win.dataLayer.push({
+          event: 'click_whatsapp',
+          page_path: window.location.pathname,
+          button_location: locationId || 'geral',
+          symptom: symptom || '',
+        });
+      } else {
+        win.dataLayer.push({
+          event: 'click_telefone',
+          page_path: window.location.pathname,
+          button_location: locationId || 'geral',
+        });
+      }
+    }
+  };
+
+  const handleNavClick = (path: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate(path);
+  };
+
+  // Falhas mapeadas com foco em intenção de busca do Google Ads (Seção E)
+  const falhas = [
+    {
+      symptomId: 'nao-solta-agua',
+      title: 'Máquina não solta água / Falha na eletrobomba',
+      desc: 'Água parada no cesto ao final da lavagem ou eletrobomba travada por fiapos e moedas.',
+      whatsappMsg: 'Olá! Minha máquina de lavar não está soltando água. Moro em Caxias do Sul.',
+    },
+    {
+      symptomId: 'nao-centrifuga',
+      title: 'Lavadora não centrifuga ou bate fraco',
+      desc: 'Cesto não gira com velocidade, roupas saem encharcadas ou motor opera sem tração mecânica.',
+      whatsappMsg: 'Olá! Minha lavadora não está centrifugando ou está batendo fraco. Moro em Caxias do Sul.',
+    },
+    {
+      symptomId: 'ruido-metalico',
+      title: 'Ruído metálico alto (rolamento estourado)',
+      desc: 'Barulho semelhante a turbina de avião na centrifugação provocado por vazamento de graxa no rolamento.',
+      whatsappMsg: 'Olá! Minha máquina de lavar está com um ruído metálico muito alto na centrifugação. Moro em Caxias do Sul.',
+    },
+    {
+      symptomId: 'vazamentos',
+      title: 'Vazamentos na parte inferior',
+      desc: 'Poça de água sob a lavadora, falha na mangueira de drenagem, bomba ou vedação do retentor.',
+      whatsappMsg: 'Olá! Minha máquina de lavar está vazando água por baixo. Moro em Caxias do Sul.',
+    },
+    {
+      symptomId: 'painel-placa',
+      title: 'Placa ou painel que não liga',
+      desc: 'Lavadora não acende os LEDs, apaga no meio do ciclo ou apresenta códigos de erro no painel eletrônico.',
+      whatsappMsg: 'Olá! A placa/painel da minha máquina de lavar não liga. Moro em Caxias do Sul.',
+    },
+  ];
+
+  return (
+    <div className="bg-[#0a0a0c] text-neutral-100 min-h-screen pb-24 md:pb-0 font-sans selection:bg-[#d4af37] selection:text-[#0a0a0c]">
+      {/* A. Topbar de Confiança (Trust Bar) */}
+      <div className="bg-[#14141d] border-b border-neutral-800/80 py-1.5 px-3 text-center text-[11px] sm:text-xs text-neutral-300">
+        <div className="max-w-[1100px] mx-auto flex items-center justify-between">
+          <div className="flex-1 text-center sm:text-left">
+            <span className="text-[#d4af37] font-semibold">★ 4.9 no Google (+850 avaliações)</span>
+            <span className="mx-2 text-neutral-600 hidden sm:inline">|</span>
+            <span className="hidden sm:inline">Atendimento Ágil em Caxias do Sul, Farroupilha e Flores da Cunha</span>
+          </div>
+          <div className="hidden sm:flex items-center gap-2">
+            <a
+              href={WHATSAPP_DEFAULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-location="topbar"
+              onClick={() => trackConversion('whatsapp', 'topbar')}
+              className="text-[#25d366] hover:underline font-bold text-xs flex items-center gap-1"
+            >
+              <MessageCircle className="w-3.5 h-3.5 fill-current" />
+              <span>(54) 99179-6080</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* B. Header / Navegação & Breadcrumb Schema-ready */}
+      <header id="cabecalho" className="sticky top-0 z-40 bg-[#0a0a0c]/95 backdrop-blur border-b border-neutral-800">
+        <div className="max-w-[1100px] mx-auto px-4 h-16 flex items-center justify-between">
+          {/* Logo Energy Manutenções */}
+          <a
+            href="/"
+            onClick={(e) => handleNavClick('/', e)}
+            className="flex items-center gap-2 focus:outline-none focus:ring-1 focus:ring-[#d4af37] rounded"
+            aria-label="Energy Manutenções - Página Inicial"
+          >
+            <EnergyLogo size="sm" />
+          </a>
+
+          {/* Botões do cabeçalho */}
+          <div className="flex items-center gap-3">
+            {/* Mobile: Botão Ligar */}
+            <a
+              href={PHONE_URL}
+              data-location="cabecalho"
+              onClick={() => trackConversion('telefone', 'cabecalho')}
+              className="md:hidden inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-neutral-800 text-white text-xs font-bold border border-neutral-700 hover:border-[#d4af37] active:scale-95 transition-all"
+              aria-label="Ligar para Energy Manutenções"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span>Ligar</span>
+            </a>
+
+            {/* Desktop: Telefone visível (link tel:) + Botão WhatsApp */}
+            <div className="hidden md:flex items-center gap-4">
+              <a
+                href={PHONE_URL}
+                data-location="cabecalho"
+                onClick={() => trackConversion('telefone', 'cabecalho')}
+                className="text-xs text-neutral-300 hover:text-white flex items-center gap-1.5 font-medium transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-[#d4af37]" />
+                <span>(54) 99179-6080</span>
+              </a>
+              <a
+                href={WHATSAPP_DEFAULT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-location="cabecalho"
+                onClick={() => trackConversion('whatsapp', 'cabecalho')}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#25d366] text-[#0a0a0c] text-xs font-bold hover:brightness-110 active:scale-95 transition-all shadow-[0_2px_12px_rgba(37,211,102,0.25)]"
+              >
+                <MessageCircle className="w-4 h-4 fill-current" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Breadcrumb Schema-ready */}
+        <div className="border-t border-neutral-900 bg-[#0d0d12] py-1.5 px-4">
+          <nav aria-label="Breadcrumb" className="max-w-[1100px] mx-auto text-xs text-neutral-400 flex items-center gap-1.5">
+            <a href="/" onClick={(e) => handleNavClick('/', e)} className="hover:text-white transition-colors">
+              Início
+            </a>
+            <ChevronRight className="w-3 h-3 text-neutral-600" />
+            <a href="/servicos/" onClick={(e) => handleNavClick('/servicos/', e)} className="hover:text-white transition-colors">
+              Serviços
+            </a>
+            <ChevronRight className="w-3 h-3 text-neutral-600" />
+            <span className="text-[#f3e5ab] font-medium truncate">Conserto de Máquina de Lavar</span>
+          </nav>
+        </div>
+      </header>
+
+      {/* C. Seção Hero (Impacto Imediato) */}
+      <section id="hero" className="py-10 sm:py-16 px-4 bg-gradient-to-b from-[#0a0a0c] via-[#111118] to-[#0a0a0c] border-b border-neutral-900">
+        <div className="max-w-[1100px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1c1c28] border border-[#d4af37]/30 text-[11px] font-semibold text-[#f3e5ab]">
+              <Wrench className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span>Assistência Especializada a Domicílio</span>
+            </div>
+
+            {/* H1 Principal */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+              Conserto de Máquina de Lavar em Caxias do Sul
+            </h1>
+
+            {/* Subtítulo Persuasivo */}
+            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Diagnóstico especializado e atendimento a domicílio para lavadoras que não centrifugam, não drenam ou apresentam ruídos excessivos.
+            </p>
+
+            {/* Botões de Ação */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
+              <a
+                href={WHATSAPP_DEFAULT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-location="hero"
+                onClick={() => trackConversion('whatsapp', 'hero')}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#25d366] text-[#0a0a0c] text-base font-bold shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:brightness-110 active:scale-95 transition-all group"
+              >
+                <MessageCircle className="w-5 h-5 fill-current transition-transform group-hover:scale-110" />
+                <span>Solicitar Orçamento no WhatsApp</span>
+              </a>
+
+              <a
+                href={PHONE_URL}
+                data-location="hero"
+                onClick={() => trackConversion('telefone', 'hero')}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-transparent text-neutral-200 text-sm font-semibold border border-neutral-700 hover:border-[#d4af37] hover:text-white active:scale-95 transition-all"
+              >
+                <Phone className="w-4 h-4 text-[#d4af37]" />
+                <span>Ligar agora</span>
+              </a>
+            </div>
+
+            {/* Linha de confiança abaixo dos botões */}
+            <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 text-xs text-neutral-400">
+              <span className="flex items-center gap-1.5">
+                <Home className="w-3.5 h-3.5 text-[#d4af37]" />
+                <span>Atendimento a domicílio</span>
+              </span>
+              <span>•</span>
+              <span className="flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-[#d4af37]" />
+                <span>Segunda a sábado, 08:00 às 18:30</span>
+              </span>
+              <span>•</span>
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#d4af37]" />
+                {/* CONFIRMAR COM CLIENTE: [GARANTIA] */}
+                <span>Serviço com garantia</span>
+              </span>
+            </div>
+          </div>
+
+          {/* Imagem do Hero (sem lazy load, com dimensões) */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative rounded-2xl overflow-hidden border border-neutral-800 shadow-2xl max-w-md w-full">
+              <img
+                src={imgLavadora}
+                alt="Técnico consertando máquina de lavar em Caxias do Sul"
+                width={640}
+                height={480}
+                className="w-full h-auto object-cover aspect-[4/3]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c]/80 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-[#0e0e14]/90 backdrop-blur border border-neutral-800 text-xs text-neutral-300">
+                <p className="font-bold text-white">Conserto ágil e peças de qualidade</p>
+                <p className="text-[11px] text-neutral-400 mt-0.5">Brastemp, Consul, Electrolux, Samsung e LG</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* D. Integração Obrigatória com Linha de Lavanderia (Cross-link em Destaque) */}
+      <section id="cross-link-lava-e-seca" className="py-6 px-4 bg-gradient-to-r from-[#14141d] via-[#1a1a26] to-[#14141d] border-b border-[#d4af37]/30">
+        <div className="max-w-[1100px] mx-auto p-4 rounded-xl bg-[#0a0a0c]/80 border border-neutral-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <Sparkles className="w-5 h-5 text-[#d4af37] flex-shrink-0 hidden sm:block" />
+            <p className="text-xs sm:text-sm text-neutral-200">
+              👉 Clique aqui para conhecer nossa assistência especializada em{' '}
+              <a
+                href="https://energy-manutencoes.vercel.app/conserto-lava-e-seca-caxias-do-sul/"
+                onClick={(e) => handleNavClick('/conserto-lava-e-seca-caxias-do-sul/', e)}
+                className="text-[#f3e5ab] font-bold underline hover:text-[#d4af37] transition-colors"
+              >
+                conserto e manutenção de lava e seca
+              </a>
+              .
+            </p>
+          </div>
+          <a
+            href="https://energy-manutencoes.vercel.app/conserto-lava-e-seca-caxias-do-sul/"
+            onClick={(e) => handleNavClick('/conserto-lava-e-seca-caxias-do-sul/', e)}
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#1c1c28] border border-[#d4af37]/40 text-xs font-semibold text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#0a0a0c] active:scale-95 transition-all whitespace-nowrap"
+          >
+            <span>Ver Lava e Seca</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
+      </section>
+
+      {/* Faixa de Confiança */}
+      <section id="confianca" className="py-6 bg-[#0e0e14] border-b border-neutral-900">
+        <div className="max-w-[1100px] mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div className="p-3 rounded-xl bg-[#14141d] border border-neutral-800/80">
+            <div className="flex items-center justify-center gap-1 text-[#d4af37] font-bold text-sm">
+              <Star className="w-4 h-4 fill-current" />
+              <span>4.9 no Google</span>
+            </div>
+            <p className="text-[11px] text-neutral-400 mt-0.5">Avaliação dos clientes</p>
+          </div>
+          <div className="p-3 rounded-xl bg-[#14141d] border border-neutral-800/80">
+            <p className="text-white font-bold text-sm">+850 avaliações</p>
+            <p className="text-[11px] text-neutral-400 mt-0.5">Histórico comprovado</p>
+          </div>
+          <div className="p-3 rounded-xl bg-[#14141d] border border-neutral-800/80">
+            <p className="text-white font-bold text-sm">Atendimento a domicílio</p>
+            <p className="text-[11px] text-neutral-400 mt-0.5">Na sua residência</p>
+          </div>
+          <div className="p-3 rounded-xl bg-[#14141d] border border-neutral-800/80">
+            <p className="text-[#f3e5ab] font-bold text-sm">Brastemp • Consul • Electrolux</p>
+            <p className="text-[11px] text-neutral-400 mt-0.5">Principais marcas</p>
+          </div>
+        </div>
+      </section>
+
+      {/* E. Diagnóstico Rápido de Falhas (Foco em Intenção de Busca do Google Ads) */}
+      <section id="falhas" className="py-12 px-4 max-w-[1100px] mx-auto">
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            Sua lavadora está apresentando alguma dessas falhas?
+          </h2>
+          <p className="text-xs sm:text-sm text-neutral-400 mt-2">
+            Identifique o sintoma do seu eletrodoméstico e solicite atendimento rápido no WhatsApp.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {falhas.map((item) => {
+            const encodedUrl = `${WHATSAPP_BASE_URL}?text=${encodeURIComponent(item.whatsappMsg)}`;
+            return (
+              <div
+                key={item.symptomId}
+                className="p-5 rounded-2xl bg-[#121217] border border-neutral-800 hover:border-[#d4af37]/50 transition-all flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <AlertTriangle className="w-4 h-4 text-[#d4af37] flex-shrink-0" />
+                    <h3 className="text-sm font-bold text-white">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p className="text-xs text-neutral-300 leading-relaxed mb-4">
+                    {item.desc}
+                  </p>
+                </div>
+                <div>
+                  <a
+                    href={encodedUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-location="falhas"
+                    data-symptom={item.symptomId}
+                    onClick={() => trackConversion('whatsapp', 'falhas', item.symptomId)}
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#1c1c28] border border-[#25d366]/40 text-[#25d366] text-xs font-bold hover:bg-[#25d366] hover:text-[#0a0a0c] active:scale-95 transition-all"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                    <span>Falar com técnico sobre isso</span>
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Como Funciona o Atendimento */}
+      <section id="como-funciona" className="py-12 px-4 bg-[#0e0e14] border-y border-neutral-900">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="text-center max-w-xl mx-auto mb-8">
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              Como funciona o atendimento
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-400 mt-2">
+              Processo transparente e ágil para consertar sua lavadora sem você sair de casa.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="p-6 rounded-2xl bg-[#14141d] border border-neutral-800 relative">
+              <span className="text-3xl font-black text-[#d4af37]/40 block mb-2">01</span>
+              <h3 className="text-base font-bold text-white mb-2">Contato no WhatsApp</h3>
+              <p className="text-xs text-neutral-300 leading-relaxed">
+                Informe a marca e o sintoma da máquina de lavar.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#14141d] border border-neutral-800 relative">
+              <span className="text-3xl font-black text-[#d4af37]/40 block mb-2">02</span>
+              <h3 className="text-base font-bold text-white mb-2">Visita Técnica no Local</h3>
+              <p className="text-xs text-neutral-300 leading-relaxed">
+                O profissional comparece na sua residência para diagnóstico preciso.
+              </p>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-[#14141d] border border-neutral-800 relative">
+              <span className="text-3xl font-black text-[#d4af37]/40 block mb-2">03</span>
+              <h3 className="text-base font-bold text-white mb-2">Reparo com Garantia</h3>
+              <p className="text-xs text-neutral-300 leading-relaxed">
+                Substituição de peças adequadas e teste operacional completo.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center mt-8">
+            <a
+              href={WHATSAPP_DEFAULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-location="como-funciona"
+              onClick={() => trackConversion('whatsapp', 'como-funciona')}
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#25d366] text-[#0a0a0c] text-sm font-bold hover:brightness-110 active:scale-95 transition-all shadow-[0_4px_16px_rgba(37,211,102,0.25)]"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Agendar Visita Técnica</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* F. Seção de Marcas Atendidas */}
+      <section id="marcas" className="py-10 px-4 max-w-[1100px] mx-auto text-center">
+        <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight mb-3">
+          Marcas de máquinas de lavar que atendemos
+        </h2>
+        <p className="text-xs sm:text-sm text-neutral-300 max-w-2xl mx-auto mb-6 leading-relaxed">
+          Atendemos Brastemp, Consul, Electrolux, Samsung, LG e demais marcas nacionais e importadas.
+        </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {['Brastemp', 'Consul', 'Electrolux', 'Samsung', 'LG', 'Panasonic', 'Colormaq', 'Demais Marcas'].map((marca, i) => (
+            <div
+              key={i}
+              className="px-5 py-2.5 rounded-xl bg-[#14141d] border border-neutral-800 text-xs sm:text-sm font-bold text-white tracking-wide"
+            >
+              {marca}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* G. Seção de Perguntas Frequentes (FAQ com Accordion) */}
+      <section id="faq" className="py-12 px-4 bg-[#0e0e14] border-t border-neutral-900">
+        <div className="max-w-[800px] mx-auto">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              Perguntas frequentes sobre conserto de lavadoras
+            </h2>
+            <p className="text-xs sm:text-sm text-neutral-400 mt-2">
+              Esclareça dúvidas sobre conserto de rolamentos, garantia e atendimento a domicílio.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {[
+              {
+                q: 'A máquina de lavar não solta água nem centrifuga. O que pode ser?',
+                a: 'Geralmente indica entupimento no filtro, trava na eletrobomba de drenagem ou falha no atuador de freio. O técnico avalia no local e realiza o reparo rapidamente.',
+              },
+              {
+                q: 'Vale a pena trocar os rolamentos de uma lavadora com barulho alto?',
+                a: 'Sim! A troca do conjunto mecânico (rolamentos e retentor) recupera totalmente a vida útil da máquina de lavar, por uma fração do preço de um eletrodoméstico novo.',
+              },
+              {
+                q: 'O atendimento é realizado em domicílio?',
+                a: 'Sim, realizamos o diagnóstico e o conserto diretamente na sua residência em Caxias do Sul, Farroupilha e Flores da Cunha.',
+              },
+              {
+                q: 'O serviço tem garantia?',
+                a: 'Sim, todos os serviços e peças substituídas contam com garantia comprovada. Pergunte as condições diretamente pelo WhatsApp.',
+                comment: '<!-- CONFIRMAR COM CLIENTE: [GARANTIA] -->',
+              },
+              {
+                q: 'Quais marcas de máquina de lavar vocês atendem?',
+                a: 'Atendemos Brastemp, Consul, Electrolux, Samsung, LG, Panasonic, Colormaq e demais marcas nacionais e importadas.',
+              },
+              {
+                q: 'Quanto custa a visita técnica e o orçamento?',
+                a: 'O valor exato depende do defeito e das peças necessárias. Envie o modelo e o problema pelo WhatsApp para receber uma estimativa ágil.',
+                comment: '<!-- CONFIRMAR COM CLIENTE: [VALOR_ORCAMENTO] -->',
+              },
+            ].map((faq, index) => (
+              <details
+                key={index}
+                className="group rounded-xl bg-[#14141d] border border-neutral-800 p-4 [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary className="flex items-center justify-between cursor-pointer list-none text-xs sm:text-sm font-bold text-white group-hover:text-[#f3e5ab] transition-colors">
+                  <span>{faq.q}</span>
+                  <ChevronDown className="w-4 h-4 text-[#d4af37] transition-transform duration-200 group-open:rotate-180 flex-shrink-0 ml-2" />
+                </summary>
+                <p className="mt-3 text-xs sm:text-sm text-neutral-300 leading-relaxed border-t border-neutral-800/80 pt-2.5">
+                  {faq.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Chamada Final */}
+      <section id="final" className="py-12 sm:py-16 px-4 bg-gradient-to-r from-[#14141d] via-[#1c1c28] to-[#14141d] border-t border-neutral-800 text-center">
+        <div className="max-w-[700px] mx-auto space-y-4">
+          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+            Sua máquina de lavar parada? Resolva hoje mesmo.
+          </h2>
+          <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+            Atendimento a domicílio com agendamento ágil em Caxias do Sul e cidades vizinhas.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+            <a
+              href={WHATSAPP_DEFAULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-location="final"
+              onClick={() => trackConversion('whatsapp', 'final')}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#25d366] text-[#0a0a0c] text-sm font-bold hover:brightness-110 active:scale-95 transition-all shadow-[0_4px_16px_rgba(37,211,102,0.3)]"
+            >
+              <MessageCircle className="w-4 h-4 fill-current" />
+              <span>Chamar no WhatsApp</span>
+            </a>
+
+            <a
+              href={PHONE_URL}
+              data-location="final"
+              onClick={() => trackConversion('telefone', 'final')}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-neutral-800 text-white text-xs font-bold border border-neutral-700 hover:border-[#d4af37] active:scale-95 transition-all"
+            >
+              <Phone className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span>Ligar agora</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Região Atendida */}
+      <section id="regiao" className="py-6 px-4 bg-[#0a0a0c] border-t border-neutral-900 text-center">
+        <p className="text-xs text-neutral-400">
+          Atendemos Caxias do Sul, Farroupilha e Flores da Cunha, com sede no bairro Marechal Floriano.
+        </p>
+      </section>
+
+      {/* H. Rodapé Padronizado (Corporate Strict - NUNCA exibir nome de pessoa física) */}
+      <footer id="rodape" className="bg-[#070709] border-t border-neutral-900 py-8 px-4 text-xs text-neutral-400">
+        <div className="max-w-[1100px] mx-auto text-center space-y-3">
+          <p className="font-semibold text-neutral-200">
+            Energy Manutenções | CNPJ: 46.067.650/0001-55
+          </p>
+          <p className="text-neutral-400">
+            Endereço: Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul – RS, CEP 95013-120
+            <br />
+            Atendimento: Segunda a Sábado, das 08:00 às 18:30 | Contato oficial: (54) 99179-6080
+          </p>
+          <div className="flex items-center justify-center gap-4 text-[11px] pt-1 text-neutral-400">
+            <a
+              href="/"
+              onClick={(e) => handleNavClick('/', e)}
+              className="hover:text-white transition-colors underline"
+            >
+              Início
+            </a>
+            <span>•</span>
+            <a
+              href="/contato/"
+              onClick={(e) => handleNavClick('/contato/', e)}
+              className="hover:text-white transition-colors underline"
+            >
+              Contato
+            </a>
+            <span>•</span>
+            <a
+              href="/politica-de-privacidade/"
+              onClick={(e) => handleNavClick('/politica-de-privacidade/', e)}
+              className="hover:text-white transition-colors underline"
+            >
+              Política de Privacidade
+            </a>
+          </div>
+          <p className="text-[11px] text-neutral-400 pt-2">
+            Atendimento a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha. Assistência de máquinas de lavar, lava e seca e eletrodomésticos da linha branca.
+          </p>
+        </div>
+      </footer>
+
+      {/* I. Barra fixa no celular (Sticky CTA: apenas telas <= 768px, bottom: 0) */}
+      <div
+        id="barra-fixa"
+        style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0a0a0c]/95 backdrop-blur border-t border-neutral-800 p-2.5 flex items-center gap-2 shadow-[0_-4px_16px_rgba(0,0,0,0.5)]"
+      >
+        <a
+          href={WHATSAPP_DEFAULT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-location="barra-fixa"
+          onClick={() => trackConversion('whatsapp', 'barra-fixa')}
+          className="flex-[65] min-h-[48px] h-12 inline-flex items-center justify-center gap-2 rounded-xl bg-[#25d366] text-[#0a0a0c] text-sm font-bold shadow-[0_2px_10px_rgba(37,211,102,0.3)] active:scale-95 transition-all"
+        >
+          <MessageCircle className="w-4 h-4 fill-current" />
+          <span>WhatsApp</span>
+        </a>
+
+        <a
+          href={PHONE_URL}
+          data-location="barra-fixa"
+          onClick={() => trackConversion('telefone', 'barra-fixa')}
+          className="flex-[35] min-h-[48px] h-12 inline-flex items-center justify-center gap-1.5 rounded-xl bg-neutral-800 text-white text-xs font-bold border border-neutral-700 active:scale-95 transition-all"
+        >
+          <Phone className="w-3.5 h-3.5 text-[#d4af37]" />
+          <span>Ligar</span>
+        </a>
+      </div>
+    </div>
+  );
+};

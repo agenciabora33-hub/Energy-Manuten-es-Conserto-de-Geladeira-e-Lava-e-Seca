@@ -20,6 +20,7 @@ import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { LavaESecaLandingPage } from './pages/LavaESecaLandingPage';
 import { GeladeiraLandingPage } from './pages/GeladeiraLandingPage';
+import { MaquinaDeLavarLandingPage } from './pages/MaquinaDeLavarLandingPage';
 
 import { SERVICES_DATA } from './data/services';
 import { LOCATIONS_DATA } from './data/locations';
@@ -78,6 +79,9 @@ export default function App() {
     }
     if (currentPath === '/conserto-geladeira-caxias-do-sul/') {
       return <GeladeiraLandingPage onNavigate={handleNavigate} />;
+    }
+    if (currentPath === '/conserto-maquina-de-lavar-caxias-do-sul/') {
+      return <MaquinaDeLavarLandingPage onNavigate={handleNavigate} />;
     }
 
     // 4. Individual Service Pages
@@ -155,7 +159,8 @@ export default function App() {
 
   const isDedicatedLP =
     currentPath === '/conserto-lava-e-seca-caxias-do-sul/' ||
-    currentPath === '/conserto-geladeira-caxias-do-sul/';
+    currentPath === '/conserto-geladeira-caxias-do-sul/' ||
+    currentPath === '/conserto-maquina-de-lavar-caxias-do-sul/';
 
   return (
     <div className="min-h-screen bg-[#0a0a0c] text-neutral-100 flex flex-col font-sans selection:bg-[#d4af37] selection:text-[#0a0a0c]">
