@@ -1,6 +1,6 @@
 import React from 'react';
 import { MessageCircle, Wrench, ShieldCheck, MapPin, ArrowRight, Phone, CheckCircle2, Star, Sparkles } from 'lucide-react';
-import { COMPANY } from '../data/company';
+import { COMPANY, reportPhoneConversion } from '../data/company';
 import { SERVICES_DATA } from '../data/services';
 import { FAQ_LIST } from '../data/faq';
 import { TrustBadges } from '../components/TrustBadges';
@@ -102,7 +102,11 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             {/* Sub-notice with real NAP phone */}
             <p className="text-xs text-neutral-400">
               Ou ligue diretamente para:{' '}
-              <a href={`tel:${COMPANY.contact.rawPhone}`} className="text-neutral-200 font-bold hover:underline">
+              <a
+                href={`tel:${COMPANY.contact.rawPhone}`}
+                onClick={() => reportPhoneConversion(`tel:${COMPANY.contact.rawPhone}`)}
+                className="text-neutral-200 font-bold hover:underline"
+              >
                 {COMPANY.contact.phone}
               </a>
             </p>

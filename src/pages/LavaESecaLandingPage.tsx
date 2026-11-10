@@ -206,10 +206,13 @@ export const LavaESecaLandingPage: React.FC<LavaESecaLandingPageProps> = ({ onNa
     };
   }, []);
 
-  // Etapa 4: Disparo dos eventos do dataLayer
+  // Etapa 4: Disparo dos eventos do dataLayer e Google Ads
   const trackConversion = (type: 'whatsapp' | 'telefone', locationId: string) => {
     if (typeof window !== 'undefined') {
-      const win = window as unknown as { dataLayer?: Record<string, unknown>[] };
+      const win = window as unknown as {
+        dataLayer?: Record<string, unknown>[];
+        gtag_report_conversion?: (url?: string) => boolean;
+      };
       win.dataLayer = win.dataLayer || [];
       if (type === 'whatsapp') {
         win.dataLayer.push({
@@ -223,6 +226,9 @@ export const LavaESecaLandingPage: React.FC<LavaESecaLandingPageProps> = ({ onNa
           page_path: window.location.pathname,
           button_location: locationId,
         });
+        if (typeof win.gtag_report_conversion === 'function') {
+          win.gtag_report_conversion(PHONE_URL);
+        }
       }
     }
   };

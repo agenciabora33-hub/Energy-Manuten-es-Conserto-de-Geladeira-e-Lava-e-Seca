@@ -1,6 +1,6 @@
 import React from 'react';
 import { MessageCircle, Phone, ArrowRight } from 'lucide-react';
-import { COMPANY } from '../data/company';
+import { COMPANY, reportPhoneConversion } from '../data/company';
 
 interface CTASectionProps {
   title?: string;
@@ -50,6 +50,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
 
             <a
               href={`tel:${COMPANY.contact.rawPhone}`}
+              onClick={() => reportPhoneConversion(`tel:${COMPANY.contact.rawPhone}`)}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#14141b] hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-semibold text-sm transition-colors"
             >
               <Phone className="w-4 h-4 text-[#d4af37]" />

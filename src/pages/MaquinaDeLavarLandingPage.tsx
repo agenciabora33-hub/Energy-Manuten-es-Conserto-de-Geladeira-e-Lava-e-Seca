@@ -210,10 +210,13 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
     };
   }, []);
 
-  // Disparo dos eventos do dataLayer
+  // Disparo dos eventos do dataLayer e Google Ads
   const trackConversion = (type: 'whatsapp' | 'telefone', locationId: string, symptom?: string) => {
     if (typeof window !== 'undefined') {
-      const win = window as unknown as { dataLayer?: Record<string, unknown>[] };
+      const win = window as unknown as {
+        dataLayer?: Record<string, unknown>[];
+        gtag_report_conversion?: (url?: string) => boolean;
+      };
       win.dataLayer = win.dataLayer || [];
       if (type === 'whatsapp') {
         win.dataLayer.push({
@@ -228,6 +231,9 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
           page_path: window.location.pathname,
           button_location: locationId || 'geral',
         });
+        if (typeof win.gtag_report_conversion === 'function') {
+          win.gtag_report_conversion(PHONE_URL);
+        }
       }
     }
   };

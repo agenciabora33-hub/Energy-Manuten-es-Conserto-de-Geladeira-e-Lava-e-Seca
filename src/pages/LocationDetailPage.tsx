@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, MessageCircle, Phone, CheckCircle2, ChevronRight, Wrench } from 'lucide-react';
 import { LocationItem } from '../types';
-import { COMPANY } from '../data/company';
+import { COMPANY, reportPhoneConversion } from '../data/company';
 import { SERVICES_DATA } from '../data/services';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SEOHead } from '../components/SEOHead';
@@ -104,6 +104,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location
 
               <a
                 href={`tel:${COMPANY.contact.rawPhone}`}
+                onClick={() => reportPhoneConversion(`tel:${COMPANY.contact.rawPhone}`)}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#14141b] text-neutral-200 border border-neutral-700 text-xs font-semibold hover:bg-neutral-800 transition-colors"
               >
                 <Phone className="w-4 h-4 text-[#d4af37]" />

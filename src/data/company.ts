@@ -19,7 +19,7 @@ export function getAbsoluteUrl(path: string): string {
 
 export const COMPANY = {
   tradeName: 'Energy Manutenções',
-  legalName: 'Eduardo Borges Baumgarten',
+  legalName: 'Energy Manutenções',
   cnpj: '46.067.650/0001-55',
   registrationStatus: 'Ativa',
   openingDate: '18/04/2022',
@@ -110,3 +110,13 @@ export const COMPANY = {
     return `https://wa.me/5554991796080?text=${encodeURIComponent(message)}`;
   }
 };
+
+/**
+ * Report Google Ads click-to-call conversion and navigate to phone link
+ */
+export function reportPhoneConversion(url = 'tel:+5554991796080'): boolean {
+  if (typeof window !== 'undefined' && typeof window.gtag_report_conversion === 'function') {
+    return window.gtag_report_conversion(url);
+  }
+  return false;
+}

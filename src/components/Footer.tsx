@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, MessageCircle, ShieldCheck, CreditCard, ChevronRight, Star } from 'lucide-react';
 import { EnergyLogo } from './EnergyLogo';
-import { COMPANY } from '../data/company';
+import { COMPANY, reportPhoneConversion } from '../data/company';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -71,6 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <Phone className="w-4 h-4 text-[#d4af37] flex-shrink-0" />
                 <a
                   href={`tel:${COMPANY.contact.rawPhone}`}
+                  onClick={() => reportPhoneConversion(`tel:${COMPANY.contact.rawPhone}`)}
                   className="text-neutral-200 hover:text-[#d4af37] transition-colors font-medium"
                 >
                   {COMPANY.contact.phone}

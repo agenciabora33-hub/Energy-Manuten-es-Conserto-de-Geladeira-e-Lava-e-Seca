@@ -14,6 +14,29 @@
       gtag('config', 'AW-17774336955');
     </script>
     
+    <!-- Event snippet for Recurso "clique para ligar" conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+    <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof(url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17774336955/_y6TCJzY1bUdELu3u5tC',
+            'value': 1.0,
+            'currency': 'BRL',
+            'event_callback': callback
+        });
+      } else {
+        callback();
+      }
+      return false;
+    }
+    </script>
+    
     <!-- Title & Primary SEO (Critérios Bing & Google: 50-65 caracteres no título e 130-160 na descrição) -->
     <title>Assistência Técnica em Caxias do Sul | Energy Manutenções</title>
     <meta
@@ -89,7 +112,7 @@
         "@type": "HomeAndConstructionBusiness",
         "additionalType": "https://schema.org/LocalBusiness",
         "name": "Energy Manutenções",
-        "legalName": "Eduardo Borges Baumgarten",
+        "legalName": "Energy Manutenções",
         "alternateName": "Energy Assistência Técnica de Eletrodomésticos",
         "description": "Assistência técnica e conserto de geladeiras, máquinas de lavar, lava e seca e eletrodomésticos em Caxias do Sul, Farroupilha e Flores da Cunha.",
         "url": "https://energy-manutencoes.vercel.app/",
@@ -171,7 +194,7 @@
       <header style="padding: 1.5rem; text-align: center; border-bottom: 1px solid #222;">
         <p style="font-size: 0.9rem; color: #d4af37; margin: 0 0 0.5rem 0;">★ 4.9 no Google (+850 avaliações de clientes) | Atendimento em Caxias do Sul, Farroupilha e Flores da Cunha</p>
         <p style="margin: 0; font-size: 1.25rem; font-weight: bold; color: #fff;">Energy Manutenções</p>
-        <p style="margin: 0.25rem 0 0 0; color: #bbb; font-size: 0.85rem;">Telefone / WhatsApp: (54) 99179-6080</p>
+        <p style="margin: 0.25rem 0 0 0; color: #bbb; font-size: 0.85rem;">Telefone: <a href="tel:+5554991796080" onclick="return gtag_report_conversion('tel:+5554991796080');" style="color: #d4af37; text-decoration: underline;">(54) 99179-6080</a></p>
 
       </header>
       <main style="max-width: 960px; margin: 0 auto; padding: 2rem 1rem;">
@@ -215,9 +238,9 @@
         </p>
 
         <footer style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #222; font-size: 0.8rem; color: #888;">
-          <p>Energy Manutenções | Eduardo Borges Baumgarten | CNPJ: 46.067.650/0001-55</p>
+          <p>Energy Manutenções | CNPJ: 46.067.650/0001-55</p>
           <p>Endereço: Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul – RS, CEP 95013-120</p>
-          <p>Contato direto WhatsApp: <a href="https://wa.me/5554991796080" style="color: #d4af37;">(54) 99179-6080</a></p>
+          <p>Contato direto: WhatsApp <a href="https://wa.me/5554991796080" style="color: #25d366;">(54) 99179-6080</a> | Telefone: <a href="tel:+5554991796080" onclick="return gtag_report_conversion('tel:+5554991796080');" style="color: #d4af37;">(54) 99179-6080</a></p>
         </footer>
       </main>
     </div>

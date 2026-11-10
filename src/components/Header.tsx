@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, MessageCircle, Phone, ChevronDown } from 'lucide-react';
 import { EnergyLogo } from './EnergyLogo';
-import { COMPANY } from '../data/company';
+import { COMPANY, reportPhoneConversion } from '../data/company';
 import { SERVICES_DATA } from '../data/services';
 
 interface HeaderProps {
@@ -65,6 +65,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
           <div className="flex items-center gap-4">
             <a
               href={`tel:${COMPANY.contact.rawPhone}`}
+              onClick={() => reportPhoneConversion(`tel:${COMPANY.contact.rawPhone}`)}
               className="flex items-center gap-1.5 text-neutral-300 hover:text-[#d4af37] transition-colors"
             >
               <Phone className="w-3 h-3 text-[#d4af37]" />
@@ -235,6 +236,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
           <div className="pt-3 border-t border-neutral-800 flex flex-col gap-2.5">
             <a
               href={`tel:${COMPANY.contact.rawPhone}`}
+              onClick={() => reportPhoneConversion(`tel:${COMPANY.contact.rawPhone}`)}
               className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-[#181820] text-neutral-200 border border-neutral-700 text-sm font-semibold"
             >
               <Phone className="w-4 h-4 text-[#d4af37]" />

@@ -18,7 +18,7 @@ const BASE_BUSINESS_SCHEMA = {
   '@type': 'HomeAndConstructionBusiness',
   'additionalType': 'https://schema.org/LocalBusiness',
   'name': 'Energy Manutenções',
-  'legalName': 'Eduardo Borges Baumgarten',
+  'legalName': 'Energy Manutenções',
   'alternateName': 'Energy Assistência Técnica de Eletrodomésticos',
   'description': 'Assistência técnica e conserto de geladeiras, máquinas de lavar, lava e seca e eletrodomésticos em Caxias do Sul, Farroupilha e Flores da Cunha.',
   'url': `${SITE_URL}/`,
@@ -979,14 +979,14 @@ const STATIC_ROUTES: StaticRoute[] = [
   {
     path: '/sobre/',
     title: 'Sobre a Energy Manutenções | Assistência Técnica em Caxias do Sul',
-    description: 'Conheça a história da Energy Manutenções: fundada em 2022 por Eduardo Borges Baumgarten, mais de 850 avaliações 5 estrelas no Google e sede em Caxias do Sul.',
+    description: 'Conheça a história da Energy Manutenções: fundada em 2022, mais de 850 avaliações 5 estrelas no Google e sede em Caxias do Sul.',
     h1: 'Sobre a Energy Manutenções',
     breadcrumbs: [
       { name: 'Início', url: '/' },
       { name: 'Sobre', url: '/sobre/' }
     ],
     contentHtml: `
-      <p class="lead">Fundada em 18 de abril de 2022 em Caxias do Sul por Eduardo Borges Baumgarten, a Energy Manutenções (CNPJ: 46.067.650/0001-55) é referência em reparação e manutenção de eletrodomésticos na Serra Gaúcha.</p>
+      <p class="lead">Fundada em 18 de abril de 2022 em Caxias do Sul, a Energy Manutenções (CNPJ: 46.067.650/0001-55) é referência em reparação e manutenção de eletrodomésticos na Serra Gaúcha.</p>
       <p>Com mais de 850 avaliações de clientes e nota média de 4.9 no Google, priorizamos diagnósticos técnicos transparentes, pontualidade no atendimento a domicílio e peças de alta procedência.</p>
     `,
     schemas: [
@@ -1375,7 +1375,7 @@ function buildLavaESecaCrawlableBody(): string {
           Energy Manutenções
         </a>
         <div style="display: flex; align-items: center; gap: 12px;">
-          <a href="${PHONE_URL}" data-location="cabecalho" style="color: #ccc; text-decoration: none; font-size: 13px;">(54) 99179-6080</a>
+          <a href="${PHONE_URL}" onclick="return gtag_report_conversion('${PHONE_URL}');" data-location="cabecalho" style="color: #ccc; text-decoration: none; font-size: 13px;">(54) 99179-6080</a>
           <a href="${WHATSAPP_URL}" data-location="cabecalho" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 8px 16px; border-radius: 8px; font-weight: bold; font-size: 13px; text-decoration: none;">WhatsApp</a>
         </div>
       </div>
@@ -1392,7 +1392,7 @@ function buildLavaESecaCrawlableBody(): string {
         <a href="${WHATSAPP_URL}" data-location="hero" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 16px; text-decoration: none; display: inline-block;">
           Chamar no WhatsApp
         </a>
-        <a href="${PHONE_URL}" data-location="hero" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none; display: inline-block;">
+        <a href="${PHONE_URL}" onclick="return gtag_report_conversion('${PHONE_URL}');" data-location="hero" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none; display: inline-block;">
           Ligar agora
         </a>
       </div>
@@ -1528,7 +1528,7 @@ function buildLavaESecaCrawlableBody(): string {
       <p style="color: #ccc; margin-bottom: 24px;">Atendimento a domicílio com agendamento ágil em Caxias do Sul e cidades vizinhas.</p>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
         <a href="${WHATSAPP_URL}" data-location="final" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 15px; text-decoration: none;">Chamar no WhatsApp</a>
-        <a href="${PHONE_URL}" data-location="final" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none;">Ligar agora</a>
+        <a href="${PHONE_URL}" onclick="return gtag_report_conversion('${PHONE_URL}');" data-location="final" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none;">Ligar agora</a>
       </div>
     </section>
 
@@ -1564,7 +1564,7 @@ function buildGeladeiraCrawlableBody(): string {
           Energy Manutenções
         </a>
         <div style="display: flex; align-items: center; gap: 12px;">
-          <a href="${PHONE_URL}" data-location="cabecalho" style="color: #ccc; text-decoration: none; font-size: 13px;">(54) 99179-6080</a>
+          <a href="${PHONE_URL}" onclick="return gtag_report_conversion('${PHONE_URL}');" data-location="cabecalho" style="color: #ccc; text-decoration: none; font-size: 13px;">(54) 99179-6080</a>
           <a href="${WHATSAPP_URL}" data-location="cabecalho" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 8px 16px; border-radius: 8px; font-weight: bold; font-size: 13px; text-decoration: none;">WhatsApp</a>
         </div>
       </div>
@@ -1581,7 +1581,7 @@ function buildGeladeiraCrawlableBody(): string {
         <a href="${WHATSAPP_URL}" data-location="hero" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 16px; text-decoration: none; display: inline-block;">
           Chamar no WhatsApp
         </a>
-        <a href="${PHONE_URL}" data-location="hero" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none; display: inline-block;">
+        <a href="${PHONE_URL}" onclick="return gtag_report_conversion('${PHONE_URL}');" data-location="hero" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none; display: inline-block;">
           Ligar agora
         </a>
       </div>
@@ -1753,7 +1753,7 @@ function buildGeladeiraCrawlableBody(): string {
       <p style="color: #ccc; margin-bottom: 24px;">Atendimento a domicílio com agendamento ágil em Caxias do Sul e cidades vizinhas.</p>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
         <a href="${WHATSAPP_URL}" data-location="final" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 15px; text-decoration: none;">Chamar no WhatsApp</a>
-        <a href="${PHONE_URL}" data-location="final" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none;">Ligar agora</a>
+        <a href="${PHONE_URL}" onclick="return gtag_report_conversion('${PHONE_URL}');" data-location="final" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none;">Ligar agora</a>
       </div>
     </section>
 
@@ -1797,7 +1797,7 @@ function buildMaquinaDeLavarCrawlableBody(): string {
           Energy Manutenções
         </a>
         <div style="display: flex; align-items: center; gap: 12px;">
-          <a href="${PHONE_URL}" data-location="cabecalho" style="color: #ccc; text-decoration: none; font-size: 13px;">(54) 99179-6080</a>
+          <a href="${PHONE_URL}" onclick="return gtag_report_conversion('${PHONE_URL}');" data-location="cabecalho" style="color: #ccc; text-decoration: none; font-size: 13px;">(54) 99179-6080</a>
           <a href="${WHATSAPP_URL}" data-location="cabecalho" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 8px 16px; border-radius: 8px; font-weight: bold; font-size: 13px; text-decoration: none;">WhatsApp</a>
         </div>
       </div>
@@ -1823,7 +1823,7 @@ function buildMaquinaDeLavarCrawlableBody(): string {
         <a href="${WHATSAPP_URL}" data-location="hero" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 16px; text-decoration: none; display: inline-block;">
           Solicitar Orçamento no WhatsApp
         </a>
-        <a href="${PHONE_URL}" data-location="hero" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none; display: inline-block;">
+        <a href="${PHONE_URL}" onclick="return gtag_report_conversion('${PHONE_URL}');" data-location="hero" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none; display: inline-block;">
           Ligar agora
         </a>
       </div>
@@ -1939,7 +1939,7 @@ function buildMaquinaDeLavarCrawlableBody(): string {
       <p style="color: #ccc; margin-bottom: 24px;">Atendimento a domicílio com agendamento ágil em Caxias do Sul e cidades vizinhas.</p>
       <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;">
         <a href="${WHATSAPP_URL}" data-location="final" target="_blank" rel="noopener noreferrer" style="background: #25d366; color: #000; padding: 14px 28px; border-radius: 12px; font-weight: bold; font-size: 15px; text-decoration: none;">Chamar no WhatsApp</a>
-        <a href="${PHONE_URL}" data-location="final" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none;">Ligar agora</a>
+        <a href="${PHONE_URL}" onclick="return gtag_report_conversion('${PHONE_URL}');" data-location="final" style="border: 1px solid #444; color: #eee; padding: 14px 24px; border-radius: 12px; font-size: 14px; text-decoration: none;">Ligar agora</a>
       </div>
     </section>
 
@@ -1976,7 +1976,7 @@ function buildCrawlableBody(route: StaticRoute): string {
         <a href="/" style="color: #fff; text-decoration: none;">Energy Manutenções</a>
       </div>
       <p style="margin: 0.25rem 0 0.5rem 0; color: #bbb; font-size: 0.85rem;">
-        Telefone / WhatsApp: <a href="https://wa.me/5554991796080" style="color: #d4af37; font-weight: bold;">(54) 99179-6080</a>
+        WhatsApp: <a href="https://wa.me/5554991796080" style="color: #25d366; font-weight: bold;">(54) 99179-6080</a> | Telefone: <a href="tel:+5554991796080" onclick="return gtag_report_conversion('tel:+5554991796080');" style="color: #f3e5ab; font-weight: bold;">(54) 99179-6080</a>
       </p>
     </header>
 
@@ -2023,7 +2023,7 @@ function buildCrawlableBody(route: StaticRoute): string {
       </p>
 
       <footer style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #222; font-size: 0.8rem; color: #888;">
-        <p><strong>Energy Manutenções</strong> | Eduardo Borges Baumgarten | CNPJ: 46.067.650/0001-55</p>
+        <p><strong>Energy Manutenções</strong> | CNPJ: 46.067.650/0001-55</p>
         <p>Endereço: Rua Índia Ceci, 141, Bairro Marechal Floriano, Caxias do Sul – RS, CEP 95013-120</p>
         <p>Atendimento: Segunda a Sábado das 08:00 às 18:30 | Contato: (54) 99179-6080</p>
         <p style="margin-top: 0.75rem;">

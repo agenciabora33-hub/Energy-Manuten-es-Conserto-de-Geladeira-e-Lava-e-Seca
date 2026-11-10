@@ -1,6 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, MessageCircle, Clock, ShieldCheck, Mail, Star } from 'lucide-react';
-import { COMPANY } from '../data/company';
+import { COMPANY, reportPhoneConversion } from '../data/company';
 import { Breadcrumbs } from '../components/Breadcrumbs';
 import { SEOHead } from '../components/SEOHead';
 import { ContactForm } from '../components/ContactForm';
@@ -65,6 +65,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                       <strong className="text-white block text-xs">Telefone / WhatsApp:</strong>
                       <a
                         href={`tel:${COMPANY.contact.rawPhone}`}
+                        onClick={() => reportPhoneConversion(`tel:${COMPANY.contact.rawPhone}`)}
                         className="text-base font-bold text-[#f3e5ab] hover:underline"
                       >
                         {COMPANY.contact.phone}
