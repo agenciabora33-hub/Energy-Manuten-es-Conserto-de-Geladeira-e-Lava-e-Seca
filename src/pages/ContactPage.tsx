@@ -82,7 +82,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                         <span>Nota 4.9 no Google</span>
                         <span className="text-[#d4af37] text-[11px]">★★★★★</span>
                       </div>
-                      <p className="text-[11px] text-neutral-300 mt-0.5">Mais de 850 avaliações de clientes</p>
+                      <p className="text-[11px] text-neutral-300 mt-0.5">Mais de 900 avaliações de clientes</p>
                     </div>
                   </div>
 

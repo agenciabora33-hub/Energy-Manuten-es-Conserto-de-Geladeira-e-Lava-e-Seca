@@ -323,7 +323,7 @@ export const GeladeiraLandingPage: React.FC<GeladeiraLandingPageProps> = ({ onNa
       <header id="cabecalho" className="sticky top-0 z-40 bg-[#0a0a0c]/95 backdrop-blur border-b border-neutral-800">
         {/* Faixa superior fina */}
         <div className="bg-[#14141d] border-b border-neutral-800/80 py-1.5 px-3 text-center text-[11px] sm:text-xs text-neutral-300">
-          <span className="text-[#d4af37] font-semibold">★ 4.9 no Google (+850 avaliações)</span>
+          <span className="text-[#d4af37] font-semibold">★ 4.9 no Google (+900 avaliações)</span>
           <span className="mx-1.5 text-neutral-600">|</span>
           <span>Caxias do Sul, Farroupilha e Flores da Cunha</span>
         </div>
@@ -475,7 +475,7 @@ export const GeladeiraLandingPage: React.FC<GeladeiraLandingPageProps> = ({ onNa
           </div>
           <div className="p-3 rounded-xl bg-[#14141d] border border-neutral-800/80">
             {/* CONFIRMAR COM CLIENTE: [LINK_AVALIACOES] - se não informado, não criar link */}
-            <p className="text-white font-bold text-sm">+850 avaliações</p>
+            <p className="text-white font-bold text-sm">+900 avaliações</p>
             <p className="text-[11px] text-neutral-400 mt-0.5">Histórico comprovado</p>
           </div>
           <div className="p-3 rounded-xl bg-[#14141d] border border-neutral-800/80">
@@ -852,6 +852,17 @@ export const GeladeiraLandingPage: React.FC<GeladeiraLandingPageProps> = ({ onNa
           </div>
           <p className="text-[11px] text-neutral-400 pt-2">
             Atendimento a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha. Manutenção de geladeiras, freezers e adegas.
+          </p>
+          <p className="text-[11px] text-neutral-400 pt-2 border-t border-neutral-900">
+            Site desenvolvido por{' '}
+            <a
+              href="https://bora-digital-strategy.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-300 hover:text-[#d4af37] underline underline-offset-2 transition-colors"
+            >
+              Bora Digital Strategy
+            </a>
           </p>
         </div>
       </footer>

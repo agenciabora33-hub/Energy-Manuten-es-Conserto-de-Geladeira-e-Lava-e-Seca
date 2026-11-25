@@ -57,10 +57,10 @@ export const COMPANY = {
 
   reputation: {
     googleRating: '4.9',
-    reviewCount: 850,
-    reviewCountText: '+850',
-    reviewCountDescription: 'Mais de 850 avaliações no Google com nota 4.9',
-    badgeText: 'Mais de 850 avaliações no Google com nota 4.9',
+    reviewCount: 900,
+    reviewCountText: '+900',
+    reviewCountDescription: 'Mais de 900 avaliações no Google com nota 4.9',
+    badgeText: 'Mais de 900 avaliações no Google com nota 4.9',
   },
 
   googleSearchProfile: {

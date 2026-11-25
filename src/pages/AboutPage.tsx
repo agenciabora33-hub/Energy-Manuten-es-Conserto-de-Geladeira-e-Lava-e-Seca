@@ -64,7 +64,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                     <span className="text-xs font-bold text-[#f3e5ab] bg-[#d4af37]/20 px-2.5 py-0.5 rounded-full border border-[#d4af37]/30">Destaque no Google</span>
                   </div>
                   <h3 className="text-sm sm:text-base font-bold text-white">
-                    Mais de 850 avaliações no Google com nota 4.9
+                    Mais de 900 avaliações no Google com nota 4.9
                   </h3>
                   <p className="text-xs text-neutral-300">
                     Prova social autêntica de clientes em Caxias do Sul e região, destacando nossa pontualidade, honestidade no diagnóstico e excelência no reparo.

@@ -7,11 +7,13 @@ interface FAQSectionProps {
   initialCategory?: string;
   limit?: number;
   showSearch?: boolean;
+  paddingClassName?: string;
 }
 
 export const FAQSection: React.FC<FAQSectionProps> = ({
   limit,
   showSearch = true,
+  paddingClassName = 'py-14 sm:py-18',
 }) => {
   const [openIndices, setOpenIndices] = useState<number[]>([0, 1]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -36,7 +38,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
   const displayFaqs = limit ? filteredFaqs.slice(0, limit) : filteredFaqs;
 
   return (
-    <section className="py-14 sm:py-18 bg-[#0a0a0c]" aria-labelledby="faq-title">
+    <section className={`${paddingClassName} bg-[#0a0a0c]`} aria-labelledby="faq-title">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8">
           <span className="text-xs font-bold uppercase tracking-widest text-[#d4af37] mb-2 inline-block">

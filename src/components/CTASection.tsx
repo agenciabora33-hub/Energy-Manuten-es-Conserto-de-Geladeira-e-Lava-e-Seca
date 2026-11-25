@@ -7,6 +7,7 @@ interface CTASectionProps {
   subtitle?: string;
   customWhatsAppMessage?: string;
   variant?: 'gold' | 'dark';
+  paddingClassName?: string;
 }
 
 export const CTASection: React.FC<CTASectionProps> = ({
@@ -14,11 +15,12 @@ export const CTASection: React.FC<CTASectionProps> = ({
   subtitle = 'Envie uma mensagem pelo WhatsApp e explique o que está acontecendo com o equipamento para alinharmos seu atendimento.',
   customWhatsAppMessage,
   variant = 'gold',
+  paddingClassName = 'py-12 sm:py-16',
 }) => {
   const targetUrl = COMPANY.buildWhatsAppUrl(customWhatsAppMessage);
 
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6 bg-[#0a0a0c]" aria-label="Chamada para Ação">
+    <section className={`${paddingClassName} px-4 sm:px-6 bg-[#0a0a0c]`} aria-label="Chamada para Ação">
       <div className="max-w-5xl mx-auto rounded-3xl overflow-hidden relative p-8 sm:p-12 border border-[#d4af37]/35 bg-gradient-to-b from-[#16161f] to-[#0d0d12] shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
         {/* Subtle decorative background glow */}
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-[#d4af37]/10 blur-3xl pointer-events-none" />

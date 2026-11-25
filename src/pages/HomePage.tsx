@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { MessageCircle, Wrench, ShieldCheck, MapPin, ArrowRight, Phone, CheckCircle2, Star, Sparkles } from 'lucide-react';
 import { COMPANY, reportPhoneConversion } from '../data/company';
 import { SERVICES_DATA } from '../data/services';
@@ -18,6 +18,42 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [videoReady, setVideoReady] = useState(false);
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(true);
+
+  useEffect(() => {
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const nav = navigator as Navigator & { connection?: { saveData?: boolean } };
+    const isSaveData = Boolean(nav.connection?.saveData);
+
+    const updatePlaybackPreference = () => {
+      setShouldPlayVideo(!motionQuery.matches && !isSaveData);
+    };
+
+    updatePlaybackPreference();
+    motionQuery.addEventListener?.('change', updatePlaybackPreference);
+    return () => {
+      motionQuery.removeEventListener?.('change', updatePlaybackPreference);
+    };
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !shouldPlayVideo) return;
+
+    video.muted = true;
+    if (video.readyState >= 2) {
+      setVideoReady(true);
+    }
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Fallback silently to poster image if autoplay is blocked by browser policy
+      });
+    }
+  }, [shouldPlayVideo]);
+
   const homeFaqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -46,34 +82,72 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       />
 
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-10 pb-16 sm:pt-14 sm:pb-24 border-b border-neutral-900 bg-gradient-to-b from-[#0a0a0c] via-[#101017] to-[#0a0a0c]">
-        {/* Subtle decorative glow elements */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#d4af37]/8 blur-[120px] rounded-full pointer-events-none" />
+      <section className="relative overflow-hidden pt-[40px] pb-[50px] border-b border-neutral-900 bg-[#0a0a0c]">
+        {/* Background Video Layer (Optimized 720p faststart MP4 + WebP poster fallback) */}
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+          <img
+            src="/videos/hero-bg-poster.webp"
+            alt=""
+            width={1280}
+            height={720}
+            decoding="async"
+            fetchPriority="high"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-50 scale-[1.02]"
+          />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          {shouldPlayVideo && (
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              poster="/videos/hero-bg-poster.webp"
+              disablePictureInPicture
+              disableRemotePlayback
+              onLoadedData={() => setVideoReady(true)}
+              onCanPlay={() => setVideoReady(true)}
+              className={`absolute inset-0 w-full h-full object-cover object-center scale-[1.02] transition-opacity duration-500 ${
+                videoReady ? 'opacity-55' : 'opacity-0'
+              }`}
+            >
+              <source src="/videos/hero-bg.mp4" type="video/mp4" />
+            </video>
+          )}
+
+          {/* Measured contrast scrims ensuring WCAG AA legibility across all video frames */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0c]/85 via-[#0a0a0c]/55 to-[#0a0a0c]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,10,12,0.55)_0%,rgba(10,10,12,0.25)_75%)]" />
+        </div>
+
+        {/* Subtle decorative glow elements */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#d4af37]/10 blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto pl-[10px] pr-4 sm:pl-[10px] sm:pr-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             {/* Top Regional Coverage & Google Reviews Chips */}
             <div className="flex flex-wrap items-center justify-center gap-2.5">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161622] border border-[#d4af37]/30 text-xs font-semibold text-[#f3e5ab] shadow-sm">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161622]/90 backdrop-blur-sm border border-[#d4af37]/30 text-xs font-semibold text-[#f3e5ab] shadow-sm">
                 <MapPin className="w-3.5 h-3.5 text-[#d4af37]" />
                 <span>Caxias do Sul • Farroupilha • Flores da Cunha</span>
               </div>
 
-              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#161622] border border-[#d4af37]/40 text-xs font-semibold text-white shadow-sm">
+              <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#161622]/90 backdrop-blur-sm border border-[#d4af37]/40 text-xs font-semibold text-white shadow-sm">
                 <div className="flex text-[#d4af37] text-xs">★★★★★</div>
                 <span className="font-bold">4.9 no Google</span>
-                <span className="text-[#d4af37] font-bold">(+850 avaliações)</span>
+                <span className="text-[#d4af37] font-bold">(+900 avaliações)</span>
               </div>
             </div>
 
             {/* H1 Rigoroso do PRD */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12] drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)]">
               Assistência técnica de eletrodomésticos em{' '}
               <span className="text-gold-gradient">Caxias do Sul</span>
             </h1>
 
             {/* Subheadline Rigorosa do PRD */}
-            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-neutral-200 leading-relaxed max-w-2xl mx-auto drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
               Conserto de geladeiras, máquinas de lavar, lava e seca e outros eletrodomésticos, com atendimento profissional em Caxias do Sul e região.
             </p>
 
@@ -92,7 +166,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               <a
                 href="/servicos/"
                 onClick={(e) => handleNav('/servicos/', e)}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#14141d] hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-semibold text-sm transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#14141d]/90 backdrop-blur-sm hover:bg-neutral-800 text-neutral-200 border border-neutral-700 font-semibold text-sm transition-colors"
               >
                 <span>Conhecer nossos serviços</span>
                 <ArrowRight className="w-4 h-4 text-[#d4af37]" />
@@ -100,12 +174,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </div>
 
             {/* Sub-notice with real NAP phone */}
-            <p className="text-xs text-neutral-400">
+            <p className="text-xs text-neutral-300">
               Ou ligue diretamente para:{' '}
               <a
                 href={`tel:${COMPANY.contact.rawPhone}`}
                 onClick={() => reportPhoneConversion(`tel:${COMPANY.contact.rawPhone}`)}
-                className="text-neutral-200 font-bold hover:underline"
+                className="text-white font-bold hover:underline"
               >
                 {COMPANY.contact.phone}
               </a>
@@ -118,7 +192,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <TrustBadges />
 
       {/* 3. SEÇÃO: "Seu eletrodoméstico apresentou um problema?" */}
-      <section className="py-14 sm:py-18 bg-[#0d0d12] border-b border-neutral-900">
+      <section className="py-[50px] bg-[#0d0d12] border-b border-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="p-8 sm:p-12 rounded-3xl bg-[#13131a] border border-[#d4af37]/25 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
@@ -161,7 +235,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </section>
 
       {/* 4. PRINCIPAIS SERVIÇOS */}
-      <section className="py-14 sm:py-20 bg-[#0a0a0c]" aria-labelledby="services-overview-heading">
+      <section className="py-[50px] bg-[#0a0a0c]" aria-labelledby="services-overview-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
@@ -206,7 +280,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </section>
 
       {/* 5. ATENDIMENTO PENSADO PARA FACILITAR SUA ROTINA */}
-      <section className="py-14 sm:py-18 bg-[#0e0e14] border-y border-neutral-900">
+      <section className="py-[50px] bg-[#0e0e14] border-y border-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
@@ -272,13 +346,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </section>
 
       {/* 6. COMO FUNCIONA */}
-      <HowItWorks onNavigate={onNavigate} />
+      <HowItWorks onNavigate={onNavigate} paddingClassName="py-[50px]" />
 
       {/* 7. MARCAS */}
-      <BrandSection onNavigate={onNavigate} />
+      <BrandSection onNavigate={onNavigate} paddingClassName="py-[50px]" />
 
       {/* 8. ÁREAS ATENDIDAS */}
-      <LocationSection onNavigate={onNavigate} />
+      <LocationSection onNavigate={onNavigate} paddingClassName="py-[50px]" />
 
       {/* AVALIAÇÕES GOOGLE SOCIAL PROOF */}
       <section className="py-10 bg-[#0b0b0f] border-t border-neutral-900" aria-label="Avaliações no Google">
@@ -295,7 +369,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <span className="px-2 py-0.5 rounded-full bg-[#d4af37]/15 text-[#f3e5ab] text-[11px] font-bold">Destaque no Google</span>
                 </div>
                 <h3 className="text-base sm:text-lg font-extrabold text-white">
-                  Mais de 850 avaliações no Google com nota 4.9
+                  Mais de 900 avaliações no Google com nota 4.9
                 </h3>
                 <p className="text-xs sm:text-sm text-neutral-300">
                   Reputação construída com transparência técnica, pontualidade no atendimento a domicílio e peças de qualidade na Serra Gaúcha.
@@ -317,7 +391,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </section>
 
       {/* 9. SEMINOVOS TEASER */}
-      <section className="py-14 sm:py-18 bg-[#0a0a0c] border-t border-neutral-900" aria-labelledby="seminovos-teaser-heading">
+      <section className="py-[50px] bg-[#0a0a0c] border-t border-neutral-900" aria-labelledby="seminovos-teaser-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="rounded-3xl bg-gradient-to-r from-[#121217] via-[#191924] to-[#121217] border border-[#d4af37]/35 p-8 sm:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -374,10 +448,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       </section>
 
       {/* 10. FAQ SECTION */}
-      <FAQSection limit={6} showSearch={false} />
+      <FAQSection limit={6} showSearch={false} paddingClassName="py-[50px]" />
 
       {/* 11. FORMULÁRIO DE CONTATO */}
-      <section className="py-12 sm:py-16 bg-[#0a0a0c] border-t border-neutral-900" aria-label="Formulário de Solicitação">
+      <section className="py-[50px] bg-[#0a0a0c] border-t border-neutral-900" aria-label="Formulário de Solicitação">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <ContactForm />
         </div>
@@ -387,6 +461,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <CTASection
         title="Precisa de assistência para seu eletrodoméstico?"
         subtitle="Envie uma mensagem pelo WhatsApp e explique o que está acontecendo com o equipamento."
+        paddingClassName="py-[50px]"
       />
     </>
   );

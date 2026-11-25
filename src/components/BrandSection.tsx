@@ -3,9 +3,13 @@ import { COMPANY } from '../data/company';
 
 interface BrandSectionProps {
   onNavigate?: (path: string) => void;
+  paddingClassName?: string;
 }
 
-export const BrandSection: React.FC<BrandSectionProps> = ({ onNavigate }) => {
+export const BrandSection: React.FC<BrandSectionProps> = ({
+  onNavigate,
+  paddingClassName = 'py-14 sm:py-16',
+}) => {
   const brands = [
     { name: 'Samsung', origin: 'Tecnologia Inverter, Digital Inverter e Ecobubble' },
     { name: 'LG', origin: 'Sistemas Smart Inverter, Direct Drive e AI DD' },
@@ -15,7 +19,7 @@ export const BrandSection: React.FC<BrandSectionProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section className="py-14 sm:py-16 bg-[#0a0a0c]" aria-labelledby="marcas-heading">
+    <section className={`${paddingClassName} bg-[#0a0a0c]`} aria-labelledby="marcas-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <h2 id="marcas-heading" className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">

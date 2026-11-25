@@ -4,9 +4,13 @@ import { COMPANY } from '../data/company';
 
 interface HowItWorksProps {
   onNavigate?: (path: string) => void;
+  paddingClassName?: string;
 }
 
-export const HowItWorks: React.FC<HowItWorksProps> = ({ onNavigate }) => {
+export const HowItWorks: React.FC<HowItWorksProps> = ({
+  onNavigate,
+  paddingClassName = 'py-14 sm:py-18',
+}) => {
   const steps = [
     {
       step: '01',
@@ -35,7 +39,7 @@ export const HowItWorks: React.FC<HowItWorksProps> = ({ onNavigate }) => {
   ];
 
   return (
-    <section className="py-14 sm:py-18 bg-[#0a0a0c]" aria-labelledby="como-funciona-heading">
+    <section className={`${paddingClassName} bg-[#0a0a0c]`} aria-labelledby="como-funciona-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#d4af37] mb-2">

@@ -283,7 +283,7 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
       <div className="bg-[#14141d] border-b border-neutral-800/80 py-1.5 px-3 text-center text-[11px] sm:text-xs text-neutral-300">
         <div className="max-w-[1100px] mx-auto flex items-center justify-between">
           <div className="flex-1 text-center sm:text-left">
-            <span className="text-[#d4af37] font-semibold">★ 4.9 no Google (+850 avaliações)</span>
+            <span className="text-[#d4af37] font-semibold">★ 4.9 no Google (+900 avaliações)</span>
             <span className="mx-2 text-neutral-600 hidden sm:inline">|</span>
             <span className="hidden sm:inline">Atendimento Ágil em Caxias do Sul, Farroupilha e Flores da Cunha</span>
           </div>
@@ -495,7 +495,7 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
             <p className="text-[11px] text-neutral-400 mt-0.5">Avaliação dos clientes</p>
           </div>
           <div className="p-3 rounded-xl bg-[#14141d] border border-neutral-800/80">
-            <p className="text-white font-bold text-sm">+850 avaliações</p>
+            <p className="text-white font-bold text-sm">+900 avaliações</p>
             <p className="text-[11px] text-neutral-400 mt-0.5">Histórico comprovado</p>
           </div>
           <div className="p-3 rounded-xl bg-[#14141d] border border-neutral-800/80">
@@ -773,6 +773,17 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
           </div>
           <p className="text-[11px] text-neutral-400 pt-2">
             Atendimento a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha. Assistência de máquinas de lavar, lava e seca e eletrodomésticos da linha branca.
+          </p>
+          <p className="text-[11px] text-neutral-400 pt-2 border-t border-neutral-900">
+            Site desenvolvido por{' '}
+            <a
+              href="https://bora-digital-strategy.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-300 hover:text-[#d4af37] underline underline-offset-2 transition-colors"
+            >
+              Bora Digital Strategy
+            </a>
           </p>
         </div>
       </footer>

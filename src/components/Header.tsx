@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             <span className="flex items-center gap-1.5 text-neutral-300">
               <span className="text-[#d4af37] text-xs">★★★★★</span>
               <strong className="text-white font-semibold">4.9 no Google</strong>
-              <span className="text-neutral-400">(+850 avaliações)</span>
+              <span className="text-neutral-400">(+900 avaliações)</span>
             </span>
           </div>
           <div className="flex items-center gap-4">

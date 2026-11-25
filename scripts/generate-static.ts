@@ -51,7 +51,7 @@ const BASE_BUSINESS_SCHEMA = {
     'ratingValue': '4.9',
     'bestRating': '5',
     'worstRating': '1',
-    'ratingCount': 850
+    'ratingCount': 900
   },
   'openingHoursSpecification': [
     {
@@ -124,7 +124,7 @@ const STATIC_ROUTES: StaticRoute[] = [
   {
     path: '/',
     title: 'Energy Manutenções | Assistência Técnica de Eletrodomésticos em Caxias do Sul',
-    description: 'Assistência técnica e conserto de geladeiras, máquinas de lavar, lava e seca e eletrodomésticos em Caxias do Sul, Farroupilha e Flores da Cunha. Avaliação 4.9 no Google (+850 avaliações). Atendimento a domicílio.',
+    description: 'Assistência técnica e conserto de geladeiras, máquinas de lavar, lava e seca e eletrodomésticos em Caxias do Sul, Farroupilha e Flores da Cunha. Avaliação 4.9 no Google (+900 avaliações). Atendimento a domicílio.',
     h1: 'Assistência Técnica de Eletrodomésticos em Caxias do Sul e Região',
     breadcrumbs: [
       { name: 'Início', url: '/' }
@@ -147,7 +147,7 @@ const STATIC_ROUTES: StaticRoute[] = [
         <li><a href="/flores-da-cunha/">Assistência Técnica em Flores da Cunha</a></li>
       </ul>
       <h2>Por Que Escolher a Energy Manutenções?</h2>
-      <p>Mais de 850 clientes satisfeitos com nota 4.9 no Google. Técnicos qualificados, garantia em todos os serviços executados e peças originais.</p>
+      <p>Mais de 900 clientes satisfeitos com nota 4.9 no Google. Técnicos qualificados, garantia em todos os serviços executados e peças originais.</p>
     `,
     schemas: [
       BASE_BUSINESS_SCHEMA,
@@ -979,7 +979,7 @@ const STATIC_ROUTES: StaticRoute[] = [
   {
     path: '/sobre/',
     title: 'Sobre a Energy Manutenções | Assistência Técnica em Caxias do Sul',
-    description: 'Conheça a história da Energy Manutenções: fundada em 2022, mais de 850 avaliações 5 estrelas no Google e sede em Caxias do Sul.',
+    description: 'Conheça a história da Energy Manutenções: fundada em 2022, mais de 900 avaliações 5 estrelas no Google e sede em Caxias do Sul.',
     h1: 'Sobre a Energy Manutenções',
     breadcrumbs: [
       { name: 'Início', url: '/' },
@@ -987,7 +987,7 @@ const STATIC_ROUTES: StaticRoute[] = [
     ],
     contentHtml: `
       <p class="lead">Fundada em 18 de abril de 2022 em Caxias do Sul, a Energy Manutenções (CNPJ: 46.067.650/0001-55) é referência em reparação e manutenção de eletrodomésticos na Serra Gaúcha.</p>
-      <p>Com mais de 850 avaliações de clientes e nota média de 4.9 no Google, priorizamos diagnósticos técnicos transparentes, pontualidade no atendimento a domicílio e peças de alta procedência.</p>
+      <p>Com mais de 900 avaliações de clientes e nota média de 4.9 no Google, priorizamos diagnósticos técnicos transparentes, pontualidade no atendimento a domicílio e peças de alta procedência.</p>
     `,
     schemas: [
       BASE_BUSINESS_SCHEMA,
@@ -1366,7 +1366,7 @@ function buildLavaESecaCrawlableBody(): string {
     <!-- 5.1 Cabeçalho enxuto -->
     <header id="cabecalho" style="background: #0a0a0c; border-bottom: 1px solid #222;">
       <div style="background: #14141d; border-bottom: 1px solid #222; padding: 6px 12px; text-align: center; font-size: 12px; color: #ccc;">
-        <span style="color: #d4af37; font-weight: bold;">★ 4.9 no Google (+850 avaliações)</span>
+        <span style="color: #d4af37; font-weight: bold;">★ 4.9 no Google (+900 avaliações)</span>
         <span style="margin: 0 6px; color: #555;">|</span>
         <span>Caxias do Sul, Farroupilha e Flores da Cunha</span>
       </div>
@@ -1405,7 +1405,7 @@ function buildLavaESecaCrawlableBody(): string {
     <section id="confianca" style="background: #0e0e14; border-bottom: 1px solid #1a1a24; padding: 24px 16px;">
       <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; text-align: center;">
         <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #d4af37;">★ 4.9 no Google</strong><br><small style="color: #888;">Avaliação dos clientes</small></div>
-        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">+850 avaliações</strong><br><small style="color: #888;">Histórico comprovado</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">+900 avaliações</strong><br><small style="color: #888;">Histórico comprovado</small></div>
         <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">Atendimento a domicílio</strong><br><small style="color: #888;">Na sua residência</small></div>
         <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #f3e5ab;">Samsung • LG • Electrolux</strong><br><small style="color: #888;">Principais marcas</small></div>
       </div>
@@ -1542,6 +1542,7 @@ function buildLavaESecaCrawlableBody(): string {
         <a href="/politica-de-privacidade/" style="color: #aaa; text-decoration: underline;">Política de Privacidade</a>
       </p>
       <p style="color: #777;">Atendimento a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha.</p>
+      <p style="color: #777; margin-top: 8px;">Site desenvolvido por <a href="https://bora-digital-strategy.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #aaa; text-decoration: underline;">Bora Digital Strategy</a></p>
     </footer>
   `;
 }
@@ -1555,7 +1556,7 @@ function buildGeladeiraCrawlableBody(): string {
     <!-- 6.1 Cabeçalho enxuto -->
     <header id="cabecalho" style="background: #0a0a0c; border-bottom: 1px solid #222;">
       <div style="background: #14141d; border-bottom: 1px solid #222; padding: 6px 12px; text-align: center; font-size: 12px; color: #ccc;">
-        <span style="color: #d4af37; font-weight: bold;">★ 4.9 no Google (+850 avaliações)</span>
+        <span style="color: #d4af37; font-weight: bold;">★ 4.9 no Google (+900 avaliações)</span>
         <span style="margin: 0 6px; color: #555;">|</span>
         <span>Caxias do Sul, Farroupilha e Flores da Cunha</span>
       </div>
@@ -1594,7 +1595,7 @@ function buildGeladeiraCrawlableBody(): string {
     <section id="confianca" style="background: #0e0e14; border-bottom: 1px solid #1a1a24; padding: 24px 16px;">
       <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; text-align: center;">
         <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #d4af37;">★ 4.9 no Google</strong><br><small style="color: #888;">Avaliação dos clientes</small></div>
-        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">+850 avaliações</strong><br><small style="color: #888;">Histórico comprovado</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">+900 avaliações</strong><br><small style="color: #888;">Histórico comprovado</small></div>
         <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">Atendimento a domicílio</strong><br><small style="color: #888;">Na sua residência</small></div>
         <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #f3e5ab;">Samsung • LG • Electrolux • Brastemp • Consul</strong><br><small style="color: #888;">Principais marcas</small></div>
       </div>
@@ -1772,6 +1773,7 @@ function buildGeladeiraCrawlableBody(): string {
         <a href="/politica-de-privacidade/" style="color: #aaa; text-decoration: underline;">Política de Privacidade</a>
       </p>
       <p style="color: #777;">Atendimento a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha. Manutenção de geladeiras, freezers e adegas.</p>
+      <p style="color: #777; margin-top: 8px;">Site desenvolvido por <a href="https://bora-digital-strategy.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #aaa; text-decoration: underline;">Bora Digital Strategy</a></p>
     </footer>
   `;
 }
@@ -1783,7 +1785,7 @@ function buildMaquinaDeLavarCrawlableBody(): string {
   return `
     <!-- A. Topbar de Confiança (Trust Bar) -->
     <div style="background: #14141d; border-bottom: 1px solid #222; padding: 6px 12px; text-align: center; font-size: 12px; color: #ccc;">
-      <span style="color: #d4af37; font-weight: bold;">★ 4.9 no Google (+850 avaliações)</span>
+      <span style="color: #d4af37; font-weight: bold;">★ 4.9 no Google (+900 avaliações)</span>
       <span style="margin: 0 6px; color: #555;">|</span>
       <span>Atendimento Ágil em Caxias do Sul, Farroupilha e Flores da Cunha</span>
       <span style="margin: 0 6px; color: #555;">|</span>
@@ -1845,7 +1847,7 @@ function buildMaquinaDeLavarCrawlableBody(): string {
     <section id="confianca" style="background: #0e0e14; border-bottom: 1px solid #1a1a24; padding: 24px 16px;">
       <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; text-align: center;">
         <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #d4af37;">★ 4.9 no Google</strong><br><small style="color: #888;">Avaliação dos clientes</small></div>
-        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">+850 avaliações</strong><br><small style="color: #888;">Histórico comprovado</small></div>
+        <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">+900 avaliações</strong><br><small style="color: #888;">Histórico comprovado</small></div>
         <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #fff;">Atendimento a domicílio</strong><br><small style="color: #888;">Na sua residência</small></div>
         <div style="padding: 12px; background: #14141d; border: 1px solid #222; border-radius: 8px;"><strong style="color: #f3e5ab;">Brastemp • Consul • Electrolux</strong><br><small style="color: #888;">Principais marcas</small></div>
       </div>
@@ -1958,6 +1960,7 @@ function buildMaquinaDeLavarCrawlableBody(): string {
         <a href="/politica-de-privacidade/" style="color: #aaa; text-decoration: underline;">Política de Privacidade</a>
       </p>
       <p style="color: #777;">Atendimento a domicílio em Caxias do Sul, Farroupilha e Flores da Cunha. Assistência de máquinas de lavar, lava e seca e eletrodomésticos da linha branca.</p>
+      <p style="color: #777; margin-top: 8px;">Site desenvolvido por <a href="https://bora-digital-strategy.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #aaa; text-decoration: underline;">Bora Digital Strategy</a></p>
     </footer>
   `;
 }
@@ -1970,7 +1973,7 @@ function buildCrawlableBody(route: StaticRoute): string {
   return `
     <header style="padding: 1.25rem 1rem; text-align: center; border-bottom: 1px solid #222; background: #0e0e12;">
       <p style="font-size: 0.85rem; color: #d4af37; margin: 0 0 0.5rem 0;">
-        ★ 4.9 no Google (+850 avaliações de clientes) | Atendimento em Caxias do Sul, Farroupilha e Flores da Cunha
+        ★ 4.9 no Google (+900 avaliações de clientes) | Atendimento em Caxias do Sul, Farroupilha e Flores da Cunha
       </p>
       <div style="font-size: 1.25rem; font-weight: bold; color: #fff;">
         <a href="/" style="color: #fff; text-decoration: none;">Energy Manutenções</a>
@@ -2034,6 +2037,9 @@ function buildCrawlableBody(route: StaticRoute): string {
           <a href="/faq/" style="color: #aaa; margin-right: 1rem;">FAQ</a>
           <a href="/blog/" style="color: #aaa; margin-right: 1rem;">Blog</a>
           <a href="/contato/" style="color: #aaa;">Contato</a>
+        </p>
+        <p style="margin-top: 0.75rem;">
+          Site desenvolvido por <a href="https://bora-digital-strategy.vercel.app/" target="_blank" rel="noopener noreferrer" style="color: #aaa; text-decoration: underline;">Bora Digital Strategy</a>
         </p>
       </footer>
     </main>

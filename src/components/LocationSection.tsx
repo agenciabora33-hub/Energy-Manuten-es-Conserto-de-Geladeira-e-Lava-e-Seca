@@ -5,11 +5,15 @@ import { COMPANY } from '../data/company';
 
 interface LocationSectionProps {
   onNavigate: (path: string) => void;
+  paddingClassName?: string;
 }
 
-export const LocationSection: React.FC<LocationSectionProps> = ({ onNavigate }) => {
+export const LocationSection: React.FC<LocationSectionProps> = ({
+  onNavigate,
+  paddingClassName = 'py-14 sm:py-18',
+}) => {
   return (
-    <section className="py-14 sm:py-18 bg-[#0d0d12] border-t border-neutral-900" aria-labelledby="loc-heading">
+    <section className={`${paddingClassName} bg-[#0d0d12] border-t border-neutral-900`} aria-labelledby="loc-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
           <div>

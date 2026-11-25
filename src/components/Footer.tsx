@@ -90,7 +90,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                   <span>Nota 4.9 no Google</span>
                   <span className="text-[#d4af37]">★★★★★</span>
                 </div>
-                <p className="text-neutral-400 text-[10px] mt-0.5">Mais de 850 avaliações de clientes</p>
+                <p className="text-neutral-400 text-[10px] mt-0.5">Mais de 900 avaliações de clientes</p>
               </div>
             </div>
 
@@ -356,6 +356,18 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </a>
           </div>
         </div>
+
+        <p className="mt-4 pt-4 border-t border-neutral-900/70 text-center text-[11px] text-neutral-400">
+          Site desenvolvido por{' '}
+          <a
+            href="https://bora-digital-strategy.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-neutral-300 hover:text-[#d4af37] underline underline-offset-2 transition-colors"
+          >
+            Bora Digital Strategy
+          </a>
+        </p>
       </div>
     </footer>
   );
