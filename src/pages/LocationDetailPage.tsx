@@ -30,7 +30,7 @@ export const LocationDetailPage: React.FC<LocationDetailPageProps> = ({ location
       '@type': 'LocalBusiness',
       name: `${COMPANY.tradeName} - Atendimento em ${location.cityName}`,
       description: location.metaDescription,
-      url: `https://energy-manutencoes.vercel.app${location.path}`,
+      url: `https://www.xn--energymanutenes-qmb2v.com.br${location.path}`,
       telephone: COMPANY.contact.phone,
       areaServed: {
         '@type': 'City',

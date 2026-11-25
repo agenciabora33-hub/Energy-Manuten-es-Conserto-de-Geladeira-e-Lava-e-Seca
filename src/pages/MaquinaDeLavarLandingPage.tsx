@@ -32,7 +32,7 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
   const PAGE_TITLE = 'Conserto de Máquina de Lavar em Caxias do Sul | Energy Manutenções';
   const PAGE_DESC =
     'Lavadora não centrifuga, não solta água ou faz barulho? Técnico a domicílio em Caxias do Sul. Brastemp, Consul, Electrolux, Samsung e LG. Chame no WhatsApp.';
-  const CANONICAL_URL = 'https://energy-manutencoes.vercel.app/conserto-maquina-de-lavar-caxias-do-sul/';
+  const CANONICAL_URL = 'https://www.xn--energymanutenes-qmb2v.com.br/conserto-maquina-de-lavar-caxias-do-sul/';
 
   // Head cleaning, dataLayer tracking, JSON-LD
   useEffect(() => {
@@ -87,11 +87,11 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
       '@graph': [
         {
           '@type': 'LocalBusiness',
-          '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+          '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio',
           name: 'Energy Manutenções',
-          url: 'https://energy-manutencoes.vercel.app/',
+          url: 'https://www.xn--energymanutenes-qmb2v.com.br/',
           telephone: '+5554991796080',
-          image: 'https://energy-manutencoes.vercel.app/logo.png',
+          image: 'https://www.xn--energymanutenes-qmb2v.com.br/logo.png',
           address: {
             '@type': 'PostalAddress',
             streetAddress: 'Rua Índia Ceci, 141',
@@ -121,7 +121,7 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
           '@type': 'Service',
           name: 'Conserto de Máquina de Lavar',
           serviceType: 'Assistência técnica de máquinas de lavar roupas',
-          provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+          provider: { '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio' },
           areaServed: 'Caxias do Sul, RS',
         },
         {
@@ -131,13 +131,13 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
               '@type': 'ListItem',
               position: 1,
               name: 'Início',
-              item: 'https://energy-manutencoes.vercel.app/',
+              item: 'https://www.xn--energymanutenes-qmb2v.com.br/',
             },
             {
               '@type': 'ListItem',
               position: 2,
               name: 'Serviços',
-              item: 'https://energy-manutencoes.vercel.app/servicos/',
+              item: 'https://www.xn--energymanutenes-qmb2v.com.br/servicos/',
             },
             {
               '@type': 'ListItem',
@@ -464,7 +464,7 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
             <p className="text-xs sm:text-sm text-neutral-200">
               👉 Clique aqui para conhecer nossa assistência especializada em{' '}
               <a
-                href="https://energy-manutencoes.vercel.app/conserto-lava-e-seca-caxias-do-sul/"
+                href="https://www.xn--energymanutenes-qmb2v.com.br/conserto-lava-e-seca-caxias-do-sul/"
                 onClick={(e) => handleNavClick('/conserto-lava-e-seca-caxias-do-sul/', e)}
                 className="text-[#f3e5ab] font-bold underline hover:text-[#d4af37] transition-colors"
               >
@@ -474,7 +474,7 @@ export const MaquinaDeLavarLandingPage: React.FC<MaquinaDeLavarLandingPageProps>
             </p>
           </div>
           <a
-            href="https://energy-manutencoes.vercel.app/conserto-lava-e-seca-caxias-do-sul/"
+            href="https://www.xn--energymanutenes-qmb2v.com.br/conserto-lava-e-seca-caxias-do-sul/"
             onClick={(e) => handleNavClick('/conserto-lava-e-seca-caxias-do-sul/', e)}
             className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#1c1c28] border border-[#d4af37]/40 text-xs font-semibold text-[#f3e5ab] hover:bg-[#d4af37] hover:text-[#0a0a0c] active:scale-95 transition-all whitespace-nowrap"
           >

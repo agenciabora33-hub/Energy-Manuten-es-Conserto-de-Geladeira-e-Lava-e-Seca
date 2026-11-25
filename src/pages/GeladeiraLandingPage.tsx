@@ -35,7 +35,7 @@ export const GeladeiraLandingPage: React.FC<GeladeiraLandingPageProps> = ({ onNa
   const PAGE_TITLE = 'Conserto de Geladeira em Caxias do Sul | Energy Manutenções';
   const PAGE_DESC =
     'Geladeira parou de gelar, vaza água ou faz barulho? Técnico a domicílio em Caxias do Sul. Frost Free, Inverse e Duplex. Chame no WhatsApp.';
-  const CANONICAL_URL = 'https://energy-manutencoes.vercel.app/conserto-geladeira-caxias-do-sul/';
+  const CANONICAL_URL = 'https://www.xn--energymanutenes-qmb2v.com.br/conserto-geladeira-caxias-do-sul/';
 
   // Etapa 1, 4 & 5: Head cleaning, dataLayer tracking, JSON-LD
   useEffect(() => {
@@ -90,11 +90,11 @@ export const GeladeiraLandingPage: React.FC<GeladeiraLandingPageProps> = ({ onNa
       '@graph': [
         {
           '@type': 'LocalBusiness',
-          '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+          '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio',
           name: 'Energy Manutenções',
-          url: 'https://energy-manutencoes.vercel.app/',
+          url: 'https://www.xn--energymanutenes-qmb2v.com.br/',
           telephone: '+5554991796080',
-          image: 'https://energy-manutencoes.vercel.app/logo.png',
+          image: 'https://www.xn--energymanutenes-qmb2v.com.br/logo.png',
           address: {
             '@type': 'PostalAddress',
             streetAddress: 'Rua Índia Ceci, 141',
@@ -124,7 +124,7 @@ export const GeladeiraLandingPage: React.FC<GeladeiraLandingPageProps> = ({ onNa
           '@type': 'Service',
           name: 'Conserto de Geladeira',
           serviceType: 'Assistência técnica de geladeiras, freezers e adegas',
-          provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+          provider: { '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio' },
           areaServed: 'Caxias do Sul, RS',
         },
         {

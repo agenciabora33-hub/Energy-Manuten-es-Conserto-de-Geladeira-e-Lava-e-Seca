@@ -27,7 +27,7 @@ export const LavaESecaLandingPage: React.FC<LavaESecaLandingPageProps> = ({ onNa
   const PAGE_TITLE = 'Conserto de Lava e Seca em Caxias do Sul | Energy Manutenções';
   const PAGE_DESC =
     'Lava e seca não seca, trava a porta ou dá erro? Técnico a domicílio em Caxias do Sul. Samsung, LG e Electrolux. Chame no WhatsApp.';
-  const CANONICAL_URL = 'https://energy-manutencoes.vercel.app/conserto-lava-e-seca-caxias-do-sul/';
+  const CANONICAL_URL = 'https://www.xn--energymanutenes-qmb2v.com.br/conserto-lava-e-seca-caxias-do-sul/';
 
   // Etapa 1 & 4 & 5: Head cleaning, dataLayer tracking, JSON-LD
   useEffect(() => {
@@ -82,11 +82,11 @@ export const LavaESecaLandingPage: React.FC<LavaESecaLandingPageProps> = ({ onNa
       '@graph': [
         {
           '@type': 'LocalBusiness',
-          '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+          '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio',
           name: 'Energy Manutenções',
-          url: 'https://energy-manutencoes.vercel.app/',
+          url: 'https://www.xn--energymanutenes-qmb2v.com.br/',
           telephone: '+5554991796080',
-          image: 'https://energy-manutencoes.vercel.app/logo.png',
+          image: 'https://www.xn--energymanutenes-qmb2v.com.br/logo.png',
           address: {
             '@type': 'PostalAddress',
             streetAddress: 'Rua Índia Ceci, 141',
@@ -116,7 +116,7 @@ export const LavaESecaLandingPage: React.FC<LavaESecaLandingPageProps> = ({ onNa
           '@type': 'Service',
           name: 'Conserto de Lava e Seca',
           serviceType: 'Assistência técnica de lava e seca',
-          provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+          provider: { '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio' },
           areaServed: 'Caxias do Sul, RS',
         },
         {

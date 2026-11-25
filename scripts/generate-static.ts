@@ -11,7 +11,7 @@ interface StaticRoute {
   schemas: any[];
 }
 
-const SITE_URL = 'https://energy-manutencoes.vercel.app';
+const SITE_URL = 'https://www.xn--energymanutenes-qmb2v.com.br';
 
 const BASE_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
@@ -208,11 +208,11 @@ const STATIC_ROUTES: StaticRoute[] = [
         '@graph': [
           {
             '@type': 'LocalBusiness',
-            '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+            '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio',
             name: 'Energy Manutenções',
-            url: 'https://energy-manutencoes.vercel.app/',
+            url: 'https://www.xn--energymanutenes-qmb2v.com.br/',
             telephone: '+5554991796080',
-            image: 'https://energy-manutencoes.vercel.app/logo.png',
+            image: 'https://www.xn--energymanutenes-qmb2v.com.br/logo.png',
             address: {
               '@type': 'PostalAddress',
               streetAddress: 'Rua Índia Ceci, 141',
@@ -242,7 +242,7 @@ const STATIC_ROUTES: StaticRoute[] = [
             '@type': 'Service',
             name: 'Conserto de Geladeira',
             serviceType: 'Assistência técnica de geladeiras, freezers e adegas',
-            provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+            provider: { '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio' },
             areaServed: 'Caxias do Sul, RS'
           },
           {
@@ -361,11 +361,11 @@ const STATIC_ROUTES: StaticRoute[] = [
         '@graph': [
           {
             '@type': 'LocalBusiness',
-            '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+            '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio',
             name: 'Energy Manutenções',
-            url: 'https://energy-manutencoes.vercel.app/',
+            url: 'https://www.xn--energymanutenes-qmb2v.com.br/',
             telephone: '+5554991796080',
-            image: 'https://energy-manutencoes.vercel.app/logo.png',
+            image: 'https://www.xn--energymanutenes-qmb2v.com.br/logo.png',
             address: {
               '@type': 'PostalAddress',
               streetAddress: 'Rua Índia Ceci, 141',
@@ -395,7 +395,7 @@ const STATIC_ROUTES: StaticRoute[] = [
             '@type': 'Service',
             name: 'Conserto de Máquina de Lavar',
             serviceType: 'Assistência técnica de máquinas de lavar roupas',
-            provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+            provider: { '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio' },
             areaServed: 'Caxias do Sul, RS'
           },
           {
@@ -405,19 +405,19 @@ const STATIC_ROUTES: StaticRoute[] = [
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Início',
-                item: 'https://energy-manutencoes.vercel.app/'
+                item: 'https://www.xn--energymanutenes-qmb2v.com.br/'
               },
               {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'Serviços',
-                item: 'https://energy-manutencoes.vercel.app/servicos/'
+                item: 'https://www.xn--energymanutenes-qmb2v.com.br/servicos/'
               },
               {
                 '@type': 'ListItem',
                 position: 3,
                 name: 'Conserto de Máquina de Lavar',
-                item: 'https://energy-manutencoes.vercel.app/conserto-maquina-de-lavar-caxias-do-sul/'
+                item: 'https://www.xn--energymanutenes-qmb2v.com.br/conserto-maquina-de-lavar-caxias-do-sul/'
               }
             ]
           },
@@ -499,11 +499,11 @@ const STATIC_ROUTES: StaticRoute[] = [
         '@graph': [
           {
             '@type': 'LocalBusiness',
-            '@id': 'https://energy-manutencoes.vercel.app/#negocio',
+            '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio',
             name: 'Energy Manutenções',
-            url: 'https://energy-manutencoes.vercel.app/',
+            url: 'https://www.xn--energymanutenes-qmb2v.com.br/',
             telephone: '+5554991796080',
-            image: 'https://energy-manutencoes.vercel.app/logo.png',
+            image: 'https://www.xn--energymanutenes-qmb2v.com.br/logo.png',
             address: {
               '@type': 'PostalAddress',
               streetAddress: 'Rua Índia Ceci, 141',
@@ -533,7 +533,7 @@ const STATIC_ROUTES: StaticRoute[] = [
             '@type': 'Service',
             name: 'Conserto de Lava e Seca',
             serviceType: 'Assistência técnica de lava e seca',
-            provider: { '@id': 'https://energy-manutencoes.vercel.app/#negocio' },
+            provider: { '@id': 'https://www.xn--energymanutenes-qmb2v.com.br/#negocio' },
             areaServed: 'Caxias do Sul, RS'
           },
           {
@@ -1838,7 +1838,7 @@ function buildMaquinaDeLavarCrawlableBody(): string {
     <section id="cross-link-lava-e-seca" style="background: #14141d; border-bottom: 1px solid #222; padding: 20px 16px;">
       <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
         <p style="color: #ddd; font-size: 14px; margin: 0; line-height: 1.6;">
-          👉 Clique aqui para conhecer nossa assistência especializada em <a href="https://energy-manutencoes.vercel.app/conserto-lava-e-seca-caxias-do-sul/" style="color: #f3e5ab; font-weight: bold; text-decoration: underline;">conserto e manutenção de lava e seca</a>.
+          👉 Clique aqui para conhecer nossa assistência especializada em <a href="https://www.xn--energymanutenes-qmb2v.com.br/conserto-lava-e-seca-caxias-do-sul/" style="color: #f3e5ab; font-weight: bold; text-decoration: underline;">conserto e manutenção de lava e seca</a>.
         </p>
       </div>
     </section>
